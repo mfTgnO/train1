@@ -1,36 +1,4 @@
-#英文冒号后面必须有一个空格
-server:
-  port: 0
-
 spring:
-  thymeleaf:
-    cache: false
-  datasource:
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
-    username: root
-    password: fm9>mysql
-    hikari:
-      maximum-pool-size: 10
-      max-lifetime: 1770000
-#    schema:
-#    data:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-
-logging:
-#  path: E:logspath\logs\
-  file: demo.log
-  level:
-    root: info
-#  path: logspath/logs
-#    org:
-#      springframework:
-#        security: DEBUG
-
-#greeting:
-#  welcome: ${spring.application.name}
-greeting:
-  welcome: You are using ${spring.application.name}
-
-taco:
-  orders:
-    pageSize: 10
+  profiles:
+    active:
+    - dev
