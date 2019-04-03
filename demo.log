@@ -1,208 +1,456 @@
-2019-04-02 17:03:06.580  INFO 11988 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 11988 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
-2019-04-02 17:03:06.582  INFO 11988 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-04-02 17:03:06.613  INFO 11988 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2019-04-02 17:03:06.613  INFO 11988 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2019-04-02 17:03:07.644  INFO 11988 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bd7902f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-02 17:03:07.947  INFO 11988 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2019-04-02 17:03:07.965  INFO 11988 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-02 17:03:07.965  INFO 11988 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2019-04-02 17:03:07.971  INFO 11988 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
-2019-04-02 17:03:08.049  INFO 11988 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-02 17:03:08.050  INFO 11988 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1437 ms
-2019-04-02 17:03:08.304  INFO 11988 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-02 17:03:08.388  INFO 11988 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-02 17:03:08.699  INFO 11988 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+2019-04-03 11:01:25.643  INFO 6380 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 6380 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
+2019-04-03 11:01:25.658  INFO 6380 --- [restartedMain] com.example.demo.DemoApplication         : The following profiles are active: dev
+2019-04-03 11:01:25.739  INFO 6380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-04-03 11:01:25.739  INFO 6380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-04-03 11:01:27.012  INFO 6380 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5c17c57d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-03 11:01:27.451  INFO 6380 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2019-04-03 11:01:27.468  INFO 6380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-03 11:01:27.468  INFO 6380 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-04-03 11:01:27.474  INFO 6380 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
+2019-04-03 11:01:27.534  INFO 6380 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-03 11:01:27.535  INFO 6380 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1796 ms
+2019-04-03 11:01:27.877  INFO 6380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-03 11:01:31.040 ERROR 6380 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
 
-Using generated security password: 952ab534-2ff8-49d5-8d7f-ab30749330c5
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
-2019-04-02 17:03:08.787  INFO 11988 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c9c1f24, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b85ddb4, org.springframework.security.web.header.HeaderWriterFilter@1409b1a9, org.springframework.security.web.csrf.CsrfFilter@6f9592d7, org.springframework.security.web.authentication.logout.LogoutFilter@3955039f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2611473e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@660454ac, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@82c1cec, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4eeed782, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b50ab81, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15c0491, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@464c9aca, org.springframework.security.web.session.SessionManagementFilter@ea8c40e, org.springframework.security.web.access.ExceptionTranslationFilter@28d2c53f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d4aa6f2]
-2019-04-02 17:03:08.905  INFO 11988 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-02 17:03:09.186  INFO 11988 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-04-02 17:03:09.241  INFO 11988 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2019-04-02 17:03:09.299  INFO 11988 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 41382 (http) with context path ''
-2019-04-02 17:03:09.303  INFO 11988 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.356 seconds (JVM running for 4.016)
-2019-04-02 17:03:09.469  INFO 11988 --- [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-02 17:03:09.469  INFO 11988 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-04-02 17:03:09.476  INFO 11988 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2019-04-02 17:05:21.832  INFO 4648 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 4648 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
-2019-04-02 17:05:21.836  INFO 4648 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-04-02 17:05:21.954  INFO 4648 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2019-04-02 17:05:21.954  INFO 4648 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2019-04-02 17:05:23.016  INFO 4648 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9780556c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-02 17:05:23.319  INFO 4648 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2019-04-02 17:05:23.339  INFO 4648 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-02 17:05:23.339  INFO 4648 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2019-04-02 17:05:23.345  INFO 4648 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
-2019-04-02 17:05:23.408  INFO 4648 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-02 17:05:23.408  INFO 4648 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1454 ms
-2019-04-02 17:05:23.685  INFO 4648 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-02 17:05:23.771  INFO 4648 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-02 17:05:24.076  INFO 4648 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-3.2.0.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:157) [spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115) [spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78) [spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:324) [spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.jdbc.EmbeddedDatabaseConnection.isEmbedded(EmbeddedDatabaseConnection.java:123) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.isEmbedded(DataSourceInitializer.java:140) [spring-boot-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.isEnabled(DataSourceInitializer.java:132) [spring-boot-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.createSchema(DataSourceInitializer.java:98) [spring-boot-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker.afterPropertiesSet(DataSourceInitializerInvoker.java:64) [spring-boot-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1821) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1758) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:224) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1115) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:407) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:341) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:335) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerPostProcessor.postProcessAfterInitialization(DataSourceInitializerPostProcessor.java:55) ~[spring-boot-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:429) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1463) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1427) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1346) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1205) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1167) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1325) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1171) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:392) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1305) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1144) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:602) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:590) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1226) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.health.HealthIndicatorRegistryBeans.get(HealthIndicatorRegistryBeans.java:42) ~[spring-boot-actuator-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.health.HealthIndicatorAutoConfiguration.healthIndicatorRegistry(HealthIndicatorAutoConfiguration.java:78) ~[spring-boot-actuator-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.health.HealthIndicatorAutoConfiguration$$EnhancerBySpringCGLIB$$6599e13d.CGLIB$healthIndicatorRegistry$2(<generated>) ~[spring-boot-actuator-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.health.HealthIndicatorAutoConfiguration$$EnhancerBySpringCGLIB$$6599e13d$$FastClassBySpringCGLIB$$93d15a3a.invoke(<generated>) ~[spring-boot-actuator-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.health.HealthIndicatorAutoConfiguration$$EnhancerBySpringCGLIB$$6599e13d.healthIndicatorRegistry(<generated>) ~[spring-boot-actuator-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1305) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1144) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1247) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1167) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1305) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1144) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.createEndpointBean(EndpointDiscoverer.java:149) ~[spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.createEndpointBeans(EndpointDiscoverer.java:136) ~[spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.discoverEndpoints(EndpointDiscoverer.java:125) ~[spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.getEndpoints(EndpointDiscoverer.java:119) ~[spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.servletEndpointRegistrar(ServletEndpointManagementContextConfiguration.java:76) ~[spring-boot-actuator-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration$$EnhancerBySpringCGLIB$$124c1d58.CGLIB$servletEndpointRegistrar$0(<generated>) ~[spring-boot-actuator-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration$$EnhancerBySpringCGLIB$$124c1d58$$FastClassBySpringCGLIB$$8f6a7409.invoke(<generated>) ~[spring-boot-actuator-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration$$EnhancerBySpringCGLIB$$124c1d58.servletEndpointRegistrar(<generated>) ~[spring-boot-actuator-autoconfigure-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1305) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1144) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:235) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:226) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:101) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:88) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:261) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:234) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:54) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5125) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) ~[na:1.8.0_181]
+	at java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:1.8.0_181]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) ~[na:1.8.0_181]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:831) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) ~[na:1.8.0_181]
+	at java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:1.8.0_181]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) ~[na:1.8.0_181]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:423) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:928) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:455) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:106) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:415) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:174) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:181) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:154) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
-Using generated security password: fad36487-4ec3-4497-9bf6-70f4dea4a664
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_181]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_181]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:152) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 182 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_181]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[na:1.8.0_181]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_181]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_181]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_181]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_181]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_181]
+	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_181]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 185 common frames omitted
 
-2019-04-02 17:05:24.154  INFO 4648 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@304f678a, org.springframework.security.web.context.SecurityContextPersistenceFilter@33d4066f, org.springframework.security.web.header.HeaderWriterFilter@2187d2c2, org.springframework.security.web.csrf.CsrfFilter@43eaf48f, org.springframework.security.web.authentication.logout.LogoutFilter@7119f6f4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@38a0249d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6a27bc97, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@44f4d0c8, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6ca5325d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2729b1fe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26656383, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@eb92d8b, org.springframework.security.web.session.SessionManagementFilter@1285d32f, org.springframework.security.web.access.ExceptionTranslationFilter@1eb28976, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@67f9811c]
-2019-04-02 17:05:24.266  INFO 4648 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-02 17:05:24.529  INFO 4648 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-04-02 17:05:24.581  INFO 4648 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2019-04-02 17:05:24.636  INFO 4648 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 41551 (http) with context path ''
-2019-04-02 17:05:24.638  INFO 4648 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.311 seconds (JVM running for 3.932)
-2019-04-02 17:05:24.868  INFO 4648 --- [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-02 17:05:24.868  INFO 4648 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-04-02 17:05:24.874  INFO 4648 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2019-04-02 17:06:04.212  INFO 8160 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 8160 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
-2019-04-02 17:06:04.215  INFO 8160 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-04-02 17:06:04.247  INFO 8160 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2019-04-02 17:06:04.247  INFO 8160 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2019-04-02 17:06:05.304  INFO 8160 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2404ff17] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-02 17:06:05.606  INFO 8160 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2019-04-02 17:06:05.626  INFO 8160 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-02 17:06:05.626  INFO 8160 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2019-04-02 17:06:05.633  INFO 8160 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
-2019-04-02 17:06:05.706  INFO 8160 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-02 17:06:05.706  INFO 8160 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1458 ms
-2019-04-02 17:06:05.943  INFO 8160 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-02 17:06:06.083  INFO 8160 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-02 17:06:06.385  INFO 8160 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+2019-04-03 11:01:31.981  INFO 6380 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 6668595e-cb27-433b-96ea-5c0d24da5099
+Using generated security password: cb80a22b-2a24-40b4-888f-e31e40eb477b
 
-2019-04-02 17:06:06.461  INFO 8160 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@249b5c4a, org.springframework.security.web.context.SecurityContextPersistenceFilter@300ae32d, org.springframework.security.web.header.HeaderWriterFilter@6084f1d9, org.springframework.security.web.csrf.CsrfFilter@24a407fa, org.springframework.security.web.authentication.logout.LogoutFilter@aa9aa4e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@421945a3, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@27b0559, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@62427978, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5fb187c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15e1b2bc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@563a01bf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46bf0fba, org.springframework.security.web.session.SessionManagementFilter@1ddcafa9, org.springframework.security.web.access.ExceptionTranslationFilter@59201acf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@796b27d6]
-2019-04-02 17:06:06.579  INFO 8160 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-02 17:06:06.849  INFO 8160 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-04-02 17:06:06.901  INFO 8160 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2019-04-02 17:06:06.955  INFO 8160 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 41625 (http) with context path ''
-2019-04-02 17:06:06.958  INFO 8160 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.231 seconds (JVM running for 3.873)
-2019-04-02 17:06:07.253  INFO 8160 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-02 17:06:07.253  INFO 8160 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-04-02 17:06:07.260  INFO 8160 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2019-04-02 17:07:54.215  INFO 4144 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 4144 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
-2019-04-02 17:07:54.217  INFO 4144 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-04-02 17:07:54.274  INFO 4144 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2019-04-02 17:07:54.274  INFO 4144 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2019-04-02 17:07:55.460  INFO 4144 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2a4af0ba] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-02 17:07:55.745  INFO 4144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2019-04-02 17:07:55.761  INFO 4144 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-02 17:07:55.762  INFO 4144 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2019-04-02 17:07:55.768  INFO 4144 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
-2019-04-02 17:07:55.840  INFO 4144 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-02 17:07:55.840  INFO 4144 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1566 ms
-2019-04-02 17:07:56.125  INFO 4144 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-02 17:07:56.213  INFO 4144 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-02 17:07:56.503  INFO 4144 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+2019-04-03 11:01:32.111  INFO 6380 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e06f0db, org.springframework.security.web.context.SecurityContextPersistenceFilter@2d200739, org.springframework.security.web.header.HeaderWriterFilter@75835e4, org.springframework.security.web.csrf.CsrfFilter@7b08c437, org.springframework.security.web.authentication.logout.LogoutFilter@6676d790, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4b450d41, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4a074be4, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@214c7e8e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3b2e487e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1cae39c5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3fe218b0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@569a79b7, org.springframework.security.web.session.SessionManagementFilter@13e846fd, org.springframework.security.web.access.ExceptionTranslationFilter@3204602e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@637d789b]
+2019-04-03 11:01:32.328  INFO 6380 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-03 11:01:32.721  INFO 6380 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-03 11:01:32.810  INFO 6380 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-04-03 11:01:32.897  INFO 6380 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 53059 (http) with context path ''
+2019-04-03 11:01:32.903  INFO 6380 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 7.704 seconds (JVM running for 9.858)
+2019-04-03 11:01:33.148  INFO 6380 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-03 11:01:33.158  INFO 6380 --- [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-03 11:01:33.159  INFO 6380 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-03 11:01:33.167  INFO 6380 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-04-03 11:01:36.160 ERROR 6380 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
 
-Using generated security password: 0b4f3146-ac1b-4578-b1ba-14f42c467010
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
-2019-04-02 17:07:56.585  INFO 4144 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@422af1c0, org.springframework.security.web.context.SecurityContextPersistenceFilter@51553a9a, org.springframework.security.web.header.HeaderWriterFilter@5d7dee8b, org.springframework.security.web.csrf.CsrfFilter@14aac3d2, org.springframework.security.web.authentication.logout.LogoutFilter@2c149ffb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3bf06e02, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@668d3b1f, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@31f8629c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@282ccc62, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4759eb8d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ecd6b7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@339f364f, org.springframework.security.web.session.SessionManagementFilter@f60fe25, org.springframework.security.web.access.ExceptionTranslationFilter@305e70e2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c4b690d]
-2019-04-02 17:07:56.700  INFO 4144 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-02 17:07:56.980  INFO 4144 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-04-02 17:07:57.034  INFO 4144 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2019-04-02 17:07:57.091  INFO 4144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 41876 (http) with context path ''
-2019-04-02 17:07:57.094  INFO 4144 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.329 seconds (JVM running for 4.027)
-2019-04-02 17:07:57.253  INFO 4144 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-02 17:07:57.253  INFO 4144 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-04-02 17:07:57.260  INFO 4144 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2019-04-02 17:08:22.448  INFO 7024 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 7024 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
-2019-04-02 17:08:22.450  INFO 7024 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-04-02 17:08:22.520  INFO 7024 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2019-04-02 17:08:22.520  INFO 7024 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2019-04-02 17:08:23.533  INFO 7024 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c1812a58] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-02 17:08:23.829  INFO 7024 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2019-04-02 17:08:23.850  INFO 7024 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-02 17:08:23.850  INFO 7024 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2019-04-02 17:08:23.856  INFO 7024 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
-2019-04-02 17:08:23.917  INFO 7024 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-02 17:08:23.917  INFO 7024 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1397 ms
-2019-04-02 17:08:24.196  INFO 7024 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-02 17:08:24.282  INFO 7024 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-02 17:08:24.578  INFO 7024 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-3.2.0.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:157) [spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115) [spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78) [spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:324) [spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:109) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:104) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:84) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.health.CompositeHealthIndicator.health(CompositeHealthIndicator.java:98) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:50) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:246) [spring-core-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:76) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:61) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:126) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:99) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819) [na:1.8.0_181]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1468) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:76) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1309) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1401) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) [na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357) [na:1.8.0_181]
+	at sun.rmi.transport.Transport$1.run(Transport.java:200) [na:1.8.0_181]
+	at sun.rmi.transport.Transport$1.run(Transport.java:197) [na:1.8.0_181]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_181]
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:196) [na:1.8.0_181]
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:573) [na:1.8.0_181]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:834) [na:1.8.0_181]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:688) [na:1.8.0_181]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_181]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:687) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_181]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_181]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
-Using generated security password: 1844f6f4-b5b6-4500-aa27-fc4f6ec59ca0
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_181]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_181]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:152) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 53 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_181]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[na:1.8.0_181]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_181]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_181]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_181]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_181]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_181]
+	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_181]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 56 common frames omitted
 
-2019-04-02 17:08:24.661  INFO 7024 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67ead58f, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a031243, org.springframework.security.web.header.HeaderWriterFilter@3f16666e, org.springframework.security.web.csrf.CsrfFilter@d464c3d, org.springframework.security.web.authentication.logout.LogoutFilter@9de7347, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5e95d14a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1ddcafa9, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@66628e2b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@48ce1105, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a29e2cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44f3239a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@796b27d6, org.springframework.security.web.session.SessionManagementFilter@78290f5e, org.springframework.security.web.access.ExceptionTranslationFilter@6c0e9322, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6bb8fe44]
-2019-04-02 17:08:24.778  INFO 7024 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-02 17:08:25.064  INFO 7024 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-04-02 17:08:25.116  INFO 7024 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2019-04-02 17:08:25.173  INFO 7024 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 41937 (http) with context path ''
-2019-04-02 17:08:25.176  INFO 7024 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.271 seconds (JVM running for 3.879)
-2019-04-02 17:08:25.439  INFO 7024 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-02 17:08:25.440  INFO 7024 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-04-02 17:08:25.447  INFO 7024 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2019-04-02 17:09:23.141  INFO 4320 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 4320 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
-2019-04-02 17:09:23.144  INFO 4320 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-04-02 17:09:23.194  INFO 4320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2019-04-02 17:09:23.194  INFO 4320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2019-04-02 17:09:24.319  INFO 4320 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bf9f8772] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-02 17:09:24.610  INFO 4320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2019-04-02 17:09:24.626  INFO 4320 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-02 17:09:24.626  INFO 4320 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2019-04-02 17:09:24.632  INFO 4320 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
-2019-04-02 17:09:24.705  INFO 4320 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-02 17:09:24.705  INFO 4320 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1511 ms
-2019-04-02 17:09:24.981  INFO 4320 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-02 17:09:25.067  INFO 4320 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-02 17:09:25.372  INFO 4320 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+2019-04-03 11:01:36.166  WARN 6380 --- [RMI TCP Connection(6)-127.0.0.1] o.s.b.a.jdbc.DataSourceHealthIndicator   : DataSource health check failed
 
-Using generated security password: 810977bc-1896-47e8-a608-0f8fdff9ba0f
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
-2019-04-02 17:09:25.454  INFO 4320 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ad54db1, org.springframework.security.web.context.SecurityContextPersistenceFilter@32150056, org.springframework.security.web.header.HeaderWriterFilter@7894eddb, org.springframework.security.web.csrf.CsrfFilter@4cd50e0, org.springframework.security.web.authentication.logout.LogoutFilter@187548aa, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@32c7527c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@65d055a6, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1bb86b5b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1d049b1d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d2a850b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78e9b535, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a1f1f9e, org.springframework.security.web.session.SessionManagementFilter@3797a32c, org.springframework.security.web.access.ExceptionTranslationFilter@1a5ceff1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@18930057]
-2019-04-02 17:09:25.577  INFO 4320 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-02 17:09:25.855  INFO 4320 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-04-02 17:09:25.910  INFO 4320 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2019-04-02 17:09:25.972  INFO 4320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 42027 (http) with context path ''
-2019-04-02 17:09:25.976  INFO 4320 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.246 seconds (JVM running for 3.81)
-2019-04-02 17:09:26.320  INFO 4320 --- [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-02 17:09:26.320  INFO 4320 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-04-02 17:09:26.326  INFO 4320 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2019-04-02 18:31:05.790  INFO 7448 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 7448 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
-2019-04-02 18:31:05.792  INFO 7448 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
-2019-04-02 18:31:05.822  INFO 7448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2019-04-02 18:31:05.822  INFO 7448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2019-04-02 18:31:06.891  INFO 7448 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d855c82e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-02 18:31:07.187  INFO 7448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2019-04-02 18:31:07.207  INFO 7448 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-02 18:31:07.207  INFO 7448 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2019-04-02 18:31:07.213  INFO 7448 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
-2019-04-02 18:31:07.274  INFO 7448 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-02 18:31:07.275  INFO 7448 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1452 ms
-2019-04-02 18:31:07.501  INFO 7448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-02 18:31:07.640  INFO 7448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-02 18:31:07.943  INFO 7448 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:324) ~[spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122) ~[spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:109) ~[spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:104) ~[spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:84) ~[spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.health.CompositeHealthIndicator.health(CompositeHealthIndicator.java:98) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:50) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:246) [spring-core-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:76) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:61) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:126) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:99) [spring-boot-actuator-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819) [na:1.8.0_181]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1468) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:76) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1309) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1401) [na:1.8.0_181]
+	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) [na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357) [na:1.8.0_181]
+	at sun.rmi.transport.Transport$1.run(Transport.java:200) [na:1.8.0_181]
+	at sun.rmi.transport.Transport$1.run(Transport.java:197) [na:1.8.0_181]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_181]
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:196) [na:1.8.0_181]
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:573) [na:1.8.0_181]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:834) [na:1.8.0_181]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:688) [na:1.8.0_181]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_181]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:687) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_181]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_181]
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
-Using generated security password: f13294fd-8163-4fb9-90a6-64cde0487fcf
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.2.0.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:157) ~[spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115) ~[spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78) ~[spring-jdbc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	... 40 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
-2019-04-02 18:31:08.023  INFO 7448 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b77eaff, org.springframework.security.web.context.SecurityContextPersistenceFilter@45545061, org.springframework.security.web.header.HeaderWriterFilter@31a5d7a0, org.springframework.security.web.csrf.CsrfFilter@4b8470b7, org.springframework.security.web.authentication.logout.LogoutFilter@1bd1c01c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@633a4104, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7e8fbd9d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6cc0c7b2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7e5d9a79, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@193e1d29, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5aea1026, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62fbf362, org.springframework.security.web.session.SessionManagementFilter@27fb8a5b, org.springframework.security.web.access.ExceptionTranslationFilter@554d57d9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@177ddeb8]
-2019-04-02 18:31:08.140  INFO 7448 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-02 18:31:08.427  INFO 7448 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-04-02 18:31:08.482  INFO 7448 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2019-04-02 18:31:08.538  INFO 7448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 46764 (http) with context path ''
-2019-04-02 18:31:08.540  INFO 7448 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.304 seconds (JVM running for 3.947)
-2019-04-02 18:31:08.748  INFO 7448 --- [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-02 18:31:08.748  INFO 7448 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-04-02 18:31:08.756  INFO 7448 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2019-04-02 18:59:02.465  INFO 4740 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 4740 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
-2019-04-02 18:59:02.467  INFO 4740 --- [restartedMain] com.example.demo.DemoApplication         : The following profiles are active: dev
-2019-04-02 18:59:02.503  INFO 4740 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2019-04-02 18:59:02.503  INFO 4740 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2019-04-02 18:59:03.688  INFO 4740 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ddabedb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-04-02 18:59:03.996  INFO 4740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2019-04-02 18:59:04.014  INFO 4740 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-04-02 18:59:04.014  INFO 4740 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2019-04-02 18:59:04.019  INFO 4740 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
-2019-04-02 18:59:04.076  INFO 4740 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-04-02 18:59:04.076  INFO 4740 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1573 ms
-2019-04-02 18:59:04.338  INFO 4740 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-04-02 18:59:04.428  INFO 4740 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-04-02 18:59:04.740  INFO 4740 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_181]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_181]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:152) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 53 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_181]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[na:1.8.0_181]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_181]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_181]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_181]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_181]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_181]
+	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_181]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 56 common frames omitted
 
-Using generated security password: 3d1641d9-7344-46d9-a666-ff2a3da8e576
+2019-04-03 11:02:20.993  INFO 4164 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on PC-20180118NOGU with PID 4164 (E:\ideatest\p24\target\classes started by Administrator in E:\ideatest\p24)
+2019-04-03 11:02:20.995  INFO 4164 --- [restartedMain] com.example.demo.DemoApplication         : The following profiles are active: dev
+2019-04-03 11:02:21.050  INFO 4164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-04-03 11:02:21.050  INFO 4164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-04-03 11:02:22.180  INFO 4164 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a1c2b815] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-03 11:02:22.612  INFO 4164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2019-04-03 11:02:22.632  INFO 4164 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-03 11:02:22.633  INFO 4164 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-04-03 11:02:22.639  INFO 4164 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\instwork\java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\instwork\java\jdk1.8.0_181\bin;D:\inst\calibre\;D:\instwork\tool\apache-maven-3.5.2\bin;D:\inst\git\Git\cmd;D:\inst\mysql\mysql-5.7.21-winx64\bin;D:\instwork\tool\node-v8.10.0-win-x64;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;C:\adb;D:\instwork\tool\spring\spring_boot\spring-2.0.4.RELEASE\bin;D:\instwork\tool\gradle\gradle-4.9\bin;D:\instwork\tool\tortoiseSVN\bin;C:\Android;C:\Users\Administrator\AppData\Roaming\npm;.]
+2019-04-03 11:02:22.708  INFO 4164 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-03 11:02:22.709  INFO 4164 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1659 ms
+2019-04-03 11:02:23.041  INFO 4164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-03 11:02:23.288  INFO 4164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-03 11:02:23.605  INFO 4164 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
 
-2019-04-02 18:59:04.819  INFO 4740 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11bbb69d, org.springframework.security.web.context.SecurityContextPersistenceFilter@8033aed, org.springframework.security.web.header.HeaderWriterFilter@b066bae, org.springframework.security.web.csrf.CsrfFilter@109f233f, org.springframework.security.web.authentication.logout.LogoutFilter@26515ba3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@a967bc1, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@407a39d4, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4319e527, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@39567d2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4aeb9034, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@915b893, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@710af615, org.springframework.security.web.session.SessionManagementFilter@73925fdd, org.springframework.security.web.access.ExceptionTranslationFilter@265790ca, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@575ae9bb]
-2019-04-02 18:59:04.937  INFO 4740 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-02 18:59:05.242  INFO 4740 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-04-02 18:59:05.304  INFO 4740 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2019-04-02 18:59:05.362  INFO 4740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 48044 (http) with context path ''
-2019-04-02 18:59:05.365  INFO 4740 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.214 seconds (JVM running for 4.81)
-2019-04-02 18:59:05.558  INFO 4740 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-02 18:59:05.558  INFO 4740 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-04-02 18:59:05.565  INFO 4740 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+Using generated security password: 6fcaa8c5-c84c-4471-88c8-164923172f18
+
+2019-04-03 11:02:23.686  INFO 4164 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@503d9a9d, org.springframework.security.web.context.SecurityContextPersistenceFilter@1f7f9861, org.springframework.security.web.header.HeaderWriterFilter@17d3d765, org.springframework.security.web.csrf.CsrfFilter@1f72e3f5, org.springframework.security.web.authentication.logout.LogoutFilter@504a0cc3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@70725e8, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@81cb596, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5debd4a1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7dd56b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3f4437e9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4fecc6cf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43cfe737, org.springframework.security.web.session.SessionManagementFilter@1489bf03, org.springframework.security.web.access.ExceptionTranslationFilter@425f6cac, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6e94e0e2]
+2019-04-03 11:02:23.802  INFO 4164 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-03 11:02:24.079  INFO 4164 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-03 11:02:24.133  INFO 4164 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-04-03 11:02:24.192  INFO 4164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 53126 (http) with context path ''
+2019-04-03 11:02:24.195  INFO 4164 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.562 seconds (JVM running for 5.357)
+2019-04-03 11:02:24.591  INFO 4164 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-03 11:02:24.591  INFO 4164 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-03 11:02:24.601  INFO 4164 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
