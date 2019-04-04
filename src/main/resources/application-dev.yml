@@ -15,6 +15,11 @@ spring:
 #    schema:
 #    data:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
+  artemis:
+    host: artemis.tacocloud.com
+    port: 61617
+    user: tacoweb
+    password: l3tm31n
 
 logging:
   #  path: E:logspath\logs\
