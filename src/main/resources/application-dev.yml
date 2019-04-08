@@ -20,6 +20,9 @@ spring:
     port: 61617
     user: tacoweb
     password: l3tm31n
+  jms:
+    template:
+      default-destination: tacocloud.order.queue
 
 logging:
   #  path: E:logspath\logs\
