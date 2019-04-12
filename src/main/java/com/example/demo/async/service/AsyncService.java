@@ -1,8 +1,9 @@
-package com.example.demo.controller.async.service;
+package com.example.demo.async.service;
 
-import com.example.demo.controller.async.model.EmployeeAddresses;
-import com.example.demo.controller.async.model.EmployeeNames;
-import com.example.demo.controller.async.model.EmployeePhone;
+
+import com.example.demo.async.model.EmployeeAddresses;
+import com.example.demo.async.model.EmployeeNames;
+import com.example.demo.async.model.EmployeePhone;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +30,7 @@ public class AsyncService {
     @Async("asyncExecutor")
     public CompletableFuture<EmployeeNames> getEmployeeNames() throws InterruptedException {
         log.info("getEmployeeName Starts");
-        EmployeeNames employeeNameData = restTemplate.getForObject("http://localhost:8080/name", EmployeeNames.class);
+        EmployeeNames employeeNameData = restTemplate.getForObject("http://localhost:8080/names", EmployeeNames.class);
 
         log.info("employeeNameData, {}", employeeNameData);
         //Intentional delay
@@ -42,7 +43,7 @@ public class AsyncService {
     @Async("asyncExecutor")
     public CompletableFuture<EmployeeAddresses> getEmployeeAddresses() throws InterruptedException {
         log.info("getEmployeeAddress Starts");
-        EmployeeAddresses employeeAddressData = restTemplate.getForObject("http://localhost:8080/address", EmployeeAddresses.class);
+        EmployeeAddresses employeeAddressData = restTemplate.getForObject("http://localhost:8080/addresses", EmployeeAddresses.class);
 
         log.info("employeeAddressData, {}", employeeAddressData);
         //Intentional delay
@@ -54,7 +55,7 @@ public class AsyncService {
     @Async("asyncExecutor")
     public CompletableFuture<EmployeePhone> getEmployeePhone() throws InterruptedException {
         log.info("getEmployeePhone Starts");
-        EmployeePhone employeePhoneData = restTemplate.getForObject("http://localhost:8080/phone", EmployeePhone.class);
+        EmployeePhone employeePhoneData = restTemplate.getForObject("http://localhost:8080/phones", EmployeePhone.class);
 
         log.info("employeePhoneData, {}", employeePhoneData);
         //Intentional delay

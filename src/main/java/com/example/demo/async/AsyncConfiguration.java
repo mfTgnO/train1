@@ -1,4 +1,4 @@
-package com.example.demo.controller.async;
+package com.example.demo.async;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.example.demo.controller.async.model;
+package com.example.demo.async.model;
 
 import lombok.Data;
 
