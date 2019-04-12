@@ -1,6 +1,7 @@
 #分号后面需要添加一个空格
 server:
   port: 8080
+
 #  tomcat:
 #    max-threads: 20
 #    max-connections: 10000
@@ -26,6 +27,22 @@ spring:
   jms:
     template:
       default-destination: tacocloud.order.queue
+#  rabbitmq:
+#    host: rabbit.tacocloud.com
+#    port: 5673
+#    username: tacoweb
+#    password: l3tm31n
+#    template:
+#      exchange: tacocloud.orders
+#      routing-key: kitchens.central
+#      receive-timeout: 30000
+  kafka:
+    template:
+      default-topic: tacocloud.orders.topic
+    bootstrap-servers:
+    - kafka.tacocloud.com:9092
+    - kafka.tacocloud.com:9093
+    - kafka.tacocloud.com:9094
 
 logging:
   #  path: E:logspath\logs\
