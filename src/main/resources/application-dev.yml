@@ -45,7 +45,17 @@ spring:
     - kafka.tacocloud.com:9092
     - kafka.tacocloud.com:9093
     - kafka.tacocloud.com:9094
-
+  redis:
+    database: 0
+    host: 192.168.2.211
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+    timeout: 0
 logging:
   #  path: E:logspath\logs\
   file: demo.log

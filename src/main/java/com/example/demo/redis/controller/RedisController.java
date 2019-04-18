@@ -17,11 +17,11 @@ public class RedisController {
     @RequestMapping("/save")
     public String save() {
         // save a single Customer
-        customerRepository.save(new Customer(1, "Jack", "Smith"));
-        customerRepository.save(new Customer(2, "Adam", "Johnson"));
-        customerRepository.save(new Customer(3, "Kim", "Smith"));
-        customerRepository.save(new Customer(4, "David", "Williams"));
-        customerRepository.save(new Customer(5, "Peter", "Davis"));
+        customerRepository.save(new Customer(1L, "Jack", "Smith"));
+        customerRepository.save(new Customer(2L, "Adam", "Johnson"));
+        customerRepository.save(new Customer(3L, "Kim", "Smith"));
+        customerRepository.save(new Customer(4L, "David", "Williams"));
+        customerRepository.save(new Customer(5L, "Peter", "Davis"));
 
         return "Done";
     }
@@ -48,8 +48,8 @@ public class RedisController {
     @RequestMapping("/uppercase")
     public String postCustomer(@RequestParam("id") Long id) {
         Customer customer = customerRepository.find(id);
-        customer.setFirstName(customer.getFirstName().toUpperCase());
-        customer.setLastName(customer.getLastName().toUpperCase());
+//        customer.setFirstName(customer.getFirstName().toUpperCase());
+//        customer.setLastName(customer.getLastName().toUpperCase());
         customerRepository.update(customer);
 
         return "Done";
