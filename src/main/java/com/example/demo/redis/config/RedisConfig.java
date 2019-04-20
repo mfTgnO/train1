@@ -38,8 +38,12 @@ public class RedisConfig {
         return factory;
     }*/
 
+    private final RedisConnectionFactory redisConnectionFactory;
+
     @Autowired
-    RedisConnectionFactory redisConnectionFactory;
+    public RedisConfig(RedisConnectionFactory redisConnectionFactory) {
+        this.redisConnectionFactory = redisConnectionFactory;
+    }
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate() {
