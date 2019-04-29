@@ -128,7 +128,43 @@ public class MethodReferences {
 
     @Test
     public void test16() {
-        FilteringApples.inventory.sort(Comparator.comparing((Apple::getWeight)).reversed());
+        FilteringApples.inventory.sort(Comparator.comparing((Apple::getColor))
+                .reversed());
         System.out.println(FilteringApples.inventory);
+    }
+
+    // Chaining Comparators
+    @Test
+    public void test17() {
+        FilteringApples.inventory.sort(Comparator.comparing(Apple::getColor)
+                .thenComparing(Apple::getWeight));
+        System.out.println(FilteringApples.inventory);
+    }
+
+    @Test
+    public void test18() {
+        FilteringApples.inventory.sort(Comparator.comparing(Apple::getColor)
+                .reversed()
+                .thenComparing(Apple::getWeight));
+        System.out.println(FilteringApples.inventory);
+    }
+
+    //  Composing Functions
+    @Test
+    public void test19() {
+        Function<Integer, Integer> f = x -> x + 1;
+        Function<Integer, Integer> g = x -> x * 2;
+        Function<Integer, Integer> h = f.andThen(g);
+        Integer result = h.apply(1);
+        System.out.println(result);
+    }
+
+    @Test
+    public void test20() {
+        Function<Integer, Integer> f = x -> x + 1;
+        Function<Integer, Integer> g = x -> x * 2;
+        Function<Integer, Integer> h = f.compose(g);
+        Integer result = h.apply(1);
+        System.out.println(result);
     }
 }
