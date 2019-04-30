@@ -17,7 +17,7 @@ import static java.util.stream.Collectors.groupingBy;
  * @Description:
  */
 public class StreamDish {
-    private static List<Dish> menu = Arrays.asList(
+    protected static List<Dish> menu = Arrays.asList(
             new Dish("pork", false, 800, Dish.Type.MEAT),
             new Dish("beef", false, 700, Dish.Type.MEAT),
             new Dish("chicken", false, 400, Dish.Type.MEAT),
@@ -269,5 +269,236 @@ public class StreamDish {
         for (int[] ints : collect) {
             System.out.println(Arrays.toString(ints));
         }
+    }
+
+    /*
+     * How would you extend the previous example to return only pairs whose sum is divisible by 3?
+     * For example, (2, 4) and (3, 3) are valid.
+     * */
+    @Test
+    public void test23() {
+        List<Integer> numbers1 = Arrays.asList(1, 2, 3);
+        List<Integer> numbers2 = Arrays.asList(3, 4);
+        List<int[]> collect = numbers1.stream()
+                .flatMap(i -> numbers2.stream()
+                        .filter(j -> (i + j) % 3 == 0)
+                        .map(j -> new int[]{i, j})
+                ).collect(Collectors.toList());
+        for (int[] ints : collect) {
+            System.out.println(Arrays.toString(ints));
+        }
+    }
+
+    // Finding and matching
+    // Checking to see if a predicate matches at least one element
+    @Test
+    public void test24() {
+        if (menu.stream().anyMatch(Dish::isVegetarian)) {
+            System.out.println("The menu is (somewhat) vegetarian friendly!!");
+        }
+    }
+
+    //  Checking to see if a predicate matches all elements
+    @Test
+    public void test25() {
+        boolean allMatch = menu.stream()
+                .allMatch(d -> d.getCalories() < 1000);
+        System.out.println("allMatch:" + allMatch);
+    }
+
+    /*
+     * The opposite of allMatch is noneMatch. It ensures that no elements in the stream match the
+     * given predicate. For example, you could rewrite the previous example as follows using
+     * noneMatch:
+     * */
+    @Test
+    public void test26() {
+        boolean noneMatch = menu.stream()
+                .noneMatch(d -> d.getCalories() >= 1000);
+        System.out.println("noneMatch:" + noneMatch);
+    }
+
+    /*
+     * NOTE
+     *
+     * These three operations, anyMatch, allMatch, and noneMatch, make use of what we call
+     * short-circuiting, a stream version of the familiar Java short-circuiting && and || operators.
+     * */
+
+    /*
+     * Finding an element
+     * */
+    @Test
+    public void test27() {
+        Optional<Dish> optionalDish = menu.stream()
+                .filter(Dish::isVegetarian)
+                .findAny();
+        if (optionalDish.isPresent()) {
+            Dish dish = optionalDish.get();
+            System.out.println(dish);
+        }
+    }
+
+    /*
+     * Optional in a nutshell
+     * */
+    @Test
+    public void test28() {
+        menu.stream()
+                .filter(Dish::isVegetarian)
+                .findAny()
+                .ifPresent(d -> System.out.println(d.getName()));
+    }
+
+    /*
+     * Finding the first element
+     * */
+    @Test
+    public void test29() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> firstSquareDivisibleByThree = someNumbers.stream()
+                .map(x -> x * x)
+                .filter(x -> x % 3 == 0)
+                .findFirst();
+        if (firstSquareDivisibleByThree.isPresent()) {
+            Integer integer = firstSquareDivisibleByThree.get();
+            System.out.println(integer);
+        }
+    }
+
+    /*
+     * 5.4. Reducing
+     * 5.4.1. Summing the elements
+     * */
+    @Test
+    public void test30() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        int sum = 0;
+        for (Integer someNumber : someNumbers) {
+            sum += someNumber;
+        }
+        System.out.println(sum);
+    }
+
+    @Test
+    public void test31() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Integer sum = someNumbers.stream()
+                .reduce(0, (a, b) -> a + b);
+        System.out.println(sum);
+    }
+
+    @Test
+    public void test32() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Integer product = someNumbers.stream()
+                .reduce(1, (a, b) -> a * b);
+        System.out.println(product);
+    }
+
+    /*
+     * You can make this code more concise by using a method reference. In Java 8 the Integer class
+     * now comes with a static sum method to add two numbers, which is just what you want instead
+     * of repeatedly writing out the same code as lambda:
+     * */
+    @Test
+    public void test33() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Integer sum = someNumbers.stream()
+                .reduce(0, Integer::sum);
+        System.out.println(sum);
+    }
+
+    /*
+     * No initial value
+     *
+     * There’s also an overloaded variant of reduce that doesn’t take an initial value, but it returns an
+     * Optional object:
+     * Why does it return an Optional<Integer>? Consider the case when the stream contains no
+     * elements. The reduce operation can’t return a sum because it doesn’t have an initial value. This
+     * is why the result is wrapped in an Optional object to indicate that the sum may be absent. Now
+     * see what else you can do with reduce.
+     * */
+    @Test
+    public void test34() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> sum = someNumbers.stream()
+                .reduce((a, b) -> a + b);
+        if (sum.isPresent()) {
+            Integer integer = sum.get();
+            System.out.println(integer);
+        }
+    }
+
+    /*
+     * 5.4.2. Maximum and minimum
+     * */
+    @Test
+    public void test35() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> max = someNumbers.stream()
+                .reduce(Integer::max);
+        if (max.isPresent()) {
+            Integer integer = max.get();
+            System.out.println(integer);
+        }
+    }
+
+    @Test
+    public void test36() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> min = someNumbers.stream()
+                .reduce(Integer::min);
+        if (min.isPresent()) {
+            Integer integer = min.get();
+            System.out.println(integer);
+        }
+    }
+
+    @Test
+    public void test37() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> min = someNumbers.stream()
+                .reduce((x, y) -> x < y ? x : y);
+        if (min.isPresent()) {
+            Integer integer = min.get();
+            System.out.println(integer);
+        }
+    }
+
+    @Test
+    public void test38() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> max = someNumbers.stream()
+                .reduce((x, y) -> x < y ? y : x);
+        if (max.isPresent()) {
+            Integer integer = max.get();
+            System.out.println(integer);
+        }
+    }
+
+    /*
+     * How would you count the number of dishes in a stream using the map and reduce methods?
+     * */
+    @Test
+    public void test39() {
+        Integer reduce = menu.stream()
+                .map(d -> 1)
+                .reduce(0, (a, b) -> a + b);
+        System.out.println(reduce);
+    }
+
+    @Test
+    public void test40() {
+        long count = menu.stream().count();
+        System.out.println(count);
+    }
+
+    @Test
+    public void test41() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Integer sum = someNumbers.parallelStream()
+                .reduce(0, Integer::sum);
+        System.out.println(sum);
     }
 }
