@@ -3,11 +3,14 @@ package com.example.demo.java8lambdas.streams;
 import com.example.demo.java8lambdas.domain.Dish;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.OptionalInt;
+import java.util.function.IntSupplier;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -170,6 +173,104 @@ public class StreamNumeric {
     @Test
     public void test12() {
         long uniqueWords = 0;
-        Files.lines(Paths.get("/src/main/resources/lambdasinaction/chap5/data.txt"), Charset.defaultCharset())
+        try {
+            // /home/rnj/workspace/ws1/spring_in_action_5th_edition/sia
+            String currentDir = Paths.get("").toAbsolutePath().toString();
+            uniqueWords = Files.lines(Paths.get(currentDir + "/src/main/resources/lambdasinaction/chap5/data.txt"), Charset.defaultCharset())
+                    .flatMap(line -> Arrays.stream(line.split(" ")))
+                    .distinct()
+                    .count();
+            System.out.println("There are " + uniqueWords + " unique words in data.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void test13() {
+        Path currentDir = Paths.get("");
+        System.out.println(currentDir.toAbsolutePath());
+    }
+
+    /*
+     * 5.7.4. Streams from functions: creating infinite streams!
+     * Iterate
+     * */
+    @Test
+    public void test14() {
+        Stream.iterate(0, n -> n + 2)
+                .limit(20)
+                .forEach(System.out::println);
+    }
+
+    /*
+     * Quiz 5.4: Fibonacci tuples series
+     * */
+    @Test
+    public void test15() {
+        Stream.iterate(new int[]{0, 1}, t -> new int[]{t[1], t[0] + t[1]})
+                .limit(10)
+                .forEach(t -> System.out.println("(" + t[0] + "," + t[1] + ")"));
+    }
+
+    /*
+     * Note that if you just wanted to print the normal Fibonacci series,
+     * you could use a map to extract only the first element of each tuple:
+     * */
+    @Test
+    public void test16() {
+        Stream.iterate(new int[]{0, 1}, t -> new int[]{t[1], t[0] + t[1]})
+                .limit(10)
+                .map(t -> t[0])
+                .forEach(System.out::println);
+    }
+
+    /*
+     * Generate
+     * */
+    @Test
+    public void test17() {
+        Stream.generate(Math::random)
+                .limit(10)
+                .forEach(System.out::println);
+    }
+
+    @Test
+    public void test18() {
+        IntStream twos = IntStream.generate(new IntSupplier() {
+            @Override
+            public int getAsInt() {
+                return 2;
+            }
+        });
+        twos.limit(10)
+                .forEach(System.out::println);
+    }
+
+    @Test
+    public void test19() {
+        IntStream twos = IntStream.generate(() -> 2);
+        twos.limit(10)
+                .forEach(System.out::println);
+    }
+
+    @Test
+    public void test20() {
+        IntSupplier fib = new IntSupplier() {
+            private int previous = 0;
+            private int current = 1;
+
+            @Override
+            public int getAsInt() {
+                int oldPrevious = this.previous;
+                int nextValue = this.previous + this.current;
+                this.previous = this.current;
+                this.current = nextValue;
+                return oldPrevious;
+            }
+        };
+        IntStream.generate(fib)
+                .limit(10)
+                .forEach(System.out::println);
     }
 }
