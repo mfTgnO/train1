@@ -256,4 +256,13 @@ public class StreamCollector {
         );
         System.out.println(numbers);
     }
+
+    @Test
+    public void test14() {
+        /*Integer totalCalories = menu.stream()
+                .collect(Collectors.reducing(0, Dish::getCalories, Integer::sum));*/
+//        Integer totalCalories = menu.stream().map(Dish::getCalories).reduce(0, Integer::sum);
+        Integer totalCalories = menu.stream().mapToInt(Dish::getCalories).sum();
+        System.out.println(totalCalories);
+    }
 }
