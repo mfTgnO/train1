@@ -259,10 +259,55 @@ public class StreamCollector {
 
     @Test
     public void test14() {
-        /*Integer totalCalories = menu.stream()
-                .collect(Collectors.reducing(0, Dish::getCalories, Integer::sum));*/
+        Integer totalCalories = menu.stream()
+                .collect(Collectors.reducing(0, Dish::getCalories, Integer::sum));
 //        Integer totalCalories = menu.stream().map(Dish::getCalories).reduce(0, Integer::sum);
-        Integer totalCalories = menu.stream().mapToInt(Dish::getCalories).sum();
+        /*Integer totalCalories = menu.stream().mapToInt(Dish::getCalories).sum();*/
         System.out.println(totalCalories);
+    }
+
+    @Test
+    public void test15() {
+        String shortMenu = menu.stream()
+                .map(Dish::getName)
+                .collect(Collectors.joining());
+        System.out.println(shortMenu);
+    }
+
+    @Test
+    public void test16() {
+        /*String shortMenu = menu.stream()
+                .collect(Collectors.reducing("", Dish::getName, (s1, s2) -> s1 + s2));*/
+        String shortMenu = menu.stream().map(Dish::getName).reduce("", (s1, s2) -> s1 + s2);
+        System.out.println(shortMenu);
+    }
+
+    /*
+     * 6.3. Grouping
+     * */
+    @Test
+    public void test17() {
+        Map<Dish.Type, List<Dish>> dishesByType = menu.stream()
+                .collect(Collectors.groupingBy(Dish::getType));
+        System.out.println(dishesByType);
+    }
+
+    /*
+     * Figure 6.4. Classification of an item in the stream during the grouping
+     * process
+     * */
+    @Test
+    public void test18() {
+        Map<Dish.CaloricLevel, List<Dish>> dishesByCaloricLevel = menu.stream()
+                .collect(Collectors.groupingBy(dish -> {
+                    if (dish.getCalories() <= 400) {
+                        return Dish.CaloricLevel.DIET;
+                    } else if (dish.getCalories() <= 700) {
+                        return Dish.CaloricLevel.NORMAL;
+                    } else {
+                        return Dish.CaloricLevel.FAT;
+                    }
+                }));
+        System.out.println(dishesByCaloricLevel);
     }
 }
