@@ -13,25 +13,26 @@ spring:
     cache: false
   datasource:
 #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
-    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
+#    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
+    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
 #    username: root
     username: newuser2
 #    password: fm9>mysql
     password: fm9>MySQL
     hikari:
-      maximum-pool-size: 50
+      maximum-pool-size: 100
       max-lifetime: 1770000
   #    schema:
   #    data:
   #    driver-class-name: com.mysql.cj.jdbc.Driver
-  artemis:
-    host: artemis.tacocloud.com
-    port: 61617
-    user: tacoweb
-    password: l3tm31n
-  jms:
-    template:
-      default-destination: tacocloud.order.queue
+#  artemis:
+#    host: artemis.tacocloud.com
+#    port: 61617
+#    user: tacoweb
+#    password: l3tm31n
+#  jms:
+#    template:
+#      default-destination: tacocloud.order.queue
 #  rabbitmq:
 #    host: rabbit.tacocloud.com
 #    port: 5673
@@ -41,24 +42,24 @@ spring:
 #      exchange: tacocloud.orders
 #      routing-key: kitchens.central
 #      receive-timeout: 30000
-  kafka:
-    template:
-      default-topic: tacocloud.orders.topic
-    bootstrap-servers:
-    - kafka.tacocloud.com:9092
-    - kafka.tacocloud.com:9093
-    - kafka.tacocloud.com:9094
-  redis:
-    database: 0
-    host: 192.168.2.211
-    port: 6379
-    password:
-    jedis:
-      pool:
-        max-active: 8
-        max-idle: 8
-        min-idle: 0
-    timeout: 0
+#  kafka:
+#    template:
+#      default-topic: tacocloud.orders.topic
+#    bootstrap-servers:
+#    - kafka.tacocloud.com:9092
+#    - kafka.tacocloud.com:9093
+#    - kafka.tacocloud.com:9094
+#  redis:
+#    database: 0
+#    host: 192.168.2.211
+#    port: 6379
+#    password:
+#    jedis:
+#      pool:
+#        max-active: 8
+#        max-idle: 8
+#        min-idle: 0
+#    timeout: 0
 logging:
   #  path: E:logspath\logs\
   file: demo.log
