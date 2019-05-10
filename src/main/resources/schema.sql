@@ -1,4 +1,4 @@
-create table if not exists Ingredient (
+/*create table if not exists Ingredient (
 id varchar(4) not null,
 name varchar(25) not null,
 type varchar(10) not null
@@ -31,4 +31,12 @@ tacoOrder bigint not null,
 taco bigint not null
 );
 alter table Taco_Order_Tacos add foreign key (tacoOrder) references Taco_Order(id);
-alter table Taco_Order_Tacos add foreign key (taco) references Taco(id);
+alter table Taco_Order_Tacos add foreign key (taco) references Taco(id);*/
+DROP TABLE IF EXISTS USERS;
+
+CREATE TABLE users (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(100) NOT NULL,
+  email varchar(100) DEFAULT NULL,
+  PRIMARY KEY (id)
+);

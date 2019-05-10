@@ -71,6 +71,12 @@ public class ParallelStream {
                 measureSumPerf(ParallelStream::parallelRangedSum, 10_000_000) + " msecs");
     }
 
+    @Test
+    public void test7() {
+        System.out.println("Iterative sum done in: " +
+                measureSumPerf(ParallelStream::rangedSum, 10_000_000) + " msecs");
+    }
+
     public long measureSumPerf(Function<Long, Long> adder, long n) {
         long fastest = Long.MAX_VALUE;
         for (int i = 0; i < 10; i++) {
@@ -96,7 +102,55 @@ public class ParallelStream {
     }
 
     public static long parallelRangedSum(long n) {
-        return LongStream.rangeClosed(1, n).parallel().reduce(Long::sum).getAsLong();
+        /*return LongStream.rangeClosed(1, n)
+                .parallel()
+                .reduce(Long::sum).getAsLong();*/
+        return LongStream.rangeClosed(1, n)
+                .parallel()
+                .reduce(0L, Long::sum);
     }
-}
 
+    public static long rangedSum(long n) {
+        return LongStream.rangeClosed(1, n)
+                .reduce(0L, Long::sum);
+    }
+
+    public static class Accumulator {
+        public long total = 0;
+
+        public void add(long value) {
+            total += value;
+        }
+    }
+
+    public static long sideEffectSum(long n) {
+        Accumulator accumulator = new Accumulator();
+        LongStream.rangeClosed(1, n)
+                .forEach(accumulator::add);
+        return accumulator.total;
+    }
+
+    public static long sideEffectParallelSum(long n) {
+        Accumulator accumulator = new Accumulator();
+        LongStream.rangeClosed(1, n)
+                .parallel()
+                .forEach(accumulator::add);
+        return accumulator.total;
+    }
+
+    @Test
+    public void test8() {
+        System.out.println("sideEffectSum sum done in: " +
+                measureSumPerf(ParallelStream::sideEffectSum, 10_000_000) + " msecs");
+    }
+
+    @Test
+    public void test9() {
+        System.out.println("sideEffectSum sum done in: " +
+                measureSumPerf(ParallelStream::sideEffectParallelSum, 10_000_000) + " msecs");
+    }
+
+    /*
+    * 7.2. The fork/join framework
+    * */
+}

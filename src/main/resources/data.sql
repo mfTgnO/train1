@@ -1,4 +1,4 @@
-create table if not exists Ingredient (
+/*create table if not exists Ingredient (
   id varchar(4) not null,
   name varchar(25) not null,
   type varchar(10) not null
@@ -42,3 +42,7 @@ alter table Taco_Order_Tacos
     add foreign key (tacoOrder) references Taco_Order(id);
 alter table Taco_Order_Tacos
     add foreign key (taco) references Taco(id);
+*/
+insert into users(id, name, email) values(1,'Siva','siva@gmail.com');
+insert into users(id, name, email) values(2,'Prasad','prasad@gmail.com');
+insert into users(id, name, email) values(3,'Reddy','reddy@gmail.com');
