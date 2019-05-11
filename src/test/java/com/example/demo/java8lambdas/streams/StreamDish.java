@@ -501,4 +501,19 @@ public class StreamDish {
                 .reduce(0, Integer::sum);
         System.out.println(sum);
     }
+
+    /*
+     * How to Convert List to Map in Java
+     * */
+    @Test
+    public void test42() {
+        Map<String, Dish> collect = menu.stream()
+                .collect(Collectors.toMap(Dish::getName, dish -> dish));
+//        System.out.println(collect);
+        Iterator<String> iterator = collect.keySet().iterator();
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            System.out.println(next + "\t\t\t\t" + collect.get(next));
+        }
+    }
 }
