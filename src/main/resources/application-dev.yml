@@ -13,8 +13,8 @@ spring:
     cache: false
   datasource:
 #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
-#    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
-    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
+    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
+#    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
 #    username: root
     username: newuser2
 #    password: fm9>mysql
@@ -22,6 +22,7 @@ spring:
     hikari:
       maximum-pool-size: 100
       max-lifetime: 1770000
+    initialization-mode: embedded
   #    schema:
   #    data:
   #    driver-class-name: com.mysql.cj.jdbc.Driver
@@ -81,4 +82,5 @@ taco:
 
 mybatis:
   type-aliases-package: com.example.demo.domain
-  mapper-locations: classpath*:**/mappers/*.xml
+#  mapper-locations: classpath*:**/mappers/*.xml
+  mapper-locations: classpath*:mappers/*.xml
