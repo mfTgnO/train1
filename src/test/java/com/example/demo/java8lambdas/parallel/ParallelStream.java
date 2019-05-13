@@ -3,10 +3,16 @@ package com.example.demo.java8lambdas.parallel;
 import org.junit.Test;
 
 import java.util.function.Function;
+import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public class ParallelStream {
+    final String SENTENCE =
+            " Nel mezzo del cammin di nostra vita " +
+                    "mi ritrovai in una selva oscura" +
+                    " ché la dritta via era smarrita ";
+
     /*
      * 7.1. Parallel streams
      *
@@ -151,6 +157,97 @@ public class ParallelStream {
     }
 
     /*
-    * 7.2. The fork/join framework
-    * */
+     * 7.2. The fork/join framework
+     * */
+    @Test
+    public void test10() {
+        int i = Runtime.getRuntime().availableProcessors();
+        System.out.println(i);
+    }
+
+    @Test
+    public void test11() {
+        System.out.println("ForkJoin sum done in: " + measureSumPerf(
+                ForkJoinSumCalculator::forkJoinSum, 10_000_000) + " msecs");
+    }
+
+    public int countWordIteratively(String s) {
+        int counter = 0;
+        boolean lastSpace = true;
+        for (char c : s.toCharArray()) {
+            if (Character.isWhitespace(c)) {
+                lastSpace = true;
+            } else {
+                if (lastSpace) {
+                    counter++;
+                }
+                lastSpace = false;
+            }
+        }
+        return counter;
+    }
+
+    @Test
+    public void test12() {
+        System.out.println("Found " + countWordIteratively(SENTENCE) + " words");
+    }
+
+    @Test
+    public void test13() {
+        Stream<Character> stream = IntStream.range(0, SENTENCE.length())
+                .mapToObj(SENTENCE::charAt);
+
+        System.out.println("Found " + countWords(stream) + " words");
+//        stream.forEach(System.out::println);
+    }
+
+    class WordCounter {
+        private final int counter;
+        private final boolean lastSpace;
+
+        WordCounter(int counter, boolean lastSpace) {
+            this.counter = counter;
+            this.lastSpace = lastSpace;
+        }
+
+        public WordCounter accumulate(Character c) {
+            if (Character.isWhitespace(c)) {
+                return lastSpace ?
+                        this :
+                        new WordCounter(counter, true);
+            } else {
+                return lastSpace ?
+                        new WordCounter(counter + 1, false) :
+                        this;
+            }
+        }
+
+        public WordCounter combine(WordCounter wordCounter) {
+            return new WordCounter(counter + wordCounter.counter, wordCounter.lastSpace);
+        }
+
+        public int getCounter() {
+            return counter;
+        }
+
+    }
+
+    private int countWords(Stream<Character> stream) {
+        WordCounter wordCounter = stream.reduce(new WordCounter(0, true),
+                WordCounter::accumulate,
+                WordCounter::combine);
+        return wordCounter.getCounter();
+    }
+
+    /*
+     * Making the WordCounter work in parallel
+     * */
+    @Test
+    public void test14() {
+        Stream<Character> stream = IntStream.range(0, SENTENCE.length())
+                .mapToObj(SENTENCE::charAt);
+
+        System.out.println("Found " + countWords(stream.parallel()) + " words");
+//        stream.forEach(System.out::println);
+    }
 }

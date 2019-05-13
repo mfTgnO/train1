@@ -509,11 +509,10 @@ public class StreamDish {
     public void test42() {
         Map<String, Dish> collect = menu.stream()
                 .collect(Collectors.toMap(Dish::getName, dish -> dish));
-//        System.out.println(collect);
         Iterator<String> iterator = collect.keySet().iterator();
         while (iterator.hasNext()) {
             String next = iterator.next();
-            System.out.println(next + "\t\t\t\t" + collect.get(next));
+            System.out.println(next + "\t\t" + collect.get(next));
         }
     }
 }
