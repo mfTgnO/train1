@@ -13,8 +13,8 @@ spring:
     cache: false
   datasource:
 #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
-    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
-#    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
+#    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
+    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
 #    username: root
     username: newuser2
 #    password: fm9>mysql
