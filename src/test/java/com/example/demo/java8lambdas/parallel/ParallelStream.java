@@ -2,10 +2,13 @@ package com.example.demo.java8lambdas.parallel;
 
 import org.junit.Test;
 
+import java.util.Spliterator;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class ParallelStream {
     final String SENTENCE =
@@ -249,5 +252,63 @@ public class ParallelStream {
 
         System.out.println("Found " + countWords(stream.parallel()) + " words");
 //        stream.forEach(System.out::println);
+    }
+
+    class WordCounterSpliterator implements Spliterator<Character> {
+        private final String string;
+        private int currentChar = 0;
+
+        WordCounterSpliterator(String string) {
+            this.string = string;
+        }
+
+        @Override
+        public boolean tryAdvance(Consumer<? super Character> action) {
+            action.accept(string.charAt(currentChar++));
+            return currentChar < string.length();
+        }
+
+        @Override
+        public Spliterator<Character> trySplit() {
+            int currentSize = string.length() - currentChar;
+            if (currentSize < 10) {
+                // Return null to signal that the String to be parsed is small enough to bo processed sequentially.
+                return null;
+            }
+
+            // Set the candidate's split position to be half of the String to be parsed.
+            for (int splitPos = currentSize / 2 + currentChar; splitPos < string.length(); splitPos++) {
+                // Advance the split position until the next space.
+                if (Character.isWhitespace(string.charAt(splitPos))) {
+                    // Create a new WordCounterSpliterator parsing the String from the start to the split position.
+                    WordCounterSpliterator spliterator = new WordCounterSpliterator(string.substring(currentChar, splitPos));
+                    // Set the start position of this WordCounterSpliterator to the split position.
+                    currentSize = splitPos;
+                    return spliterator;
+                }
+            }
+            return null;
+        }
+
+        @Override
+        public long estimateSize() {
+            return string.length() - currentChar;
+        }
+
+        @Override
+        public int characteristics() {
+            return ORDERED + SIZED + SUBSIZED + NONNULL + IMMUTABLE;
+        }
+    }
+
+    /*
+     * Putting the WordCounterSpliterator to work
+     * */
+    @Test
+    public void test15() {
+        Spliterator<Character> spliterator = new WordCounterSpliterator(SENTENCE);
+        Stream<Character> stream = StreamSupport.stream(spliterator, true);
+
+        System.out.println("Found " + countWords(stream) + " words");
     }
 }
