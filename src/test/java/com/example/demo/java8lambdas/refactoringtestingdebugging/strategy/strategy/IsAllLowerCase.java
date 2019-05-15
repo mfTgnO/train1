@@ -1,4 +1,4 @@
-package com.example.demo.java8lambdas.refactoringtestingdebugging.strategy;
+package com.example.demo.java8lambdas.refactoringtestingdebugging.strategy.strategy;
 
 /**
  * @Package: com.example.demo.java8lambdas.refactoringtestingdebugging.strategy

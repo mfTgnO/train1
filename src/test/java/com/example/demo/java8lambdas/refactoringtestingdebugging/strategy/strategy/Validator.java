@@ -1,6 +1,4 @@
-package com.example.demo.java8lambdas.refactoringtestingdebugging.strategy;
-
-import org.junit.Test;
+package com.example.demo.java8lambdas.refactoringtestingdebugging.strategy.strategy;
 
 /**
  * @Package: com.example.demo.java8lambdas.refactoringtestingdebugging.strategy
