@@ -310,4 +310,12 @@ public class RefactoringDemo {
 
         Product p3 = productFactory.createProductLambda("loan");
     }
+
+    /*
+     * 8.3. Testing lambdas
+     * */
+    @Test
+    public void test16() {
+
+    }
 }
