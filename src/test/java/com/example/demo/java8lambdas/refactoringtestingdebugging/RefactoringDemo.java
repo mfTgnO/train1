@@ -312,7 +312,7 @@ public class RefactoringDemo {
     }
 
     /*
-     * 8.3. Testing lambdas
+     * 8.3.
      * */
     @Test
     public void test16() {
