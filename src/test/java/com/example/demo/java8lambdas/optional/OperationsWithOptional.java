@@ -18,7 +18,7 @@ public class OperationsWithOptional {
         System.out.println(max(Optional.of(3), Optional.of(5)));
         System.out.println(max(Optional.empty(), Optional.of(5)));
 
-        Optional<Integer> opt1 = Optional.of(5);Future
+        Optional<Integer> opt1 = Optional.of(5);
         /*Optional<Integer> opt2 = opt1.orElse(() -> Optional.of(4));
         System.out.println(Optional.of(5).or(() -> Optional.of(4)));*/
     }
