@@ -53,4 +53,27 @@ public class AsyncShopClient {
         long retrieveTime = (System.nanoTime() - start) / 1_000_000;
         System.out.println("Price returned after " + retrieveTime + " msecs");
     }
+
+    /*
+    * asynchronous
+    *
+    * Listing 11.6. Propagating an error inside the CompletableFuture
+    * */
+    @Test
+    public void test3() {
+        AsyncShop shop = new AsyncShop("BestShop");
+        long start = System.nanoTime();
+        Future<Double> futurePrice = shop.getPriceAsyncV2("");
+        long invocationTime = (System.nanoTime() - start) / 1_000_000;
+        System.out.println("Invocation returned after " + invocationTime + " msecs");
+
+        try {
+            System.out.println("Price is " + futurePrice.get());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        long retrieveTime = (System.nanoTime() - start) / 1_000_000;
+        System.out.println("Price returned after " + retrieveTime + " msecs");
+    }
 }
