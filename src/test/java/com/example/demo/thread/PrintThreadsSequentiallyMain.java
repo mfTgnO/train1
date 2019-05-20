@@ -1,5 +1,11 @@
 package com.example.demo.thread;
 
+import org.junit.Test;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 public class PrintThreadsSequentiallyMain {
     public static void main(String[] args) {
         PrintSequenceRunnable runnable1 = new PrintSequenceRunnable(1);
@@ -21,5 +27,16 @@ public class PrintThreadsSequentiallyMain {
         System.out.println("T1 State:" + t1.getState());
         System.out.println("T2 State:" + t2.getState());
         System.out.println("T3 State:" + t3.getState());
+    }
+
+    @Test
+    public void test1() {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        Future<?> future = executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("hello");
+            }
+        });
     }
 }
