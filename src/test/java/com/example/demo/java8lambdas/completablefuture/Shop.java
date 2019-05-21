@@ -16,6 +16,11 @@ public class Shop {
     private final String name;
     private final Random random;
 
+    public Shop(String name) {
+        this.name = name;
+        random = new Random(1000);
+    }
+
     public Shop(String name, Random random) {
         this.name = name;
         this.random = random;
@@ -29,6 +34,11 @@ public class Shop {
         double price = calculatePrice(product);
         Discount.Code code = Discount.Code.values()[random.nextInt(Discount.Code.values().length)];
         return name + ":" + price + ":" + code;
+    }
+
+    public double getPriceV2(String product) {
+        double price = calculatePrice(product);
+        return price;
     }
 
     public double calculatePrice(String product) {

@@ -22,7 +22,13 @@ public class Discount {
     }
 
     private static double apply(double price, Code code) {
+        // Simulate a delay in the Discount service response.
         delay();
         return format(price * (100 - code.percentage) / 100);
+    }
+
+    public static String applyDiscount(Quote quote) {
+        // Apply the discount code to the original price.
+        return quote.getShopName() + " price is " + Discount.apply(quote.getPrice(), quote.getDiscountCode());
     }
 }

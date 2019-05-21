@@ -39,4 +39,10 @@ public class PrintThreadsSequentiallyMain {
             }
         });
     }
+
+    @Test
+    public void test2() {
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        System.out.println(availableProcessors);
+    }
 }
