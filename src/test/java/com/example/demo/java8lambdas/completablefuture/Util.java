@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * @Description:
  */
 public class Util {
-    private static final Random RANDOM = new Random(0);
+    private static final Random RANDOM = new Random();
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.##", new DecimalFormatSymbols(Locale.CHINA));
 
     public static void delay() {
@@ -43,5 +43,17 @@ public class Util {
         return allDoneFuture.thenApply(v -> futures.stream()
                 .map(future -> future.join())
                 .collect(Collectors.toList()));
+    }
+
+    /*
+     * Listing 11.19. A method to simulate a random delay between 0.5 and 2.5 seconds
+     * */
+    public static void randomDelay() {
+        int delay = 500 + RANDOM.nextInt(2000);
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

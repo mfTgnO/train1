@@ -34,7 +34,7 @@ public class ParallelStream {
                 .reduce(0L, Long::sum);
 
         long duration = System.nanoTime() - start;
-        System.out.println("test1 duration time:" + duration + "  sum:" + sum);
+        System.out.println("test1 duration datetime:" + duration + "  sum:" + sum);
     }
 
     /*
@@ -51,7 +51,7 @@ public class ParallelStream {
                 .reduce(0L, Long::sum);
 
         long duration = System.nanoTime() - start;
-        System.out.println("test2 duration time:" + duration + "  sum:" + sum);
+        System.out.println("test2 duration datetime:" + duration + "  sum:" + sum);
     }
 
     @Test
