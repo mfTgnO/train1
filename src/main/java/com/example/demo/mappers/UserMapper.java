@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Repository
 public interface UserMapper {
-    void insertUser(User user);
+    Integer insertUser(User user);
 
     User findUserById(Integer id);
 

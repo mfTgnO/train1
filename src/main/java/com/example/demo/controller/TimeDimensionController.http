@@ -1,0 +1,13 @@
+GET http://127.0.0.1:8080/timeDimension
+
+###
+GET http://127.0.0.1:8080/timeDimension/10106
+
+###
+GET http://127.0.0.1:8080/timeDimension/20125
+
+###
+POST http://127.0.0.1:8080/timeDimension/event?id=20125&event=2019
+#Content-Type: application/x-www-form-urlencoded
+
+###

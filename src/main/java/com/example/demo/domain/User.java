@@ -2,6 +2,10 @@ package com.example.demo.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @Package: com.example.demo.domain
@@ -12,8 +16,18 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+@Entity
+@Table(name = "users")
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 8548297306458565309L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     private String name;
+
     private String email;
 }

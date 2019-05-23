@@ -1,10 +1,9 @@
 #分号后面需要添加一个空格
 server:
   port: 8080
-
-#  tomcat:
-#    max-threads: 20
-#    max-connections: 10000
+  tomcat:
+    max-threads: 20
+    max-connections: 10000
 
 spring:
 #  autoconfigure:
@@ -13,8 +12,8 @@ spring:
     cache: false
   datasource:
 #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
-#    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
-    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
+    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
+#    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
 #    username: root
     username: newuser2
 #    password: fm9>mysql
@@ -50,17 +49,17 @@ spring:
 #    - kafka.tacocloud.com:9092
 #    - kafka.tacocloud.com:9093
 #    - kafka.tacocloud.com:9094
-#  redis:
-#    database: 0
-#    host: 192.168.2.211
-#    port: 6379
-#    password:
-#    jedis:
-#      pool:
-#        max-active: 8
-#        max-idle: 8
-#        min-idle: 0
-#    timeout: 0
+  redis:
+    database: 0
+    host: 192.168.2.211
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+    timeout: 0
 logging:
   #  path: E:logspath\logs\
   file: demo.log
@@ -84,3 +83,6 @@ mybatis:
   type-aliases-package: com.example.demo.domain
 #  mapper-locations: classpath*:**/mappers/*.xml
   mapper-locations: classpath*:mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-prefix: mybatis-log-prefix

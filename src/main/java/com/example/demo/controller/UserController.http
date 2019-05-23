@@ -1,0 +1,23 @@
+GET http://127.0.0.1:8080/user
+
+###
+
+GET http://127.0.0.1:8080/user/findUser?id=6
+
+###
+
+POST http://127.0.0.1:8080/user/add?name=ZhangSan&email=hello@world.com
+
+###
+
+POST http://127.0.0.1:8080/user/addExceptionV1?name=ZhangSan&email=hello@world.com
+
+###
+
+POST http://127.0.0.1:8080/user/addExceptionV2?name=ZhangSan&email=hello@world.com
+
+###
+
+POST http://127.0.0.1:8080/user/addExceptionV3?name=ZhangSan&email=hello@world.com
+
+###

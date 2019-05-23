@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.*;
+import java.time.chrono.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
@@ -552,9 +553,59 @@ public class TimeZoneDemo {
 
     /*
      * 12.3.1. Fixed offset from UTC/Greenwich
+     *
+     * Another common way to express a time zone is with a fixed offset from UTC/Greenwich. For
+     * instance, you can use this notation to say that “New York is five hours behind London.” In cases
+     * like this you can use the ZoneOffset class, a subclass of ZoneId that represents the difference
+     * between a time and the zero meridian of Greenwich, London:
      * */
     @Test
     public void test32() {
+        ZoneOffset newYorkOffset = ZoneOffset.of("-05:00");
+        String id = newYorkOffset.getId();
+        LocalDateTime dateTime = LocalDateTime.of(2014, Month.MARCH, 18, 18, 13, 45);
+        OffsetDateTime dateTimeInNewYork = OffsetDateTime.of(dateTime, newYorkOffset);
 
+        System.out.println(id);
+        System.out.println(newYorkOffset);
+        System.out.println(dateTime);
+        System.out.println(dateTimeInNewYork);
+    }
+
+    /*
+     * 12.3.2. Using alternative calendar systems
+     * */
+    @Test
+    public void test33() {
+        LocalDate date = LocalDate.of(2014, Month.MARCH, 18);
+        JapaneseDate japaneseDate = JapaneseDate.from(date);
+        System.out.println(japaneseDate);
+    }
+
+    /*
+     * Alternatively, you can explicitly create a calendar system for a specific Locale and create an
+     * instance of a date for that Locale. In the new Date and Time API, the Chronology interface
+     * models a calendar system, and you can obtain an instance of it using its ofLocale static factory
+     * method:
+     * */
+    @Test
+    public void test34() {
+        Chronology japaneseChronology = Chronology.ofLocale(Locale.JAPAN);
+        ChronoLocalDate chronoLocalDate = japaneseChronology.dateNow();
+        System.out.println(chronoLocalDate);
+    }
+
+    /*
+     * Islamic calendar
+     * */
+    @Test
+    public void test35() {
+        HijrahDate ramadanDate = HijrahDate.now().with(ChronoField.DAY_OF_MONTH, 1)
+                // Get current Hijrah date;then change it to have the first day of Ramadan,which is the 9th month.
+                .with(ChronoField.MONTH_OF_YEAR, 9);
+        System.out.println("Ramadan starts on " +
+                IsoChronology.INSTANCE.date(ramadanDate) +
+                " and ends on " +
+                IsoChronology.INSTANCE.date(ramadanDate.with(TemporalAdjusters.lastDayOfMonth())));
     }
 }
