@@ -7018,3 +7018,11 @@ Using generated security password: 5004036b-81b9-4bff-9c79-170f9aa23876
 2019-05-23 18:06:37.144  INFO 17248 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-05-23 18:06:37.145  INFO 17248 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-05-23 18:06:37.154  INFO 17248 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-05-23 18:08:51.602  INFO 17248 --- [Thread-47] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2019-05-23 18:08:51.602  INFO 17248 --- [Thread-47] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 0 subscriber(s).
+2019-05-23 18:08:51.602  INFO 17248 --- [Thread-47] o.s.i.endpoint.EventDrivenConsumer       : stopped _org.springframework.integration.errorLogger
+2019-05-23 18:08:51.603  INFO 17248 --- [Thread-47] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-05-23 18:08:51.604  INFO 17248 --- [Thread-47] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'asyncExecutor'
+2019-05-23 18:08:51.605  INFO 17248 --- [Thread-47] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-23 18:08:51.607  INFO 17248 --- [Thread-47] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2019-05-23 18:08:51.625  INFO 17248 --- [Thread-47] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
