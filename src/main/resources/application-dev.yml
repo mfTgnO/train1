@@ -60,6 +60,8 @@ spring:
         max-idle: 8
         min-idle: 0
     timeout: 0
+  application:
+    name: sample-spring-redis
 logging:
   #  path: E:logspath\logs\
   file: demo.log
