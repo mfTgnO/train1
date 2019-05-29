@@ -5,10 +5,70 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
-GET http://127.0.0.1:8080/save
+GET http://127.0.0.1:8080/redis/save
 
 ###
 
-GET http://127.0.0.1:8080/add
+GET http://127.0.0.1:8080/redis/add
+
+###
+
+GET http://127.0.0.1:8080/redis/findAll
+
+###
+
+GET http://127.0.0.1:8080/redis/valueOperationsAdd?key=shcool:1&value=Digest Authentication
+
+###
+
+GET http://127.0.0.1:8080/redis/valueOperationsAdd?key=mykey&value=somevalue
+
+###
+
+GET http://127.0.0.1:8080/redis/valueOperationsAddExpireTime?key=mykey2&value=somevalue2
+
+###
+
+GET http://127.0.0.1:8080/redis/valueOperationsAddExpireTime?key=mykey3&value=10
+
+###
+
+GET http://127.0.0.1:8080/redis/valueOperationsGet?key=shcool:1
+
+###
+
+GET http://127.0.0.1:8080/redis/valueOperationsGet?key=mykey2
+
+###
+
+GET http://127.0.0.1:8080/redis/valueOperationsIncrement?key=mykey3
+
+###
+
+GET http://127.0.0.1:8080/redis/listOperationsRightPush?key=mylist
+
+###
+
+GET http://127.0.0.1:8080/redis/listOperationsRange?key=mylist
+
+###
+
+GET http://127.0.0.1:8080/redis/listOperationsSize?key=mylist
+
+###
+
+GET http://127.0.0.1:8080/redis/listOperationsLeftPop?key=mylist
+
+###
+
+GET http://127.0.0.1:8080/redis/setOperationsAdd?key=myset&value=13
+
+###
+
+GET http://127.0.0.1:8080/redis/setOperationsMembers?key=myset
+
+###
+
+GET http://127.0.0.1:8080/redis/setOperationsSize?key=myset
 
 ###
