@@ -61,7 +61,7 @@ GET http://127.0.0.1:8080/redis/listOperationsLeftPop?key=mylist
 
 ###
 
-GET http://127.0.0.1:8080/redis/setOperationsAdd?key=myset&value=13
+GET http://127.0.0.1:8080/redis/setOperationsAdd?key=myset&value=14
 
 ###
 

@@ -7,8 +7,9 @@ public class ConnectRedisServerTest {
     @Test
     public void connect() {
         //Connecting to Redis server on localhost
-        Jedis jedis = new Jedis("192.168.2.211", 6379);
+//        Jedis jedis = new Jedis("192.168.2.211", 6379);
 //        Jedis jedis = new Jedis("127.0.0.1", 6379);
+        Jedis jedis = new Jedis("10.0.0.7", 6379);
 //        System.out.println("Connection to server sucessfully");
 
         //check whether server is running or not

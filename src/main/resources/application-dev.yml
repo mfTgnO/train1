@@ -12,7 +12,8 @@ spring:
     cache: false
   datasource:
 #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
-    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
+#    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
+    url: jdbc:mysql://10.0.0.7:6603/bookinfo?serverTimezone=UTC
 #    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
 #    username: root
     username: newuser2
@@ -51,7 +52,8 @@ spring:
 #    - kafka.tacocloud.com:9094
   redis:
     database: 0
-    host: 192.168.2.211
+#    host: 192.168.2.211
+    host: 10.0.0.7
     port: 6379
     password:
     jedis:
