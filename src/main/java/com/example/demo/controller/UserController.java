@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
+import static com.example.demo.utils.ThreadUtil.EXECUTOR2;
 
 /**
  * @Package: com.example.demo.controller
@@ -26,13 +30,47 @@ public class UserController {
 
     @GetMapping
     public List<User> getUser() {
-        return userService.findAllUsers();
+        List<User> allUsers = userService.findAllUsers();
+        System.out.println("==================================================================");
+        System.out.println(allUsers);
+        return allUsers;
     }
 
     @GetMapping("/findUser")
     public User findUserById(@RequestParam("id") Integer id) {
-        return userService.findUserById(id);
+        User user = userService.findUserById(id);
+        System.out.println("==================================================================");
+        System.out.println(user);
+        return user;
     }
+
+    @GetMapping("/findUserV2")
+    public User findUserByIdV2(@RequestParam("id") Integer id) throws ExecutionException, InterruptedException {
+        CompletableFuture<User> userCompletableFuture = new CompletableFuture<>();
+        new Thread(() -> {
+            User user = userService.findUserById(id);
+            userCompletableFuture.complete(user);
+        }).start();
+        User user = userCompletableFuture.get();
+        System.out.println("==================================================================");
+        System.out.println(user);
+        return user;
+    }
+
+    /*@GetMapping("/findUserV3")
+    public User findUserByIdV3(@RequestParam("id") Integer id) throws ExecutionException, InterruptedException {
+//        CompletableFuture<User> userCompletableFuture = new CompletableFuture<>();
+        U u = CompletableFuture.supplyAsync(userService.findUserById(id), EXECUTOR2)
+                .get();
+        *//*new Thread(() -> {
+            User user = userService.findUserById(id);
+            userCompletableFuture.complete(user);
+        }).start();*//*
+        User user = userCompletableFuture.get();
+        System.out.println("==================================================================");
+        System.out.println(user);
+        return user;
+    }*/
 
     @PostMapping("/add")
     public void addUser(@RequestParam("name") String name, @RequestParam("email") String email) {
