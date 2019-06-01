@@ -38,4 +38,10 @@ public class TimeDemo {
 
         System.out.println(str.charAt(0));
     }
+
+    @Test
+    public void test4() {
+        Class<? extends TimeDemo> aClass = this.getClass();
+        System.out.println(aClass);
+    }
 }
