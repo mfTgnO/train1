@@ -1,5 +1,7 @@
-package com.example.demo.spring.aop.business;
+package com.example.demo.spring.aop;
 
+import com.example.demo.spring.aop.business.Business1;
+import com.example.demo.spring.aop.business.Business2;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+/*
+ * Implementing AOP With Spring Boot and AspectJ
+ * https://dzone.com/articles/implementing-aop-with-spring-boot-and-aspectj
+ * */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j

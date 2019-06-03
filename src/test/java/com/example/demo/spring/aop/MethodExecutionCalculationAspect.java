@@ -17,7 +17,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 public class MethodExecutionCalculationAspect {
-    @Around("@annotation(com.example.demo.spring.aop.TrackTime)")
+    @Around("com.example.demo.spring.aop.CommonJoinPointConfig.dataLayerExecution()")
+//    @Around("@annotation(com.example.demo.spring.aop.TrackTime)")
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
 
