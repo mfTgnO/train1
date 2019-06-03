@@ -11,16 +11,24 @@ import javax.sql.DataSource;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests {
+    /*private DataSource dataSource;
+
     @Autowired
-    private DataSource dataSource;
+    public DemoApplicationTests(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Test
     public void contextLoads() {
+
     }
 
     @Test
     public void hikariConnectionPoolIsConfigured() {
         String name = dataSource.getClass().getName();
         System.out.println("data source name :" + name);
+    }*/
+    public static void main(String[] args) {
+
     }
 }
