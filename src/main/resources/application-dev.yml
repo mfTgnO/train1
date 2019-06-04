@@ -21,7 +21,7 @@ spring:
 #    password: fm9>mysql
     password: fm9>MySQL
     hikari:
-      maximum-pool-size: 100
+      maximum-pool-size: 10
       max-lifetime: 1770000
     initialization-mode: embedded
   #    schema:
