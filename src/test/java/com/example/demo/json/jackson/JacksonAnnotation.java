@@ -181,4 +181,38 @@ public class JacksonAnnotation {
         assertEquals("My bean", bean.name);
         assertEquals("val2", bean.getProperties().get("attr2"));
     }
+
+    /*
+     * 3.4. @JsonSetter
+     * */
+    @Test
+    public void test11() throws IOException, ParseException {
+        String json = "{\"id\":1,\"name\":\"My bean\"}";
+
+        MyBean bean = new ObjectMapper()
+                .readerFor(MyBean.class)
+                .readValue(json);
+        System.out.println(bean);
+
+        assertEquals("My bean", bean.getTheName());
+    }
+
+    /*
+     * 3.5. @JsonDeserialize
+     * */
+    @Test
+    public void test12() throws IOException {
+
+        String json
+                = "{\"name\":\"party\",\"eventDate\":\"20-12-2014 02:30:00\"}";
+
+        SimpleDateFormat df
+                = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+        Event event = new ObjectMapper()
+                .readerFor(Event.class)
+                .readValue(json);
+
+        assertEquals(
+                "20-12-2014 02:30:00", df.format(event.eventDate));
+    }
 }
