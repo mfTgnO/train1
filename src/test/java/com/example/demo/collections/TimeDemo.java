@@ -44,4 +44,12 @@ public class TimeDemo {
         Class<? extends TimeDemo> aClass = this.getClass();
         System.out.println(aClass);
     }
+
+    @Test
+    public void test5() {
+        int a = 1 << 4;
+        int b = 1 << 30;
+        System.out.println(a);
+        System.out.println(b);
+    }
 }
