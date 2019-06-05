@@ -17,8 +17,7 @@ import java.util.Date;
  * @description:
  */
 public class CustomDateDeserializer extends StdDeserializer {
-    private static SimpleDateFormat formatter
-            = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+    private static SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
     public CustomDateDeserializer() {
         this(null);
@@ -29,10 +28,7 @@ public class CustomDateDeserializer extends StdDeserializer {
     }
 
     @Override
-    public Date deserialize(
-            JsonParser jsonparser, DeserializationContext context)
-            throws IOException {
-
+    public Date deserialize(JsonParser jsonparser, DeserializationContext context) throws IOException {
         String date = jsonparser.getText();
         try {
             return formatter.parse(date);

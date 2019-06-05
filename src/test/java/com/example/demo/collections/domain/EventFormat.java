@@ -1,5 +1,9 @@
 package com.example.demo.collections.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
+
 /**
  * @package: com.example.demo.collections.domain
  * @author:
@@ -8,4 +12,13 @@ package com.example.demo.collections.domain;
  * @description:
  */
 public class EventFormat {
+    public String name;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    public Date eventDate;
+
+    public EventFormat(String name, Date eventDate) {
+        this.name = name;
+        this.eventDate = eventDate;
+    }
 }

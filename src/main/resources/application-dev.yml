@@ -4,21 +4,23 @@ server:
   tomcat:
     max-threads: 20
     max-connections: 10000
+  servlet:
+    context-path: /demo
 
 spring:
-#  autoconfigure:
-#    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  #  autoconfigure:
+  #    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   thymeleaf:
     cache: false
   datasource:
-#    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
-#    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
+    #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+    #    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
     url: jdbc:mysql://192.168.1.211:6603/bookinfo?serverTimezone=UTC
-#    url: jdbc:mysql://10.0.0.7:6603/bookinfo?serverTimezone=UTC
-#    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
-#    username: root
+    #    url: jdbc:mysql://10.0.0.7:6603/bookinfo?serverTimezone=UTC
+    #    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
+    #    username: root
     username: newuser2
-#    password: fm9>mysql
+    #    password: fm9>mysql
     password: fm9>MySQL
     hikari:
       maximum-pool-size: 10
@@ -27,33 +29,33 @@ spring:
   #    schema:
   #    data:
   #    driver-class-name: com.mysql.cj.jdbc.Driver
-#  artemis:
-#    host: artemis.tacocloud.com
-#    port: 61617
-#    user: tacoweb
-#    password: l3tm31n
-#  jms:
-#    template:
-#      default-destination: tacocloud.order.queue
-#  rabbitmq:
-#    host: rabbit.tacocloud.com
-#    port: 5673
-#    username: tacoweb
-#    password: l3tm31n
-#    template:
-#      exchange: tacocloud.orders
-#      routing-key: kitchens.central
-#      receive-timeout: 30000
-#  kafka:
-#    template:
-#      default-topic: tacocloud.orders.topic
-#    bootstrap-servers:
-#    - kafka.tacocloud.com:9092
-#    - kafka.tacocloud.com:9093
-#    - kafka.tacocloud.com:9094
+  #  artemis:
+  #    host: artemis.tacocloud.com
+  #    port: 61617
+  #    user: tacoweb
+  #    password: l3tm31n
+  #  jms:
+  #    template:
+  #      default-destination: tacocloud.order.queue
+  #  rabbitmq:
+  #    host: rabbit.tacocloud.com
+  #    port: 5673
+  #    username: tacoweb
+  #    password: l3tm31n
+  #    template:
+  #      exchange: tacocloud.orders
+  #      routing-key: kitchens.central
+  #      receive-timeout: 30000
+  #  kafka:
+  #    template:
+  #      default-topic: tacocloud.orders.topic
+  #    bootstrap-servers:
+  #    - kafka.tacocloud.com:9092
+  #    - kafka.tacocloud.com:9093
+  #    - kafka.tacocloud.com:9094
   redis:
     database: 0
-#    host: 192.168.2.211
+    #    host: 192.168.2.211
     host: 10.0.0.7
     port: 6379
     password:
@@ -86,8 +88,13 @@ taco:
 
 mybatis:
   type-aliases-package: com.example.demo.domain
-#  mapper-locations: classpath*:**/mappers/*.xml
+  #  mapper-locations: classpath*:**/mappers/*.xml
   mapper-locations: classpath*:mappers/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #    log-prefix: mybatis-log-prefix
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

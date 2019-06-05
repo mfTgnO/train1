@@ -8,4 +8,9 @@ package com.example.demo.collections.domain;
  * @description:
  */
 public class Views {
+    public static class Public {
+    }
+
+    public static class Internal extends Public {
+    }
 }
