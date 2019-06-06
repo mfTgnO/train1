@@ -1565,3 +1565,11 @@ Using generated security password: 0c9c74ae-0ecd-4a99-b65d-04f2ab5f4cd9
 2019-06-05 17:49:31.088  INFO 12624 --- [RMI TCP Connection(9)-192.168.1.201] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#244630c4:0/SimpleConnection@c54b6f2 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 29498]
 2019-06-05 17:49:31.209  INFO 12624 --- [RMI TCP Connection(9)-192.168.1.201] io.lettuce.core.EpollProvider            : Starting without optional epoll library
 2019-06-05 17:49:31.211  INFO 12624 --- [RMI TCP Connection(9)-192.168.1.201] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2019-06-05 17:57:06.463  INFO 12624 --- [Thread-27] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2019-06-05 17:57:06.463  INFO 12624 --- [Thread-27] o.s.i.channel.PublishSubscribeChannel    : Channel 'sample-spring-redis.errorChannel' has 0 subscriber(s).
+2019-06-05 17:57:06.464  INFO 12624 --- [Thread-27] o.s.i.endpoint.EventDrivenConsumer       : stopped _org.springframework.integration.errorLogger
+2019-06-05 17:57:06.464  INFO 12624 --- [Thread-27] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2019-06-05 17:57:06.469  INFO 12624 --- [Thread-27] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'asyncExecutor'
+2019-06-05 17:57:06.470  INFO 12624 --- [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-05 17:57:07.582  INFO 12624 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-06-05 17:57:07.588  INFO 12624 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
