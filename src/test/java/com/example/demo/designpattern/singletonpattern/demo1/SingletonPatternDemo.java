@@ -1,4 +1,4 @@
-package com.example.demo.designpattern.singletonpattern;
+package com.example.demo.designpattern.singletonpattern.demo1;
 
 import org.junit.Test;
 

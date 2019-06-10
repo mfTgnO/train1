@@ -1,0 +1,30 @@
+package com.example.demo.designpattern.singletonpattern.demo2;
+
+import java.io.*;
+
+/**
+ * @package: com.example.demo.designpattern.singletonpattern.demo2
+ * @author:
+ * @email:
+ * @createDate: 2019-06-10 19:19
+ * @description:
+ */
+public class SingletonSerializedTest {
+    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+        SerializedSingleton instanceOne = SerializedSingleton.getInstance();
+        ObjectOutput out = new ObjectOutputStream(new FileOutputStream(
+                "filename.ser"));
+        out.writeObject(instanceOne);
+        out.close();
+
+        //deserailize from file to object
+        ObjectInput in = new ObjectInputStream(new FileInputStream(
+                "filename.ser"));
+        SerializedSingleton instanceTwo = (SerializedSingleton) in.readObject();
+        in.close();
+
+        System.out.println("instanceOne hashCode=" + instanceOne.hashCode());
+        System.out.println("instanceTwo hashCode=" + instanceTwo.hashCode());
+
+    }
+}
