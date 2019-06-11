@@ -71,7 +71,6 @@ public class ReflectionDemo {
         System.out.println(superClass); // prints "class com.journaldev.reflection.BaseClass"
         System.out.println(Object.class.getSuperclass()); // prints "null"
         System.out.println(String[][].class.getSuperclass());// prints "class java.lang.Object"
-
     }
 
     /*
@@ -376,7 +375,7 @@ public class ReflectionDemo {
     @Test
     public void test21() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         //invoking private method
-        Method method = Class.forName("com.journaldev.reflection.BaseClass").getDeclaredMethod("method3", null);
+        Method method = Class.forName("com.example.demo.reflection.demo1.BaseClass").getDeclaredMethod("method3", null);
         method.setAccessible(true);
         method.invoke(null, null); //prints "Method3"
     }
@@ -393,7 +392,7 @@ public class ReflectionDemo {
      * */
     @Test
     public void test22() throws ClassNotFoundException, NoSuchMethodException {
-        Constructor<?> constructor = Class.forName("com.journaldev.reflection.ConcreteClass").getConstructor(int.class);
+        Constructor<?> constructor = Class.forName("com.example.demo.reflection.demo1.ConcreteClass").getConstructor(int.class);
         //getting constructor parameters
         System.out.println(Arrays.toString(constructor.getParameterTypes())); // prints "[int]"
 
@@ -410,7 +409,7 @@ public class ReflectionDemo {
      * */
     @Test
     public void test23() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Constructor<?> constructor = Class.forName("com.journaldev.reflection.ConcreteClass").getConstructor(int.class);
+        Constructor<?> constructor = Class.forName("com.example.demo.reflection.demo1.ConcreteClass").getConstructor(int.class);
         //getting constructor parameters
         System.out.println(Arrays.toString(constructor.getParameterTypes())); // prints "[int]"
 
