@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * @package: com.example.demo.io
@@ -55,4 +56,37 @@ public class ReadFile {
             System.out.println(line);
         }
     }
+
+    /**
+     * Using scanner to read text file in java
+     * <p>
+     * If you want to read file line by line or based on some java regular expression, Scanner is the class to use.
+     * Scanner breaks its input into tokens using a delimiter pattern, which by default matches whitespace.
+     * The resulting tokens may then be converted into values of different types using the various next methods.
+     * Scanner is not synchronized and hence not thread safe.
+     */
+    @Test
+    public void test3() throws IOException {
+        Path path = Paths.get(fileName);
+        Scanner scanner = new Scanner(path);
+        System.out.println("Read text file using Scanner");
+
+        while (scanner.hasNext()) {
+            String line = scanner.nextLine();
+            System.out.println(line);
+        }
+        scanner.close();
+    }
+
+    /**
+     * Java Read File Example
+     * <p>
+     * Here is the example class showing how to read text file in java.
+     * The example methods are using Scanner, Files, BufferedReader with Encoding support and FileReader.
+     */
+    @Test
+    public void test4() throws IOException {
+
+    }
 }
+
