@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.function.Supplier;
 
 /**
  * @Package: com.example.demo.domain
@@ -20,7 +19,7 @@ import java.util.function.Supplier;
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
-public class User implements Serializable{
+public class User implements Serializable {
 
     private static final long serialVersionUID = 8548297306458565309L;
 

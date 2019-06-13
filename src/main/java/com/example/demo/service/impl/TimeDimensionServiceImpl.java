@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.domain.TimeDimension;
-import com.example.demo.mappers.TimeDimensionMapper;
+import com.example.demo.mapper.TimeDimensionMapper;
 import com.example.demo.service.TimeDimensionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

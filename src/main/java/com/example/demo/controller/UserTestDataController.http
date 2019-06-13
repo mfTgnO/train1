@@ -1,0 +1,9 @@
+GET http://127.0.0.1:8080/userTest
+
+###
+GET http://127.0.0.1:8080/userTest/v2?page_no=4&page_size=3
+
+###
+GET http://127.0.0.1:8080
+
+###

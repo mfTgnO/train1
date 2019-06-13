@@ -4,8 +4,8 @@ server:
   tomcat:
     max-threads: 20
     max-connections: 10000
-  servlet:
-    context-path: /demo
+#  servlet:
+#    context-path: /demo
 
 spring:
   #  autoconfigure:
@@ -18,10 +18,11 @@ spring:
     url: jdbc:mysql://192.168.1.211:6603/bookinfo?serverTimezone=UTC
     #    url: jdbc:mysql://10.0.0.7:6603/bookinfo?serverTimezone=UTC
     #    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
-    #    username: root
-    username: newuser2
+    username: root
+#    username: newuser2
     #    password: fm9>mysql
-    password: fm9>MySQL
+#    password: fm9>MySQL
+    password: mypassword
     hikari:
       maximum-pool-size: 10
       max-lifetime: 1770000
@@ -96,10 +97,14 @@ taco:
     pageSize: 10
 
 mybatis:
+  # 指定别名设置的包为所有entity
   type-aliases-package: com.example.demo.domain
-  #  mapper-locations: classpath*:**/mappers/*.xml
-  mapper-locations: classpath*:mappers/*.xml
+  #  mapper-locations: classpath*:**/mapper/*.xml
+  mapper-locations: classpath*:mapper/*.xml
+#  mapper-locations: classpath:com.example.demo.mapper/*.xml
   configuration:
+    # 驼峰命名规范
+    map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #    log-prefix: mybatis-log-prefix
 management:
@@ -107,3 +112,10 @@ management:
     web:
       exposure:
         include: "*"
+
+# 配置分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
