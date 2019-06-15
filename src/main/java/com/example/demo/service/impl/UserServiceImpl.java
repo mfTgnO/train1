@@ -70,7 +70,8 @@ public class UserServiceImpl implements UserService {
         Integer effectRow = userMapper.insertUser(user);
         System.out.println("====================================================================");
         System.out.println("effectRow:" + effectRow);
+        System.out.println(user);
 
-        throw new Exception("this is checked exception throwing intentinally");
+//        throw new Exception("this is checked exception throwing intentinally");
     }
 }

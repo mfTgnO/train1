@@ -9,8 +9,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import static com.example.demo.utils.ThreadUtil.EXECUTOR2;
-
 /**
  * @Package: com.example.demo.controller
  * @Author:
@@ -101,6 +99,13 @@ public class UserController {
         userService.insertUserExceptionV2(user);
     }
 
+    /**
+     * 返回主键id
+     *
+     * @param name
+     * @param email
+     * @throws Exception
+     */
     @PostMapping("/addExceptionV3")
     public void addUserExceptionV3(@RequestParam("name") String name, @RequestParam("email") String email) throws Exception {
         User user = new User();
@@ -108,5 +113,6 @@ public class UserController {
         user.setEmail(email);
 
         userService.insertUserExceptionV3(user);
+//        throw new Exception("this is checked exception throwing intentinally");
     }
 }
