@@ -11,8 +11,7 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 public class ParallelStream {
-    final String SENTENCE =
-            " Nel mezzo del cammin di nostra vita " +
+    final String SENTENCE = " Nel mezzo del cammin di nostra vita " +
                     "mi ritrovai in una selva oscura" +
                     " ché la dritta via era smarrita ";
 
@@ -34,7 +33,7 @@ public class ParallelStream {
                 .reduce(0L, Long::sum);
 
         long duration = System.nanoTime() - start;
-        System.out.println("test1 duration datetime:" + duration + "  sum:" + sum);
+        System.out.println("test1 duration datetime nanoseconds:" + duration + "  sum:" + sum);
     }
 
     /*
@@ -51,7 +50,7 @@ public class ParallelStream {
                 .reduce(0L, Long::sum);
 
         long duration = System.nanoTime() - start;
-        System.out.println("test2 duration datetime:" + duration + "  sum:" + sum);
+        System.out.println("test2 duration datetime nanoseconds:" + duration + "  sum:" + sum);
     }
 
     @Test
