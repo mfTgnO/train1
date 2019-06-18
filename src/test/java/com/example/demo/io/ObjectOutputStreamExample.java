@@ -64,6 +64,9 @@ public class ObjectOutputStreamExample {
         }
     }
 
+    /**
+     * How to read Object from File in Java
+     */
     @Test
     public void test2() {
         FileInputStream fis = null;
