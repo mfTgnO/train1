@@ -1,4 +1,4 @@
-package com.example.demo.dynamicproxies;
+package com.example.demo.dynamicproxy.jdk;
 
 import org.junit.Test;
 
