@@ -16,13 +16,13 @@ spring:
     #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
     #    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
     #    url: jdbc:mysql://192.168.1.211:6603/bookinfo?serverTimezone=UTC
-    url: jdbc:mysql://192.168.1.90:6603/bookinfo?serverTimezone=UTC
+    url: jdbc:mysql://192.168.1.95:6603/bookinfo?serverTimezone=UTC
     username: root
     password: mypassword
-      #    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
-      #    username: newuser2
-      #    password: fm9>mysql
-      #    password: fm9>MySQL
+    #    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
+    #    username: newuser2
+    #    password: fm9>mysql
+    #    password: fm9>MySQL
     hikari:
       maximum-pool-size: 10
       max-lifetime: 1770000
@@ -30,22 +30,22 @@ spring:
     tomcat:
       test-while-idle: true
       validation-query: SELECT 1
-  #    schema:
-  #    data:
-  #    driver-class-name: com.mysql.cj.jdbc.Driver
-  #  artemis:
-  #    host: artemis.tacocloud.com
-  #    port: 61617
-  #    user: tacoweb
-  #    password: l3tm31n
-  #  jms:
-  #    template:
-  #      default-destination: tacocloud.order.queue
-  #  rabbitmq:
-  #    host: rabbit.tacocloud.com
-  #    port: 5673
-  #    username: tacoweb
-  #    password: l3tm31n
+    rabbitmq:
+      host: 192.168.1.95
+      port: 5672
+      username: guest
+      password: guest
+    #    schema:
+    #    data:
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    #  artemis:
+    #    host: artemis.tacocloud.com
+    #    port: 61617
+    #    user: tacoweb
+    #    password: l3tm31n
+    #  jms:
+    #    template:
+    #      default-destination: tacocloud.order.queue
   #    template:
   #      exchange: tacocloud.orders
   #      routing-key: kitchens.central
@@ -70,7 +70,7 @@ spring:
         min-idle: 0
     timeout: 5000
   application:
-    name: sample-spring-redis
+    name: learning-springboot
 #  jpa:
 #    show-sql: true
 #    hibernate:
