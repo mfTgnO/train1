@@ -69,7 +69,7 @@ public class RabbitConfig implements RabbitListenerConfigurer {
     @Bean
     Queue queue() {
         // Queue持久化
-        return new Queue(queue, true);
+        return new Queue(queue, false);
     }
 
     @Bean
