@@ -1,0 +1,6 @@
+# rabbitmq消息队列
+jsa:
+  rabbitmq:
+    queue: jsa.queue1
+    exchange: jsa.direct1
+    routingkey: jsa.routingkey1

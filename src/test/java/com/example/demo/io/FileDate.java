@@ -9,7 +9,7 @@ import java.util.Date;
  * @email:
  * @createDate: 2019-06-12 10:45
  * @description: Sometimes we need to get the file last modified date in java, usually for listeners like JBoss
- * config file changes hot deployment. java.io.File class lastModified() returns last modified date in long,
+ * rabbitmq file changes hot deployment. java.io.File class lastModified() returns last modified date in long,
  * we can construct date object in human readable format with this time.
  */
 public class FileDate {

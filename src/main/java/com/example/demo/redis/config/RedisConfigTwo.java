@@ -1,5 +1,5 @@
 /*
-package com.example.demo.redis.config;
+package com.example.demo.redis.rabbitmq;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

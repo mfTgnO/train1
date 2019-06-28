@@ -9,6 +9,21 @@
       "name": "greeting.welcome",
       "type": "java.lang.String",
       "description": "Description for greeting.welcome."
+    },
+    {
+      "name": "jsa.rabbitmq.queue",
+      "type": "java.lang.String",
+      "description": "Description for jsa.rabbitmq.queue."
+    },
+    {
+      "name": "jsa.rabbitmq.exchange",
+      "type": "java.lang.String",
+      "description": "Description for jsa.rabbitmq.exchange."
+    },
+    {
+      "name": "jsa.rabbitmq.routingkey",
+      "type": "java.lang.String",
+      "description": "Description for jsa.rabbitmq.routingkey."
     }
   ]
 }

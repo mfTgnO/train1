@@ -5,7 +5,7 @@ server:
     max-threads: 20
     max-connections: 10000
 #  servlet:
-#    context-path: /demo
+#    context-path: /
 
 spring:
   #  autoconfigure:
@@ -30,11 +30,11 @@ spring:
     tomcat:
       test-while-idle: true
       validation-query: SELECT 1
-    rabbitmq:
-      host: 192.168.1.95
-      port: 5672
-      username: guest
-      password: guest
+  rabbitmq:
+    host: 192.168.1.95
+    port: 5672
+    username: guest
+    password: guest
     #    schema:
     #    data:
     #    driver-class-name: com.mysql.cj.jdbc.Driver
@@ -119,3 +119,10 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+# rabbitmq消息队列
+jsa:
+  rabbitmq:
+    queue: javainuse.queue
+    exchange: javainuse.exchange
+    routingkey: javainuse.routingkey
