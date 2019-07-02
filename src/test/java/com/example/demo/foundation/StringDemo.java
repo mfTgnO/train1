@@ -42,4 +42,23 @@ public class StringDemo {
         // true
         System.err.println(str2.equals(str3));
     }
+
+    @Test
+    public void test3() {
+        String str = "hello";
+        int h = str.indexOf("h");
+        System.out.println(h);
+
+        h = str.indexOf("e");
+        System.out.println(h);
+
+        h = str.indexOf("l");
+        System.out.println(h);
+
+        h = str.indexOf("o");
+        System.out.println(h);
+
+        h = str.indexOf("he");
+        System.out.println(h);
+    }
 }
