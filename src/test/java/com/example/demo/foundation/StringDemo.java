@@ -1,6 +1,10 @@
 package com.example.demo.foundation;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @package: com.example.demo.foundation
@@ -60,5 +64,22 @@ public class StringDemo {
 
         h = str.indexOf("he");
         System.out.println(h);
+    }
+
+    @Test
+    public void test4() {
+        String str = "hello";
+
+        String s = DigestUtils.md5Hex(str.toString());
+        System.out.println(s);
+
+        s = s.toUpperCase();
+        System.out.println(s);
+    }
+
+    @Test
+    public void test5() {
+        List<String> list = Arrays.asList("/**,a,b");
+        System.out.println(list);
     }
 }
