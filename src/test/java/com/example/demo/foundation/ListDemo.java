@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @package: com.example.demo.foundation
@@ -27,5 +28,29 @@ public class ListDemo {
             }
         }
         System.out.println(list);
+    }
+
+    /**
+     * removeAll
+     */
+    @Test
+    public void test2() {
+        ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        ArrayList<Integer> list2 = new ArrayList<>(Arrays.asList(1, 3));
+        System.out.println(list1);
+
+        list1.removeAll(list2);
+        System.out.println(list1);
+    }
+
+    /**
+     * addAll
+     */
+    @Test
+    public void test23() {
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        List<Integer> arrayList = new ArrayList<>();
+        arrayList.addAll(list);
+        System.out.println(arrayList);
     }
 }
