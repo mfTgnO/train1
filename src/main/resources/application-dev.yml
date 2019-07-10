@@ -16,7 +16,7 @@ spring:
     #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
     #    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
     #    url: jdbc:mysql://192.168.1.211:6603/bookinfo?serverTimezone=UTC
-    url: jdbc:mysql://192.168.1.95:6603/bookinfo?serverTimezone=UTC
+    url: jdbc:mysql://192.168.11.106:6603/bookinfo?serverTimezone=UTC
     username: root
     password: mypassword
     #    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
@@ -30,8 +30,10 @@ spring:
     tomcat:
       test-while-idle: true
       validation-query: SELECT 1
+
+  #rabbit配置
   rabbitmq:
-    host: 192.168.1.95
+    host: 192.168.11.106
     port: 5672
     username: guest
     password: guest
