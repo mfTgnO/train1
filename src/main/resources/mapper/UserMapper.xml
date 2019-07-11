@@ -3,12 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.UserMapper">
-    <resultMap id="UserResultMap" type="com.example.demo.domain.User">
+    <resultMap id="UserResultMap" type="com.example.demo.model.User">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="email" property="email"/>
     </resultMap>
-    <!--<select id="selectAll" resultType="org.yyama.domain.Fruit">
+    <!--<select id="selectAll" resultType="org.yyama.model.Fruit">
         SELECT name FROM fruits
     </select>-->
 
@@ -23,7 +23,7 @@
         where id = #{id}
     </select>
 
-    <insert id="insertUser" parameterType="com.example.demo.domain.User" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertUser" parameterType="com.example.demo.model.User" useGeneratedKeys="true" keyProperty="id">
         insert into users (name,email) values (#{name},#{email})
     </insert>
 </mapper>

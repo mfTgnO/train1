@@ -3,7 +3,7 @@ package com.example.demo.java8lambdas.domain;
 import java.util.Arrays;
 
 /**
- * @Package: com.example.demo.java8lambdas.domain
+ * @Package: com.example.demo.java8lambdas.model
  * @Author:
  * @Email:
  * @CreateDate: 2019-04-27 17:34

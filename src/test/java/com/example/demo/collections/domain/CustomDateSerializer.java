@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @package: com.example.demo.collections.domain
+ * @package: com.example.demo.collections.model
  * @author:
  * @email:
  * @createDate: 2019-06-04 17:45

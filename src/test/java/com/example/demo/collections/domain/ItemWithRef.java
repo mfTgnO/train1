@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 /**
- * @package: com.example.demo.collections.domain
+ * @package: com.example.demo.collections.model
  * @author:
  * @email:
  * @createDate: 2019-06-05 14:28

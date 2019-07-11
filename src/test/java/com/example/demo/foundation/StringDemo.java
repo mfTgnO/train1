@@ -82,4 +82,13 @@ public class StringDemo {
         List<String> list = Arrays.asList("/**,a,b");
         System.out.println(list);
     }
+
+    /**
+     * 转换为大写
+     */
+    @Test
+    public void test6() {
+        String str = "Store_rating_standards";
+        System.out.println(str.toUpperCase());
+    }
 }

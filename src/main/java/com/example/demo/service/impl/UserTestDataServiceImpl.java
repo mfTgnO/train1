@@ -1,6 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.domain.UserTestData;
+import com.example.demo.model.UserTestData;
 import com.example.demo.mapper.UserTestDataMapper;
 import com.example.demo.service.UserTestDataService;
 import org.springframework.beans.factory.annotation.Autowired;

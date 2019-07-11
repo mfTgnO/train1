@@ -1,7 +1,7 @@
 package com.example.demo.dao.impl;
 
 import com.example.demo.dao.IngredientRepository;
-import com.example.demo.domain.Ingredient;
+import com.example.demo.model.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.sql.DataSource;

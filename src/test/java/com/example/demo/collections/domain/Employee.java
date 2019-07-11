@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * @Package: com.example.demo.collections.domain
+ * @Package: com.example.demo.collections.model
  * @Author:
  * @Email:
  * @CreateDate: 2019-04-26 18:48

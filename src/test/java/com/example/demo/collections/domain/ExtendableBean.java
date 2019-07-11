@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @package: com.example.demo.collections.domain
+ * @package: com.example.demo.collections.model
  * @author:
  * @email:
  * @createDate: 2019-06-04 16:57

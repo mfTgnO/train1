@@ -166,6 +166,8 @@ public class StreamCollector {
      *
      * Collectors.averagingLong
      * Collectors.averagingDouble
+     *
+     * 平均计算
      * */
     @Test
     public void test7() {
@@ -508,5 +510,17 @@ public class StreamCollector {
         boolean prime = IntStream.range(2, candidate)
                 .noneMatch(i -> candidate % i == 0);
         System.out.println(prime);
+    }
+
+
+    /**
+     * 平均计算时集合为空
+     */
+    @Test
+    public void test34() {
+        List<Integer> list = new ArrayList<>();
+        Double avgCalories = list.stream()
+                .collect(Collectors.averagingInt(Integer::intValue));
+        System.out.println(avgCalories);
     }
 }

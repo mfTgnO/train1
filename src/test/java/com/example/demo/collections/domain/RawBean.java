@@ -3,7 +3,7 @@ package com.example.demo.collections.domain;
 import com.fasterxml.jackson.annotation.JsonRawValue;
 
 /**
- * @package: com.example.demo.collections.domain
+ * @package: com.example.demo.collections.model
  * @author:
  * @email:
  * @createDate: 2019-06-04 17:21

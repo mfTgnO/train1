@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.domain.TimeDimension;
+import com.example.demo.model.TimeDimension;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,9 +14,27 @@ import java.util.List;
  */
 @Repository
 public interface TimeDimensionMapper {
+    /**
+     * 根据主键id查询TimeDimension
+     *
+     * @param id id
+     * @return TimeDimension TimeDimension
+     */
     TimeDimension findTimeDimensionById(Integer id);
 
+    /**
+     * 查询TimeDimension集合
+     *
+     * @return List<TimeDimension>
+     */
     List<TimeDimension> findAllTimeDimension();
 
+    /**
+     * 根据主键id更新
+     *
+     * @param id    id
+     * @param event event
+     * @return Integer
+     */
     Integer updateTimeDimension(Integer id, String event);
 }

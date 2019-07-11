@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.TimeDimension;
+import com.example.demo.model.TimeDimension;
 
 import java.util.List;
 

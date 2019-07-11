@@ -1,8 +1,8 @@
 package com.example.demo.dao.impl;
 
 import com.example.demo.dao.OrderRepository;
-import com.example.demo.domain.Order_ch03;
-import com.example.demo.domain.Taco_ch03;
+import com.example.demo.model.Order_ch03;
+import com.example.demo.model.Taco_ch03;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

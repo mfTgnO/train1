@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.domain.UserTestData;
+import com.example.demo.model.UserTestData;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

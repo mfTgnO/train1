@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.mapper.UserTestDataMapper">
-    <resultMap id="UserResultMap" type="com.example.demo.domain.UserTestData">
+    <resultMap id="UserResultMap" type="com.example.demo.model.UserTestData">
         <id column="id" property="id"/>
         <result column="c_user_id" property="userId" javaType="java.lang.String"/>
         <result column="c_name" property="name" javaType="java.lang.String"/>
@@ -9,7 +9,7 @@
         <result column="c_city_id" property="cityId" javaType="java.lang.Integer"/>
         <result column="create_time" property="createTime" javaType="java.time.LocalDateTime"/>
     </resultMap>
-    <!--<select id="selectAll" resultType="org.yyama.domain.Fruit">
+    <!--<select id="selectAll" resultType="org.yyama.model.Fruit">
         SELECT name FROM fruits
     </select>-->
 
@@ -29,7 +29,7 @@
         where id = #{id}
     </select>
 
-    <insert id="insertUser" parameterType="com.example.demo.domain.User" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertUser" parameterType="com.example.demo.modelUser" useGeneratedKeys="true" keyProperty="id">
         insert into users (name,email) values (#{name},#{email})
     </insert>-->
 

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.UserTestData;
+import com.example.demo.model.UserTestData;
 import com.example.demo.service.UserTestDataService;
 import com.example.demo.utils.JsonResult;
 import com.example.demo.utils.annotation.PageHelp;

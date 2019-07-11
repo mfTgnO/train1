@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.Book;
+import com.example.demo.model.Book;
 import com.example.demo.service.BookServoce;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

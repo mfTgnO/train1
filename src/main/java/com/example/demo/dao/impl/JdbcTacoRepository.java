@@ -1,8 +1,8 @@
 package com.example.demo.dao.impl;
 
 import com.example.demo.dao.TacoRepository;
-import com.example.demo.domain.Ingredient;
-import com.example.demo.domain.Taco_ch03;
+import com.example.demo.model.Ingredient;
+import com.example.demo.model.Taco_ch03;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;

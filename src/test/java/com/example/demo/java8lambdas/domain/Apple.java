@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Package: com.example.demo.java8lambdas.domain
+ * @Package: com.example.demo.java8lambdas.model
  * @Author:
  * @Email:
  * @CreateDate: 2019-04-27 17:41

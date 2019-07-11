@@ -16,7 +16,7 @@ spring:
     #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
     #    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
     #    url: jdbc:mysql://192.168.1.211:6603/bookinfo?serverTimezone=UTC
-    url: jdbc:mysql://192.168.11.106:6603/bookinfo?serverTimezone=UTC
+    url: jdbc:mysql://192.168.1.36:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: mypassword
     #    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
@@ -33,7 +33,7 @@ spring:
 
   #rabbit配置
   rabbitmq:
-    host: 192.168.11.106
+    host: 192.168.1.36
     port: 5672
     username: guest
     password: guest
@@ -65,8 +65,7 @@ spring:
   #    - kafka.tacocloud.com:9094
   redis:
     database: 0
-    #    host: 192.168.2.211
-    host: 10.0.0.7
+    host: 192.168.1.36
     port: 6379
     password:
     jedis:
@@ -104,7 +103,7 @@ taco:
 
 mybatis:
   # 指定别名设置的包为所有entity
-  type-aliases-package: com.example.demo.domain
+  type-aliases-package: com.example.demo.model
   #  mapper-locations: classpath*:**/mapper/*.xml
   mapper-locations: classpath*:mapper/*.xml
   #  mapper-locations: classpath:com.example.demo.mapper/*.xml

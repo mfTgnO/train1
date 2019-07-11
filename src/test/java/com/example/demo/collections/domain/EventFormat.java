@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 /**
- * @package: com.example.demo.collections.domain
+ * @package: com.example.demo.collections.model
  * @author:
  * @email:
  * @createDate: 2019-06-05 10:51

@@ -91,7 +91,7 @@ public class RefactoringDemo {
      * instantiation, but the type of the lambda depends on its context. Here’s an example of how this
      * can be problematic. Let’s say you’ve declared a functional interface with the same signature as
      * Runnable, here called Task (this might occur when you need interface names that are more
-     * meaningful in your domain model):
+     * meaningful in your model model):
      * */
     interface Task {
         public void execute();
