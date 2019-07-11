@@ -21,7 +21,7 @@
     <select id="findAllTimeDimension" resultMap="TimeDimensionMapper">
         select *
         from time_dimension
-        limit 0,10
+--         limit 0,10
     </select>
 
     <select id="findTimeDimensionById" parameterType="int" resultMap="TimeDimensionMapper" useCache="true">

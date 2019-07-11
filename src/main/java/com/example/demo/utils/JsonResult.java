@@ -1,6 +1,8 @@
 package com.example.demo.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,9 +15,15 @@ import java.util.Map;
  * @createDate: 2019-06-12 14:32
  * @description:
  */
+@Setter
+@Getter
 public class JsonResult<T> implements Serializable {
     private T data;
     private Integer total;
+    /**
+     * 分页是数据合计
+     */
+    private Integer count;
     private String code;
     private String msg;
 
@@ -74,39 +82,6 @@ public class JsonResult<T> implements Serializable {
         this.data = data;
         this.code = "0";
         this.msg = "操作成功！";
-        this.total = total;
-    }
-
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Integer getTotal() {
-        return total == null ? 0 : total;
-    }
-
-    public void setTotal(Integer total) {
         this.total = total;
     }
 

@@ -1,6 +1,9 @@
 GET http://127.0.0.1:8080/timeDimension
 
 ###
+GET http://127.0.0.1:8080/timeDimension/list?page_no=1&page_size=10
+
+###
 GET http://127.0.0.1:8080/timeDimension/10106
 
 ###

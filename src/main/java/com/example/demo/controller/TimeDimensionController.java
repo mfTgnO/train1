@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.TimeDimension;
 import com.example.demo.service.TimeDimensionService;
+import com.example.demo.utils.annotation.PageHelp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +25,9 @@ public class TimeDimensionController {
         this.timeDimensionService = timeDimensionService;
     }
 
-    @GetMapping
-    public List<TimeDimension> findAllTimeDimension() {
+    @GetMapping("/list")
+    @PageHelp
+    public List<TimeDimension> listAllTimeDimension() {
         return timeDimensionService.findAllTimeDimension();
     }
 

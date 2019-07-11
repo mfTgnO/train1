@@ -29,4 +29,18 @@ public class DateDemo {
         // Sat Jul 20 10:47:38 GMT+08:00 2019
         System.out.println(date);
     }
+
+    /**
+     * 以毫秒为单位返回当前时间。
+     */
+    @Test
+    public void test2() {
+        long currentTimeMillis = System.currentTimeMillis();
+        System.out.println(currentTimeMillis);
+
+        currentTimeMillis = 1562830353042L;
+        // 将毫秒时间转换为：Thu Jul 11 15:35:11 GMT+08:00 2019
+        Date date = new Date(currentTimeMillis);
+        System.out.println(date);
+    }
 }

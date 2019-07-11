@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 public class VueHelloWorldController {
     /**
-     * http://192.168.11.108:8080/vueHelloWorld
-     * @return
+     * http://127.0.0.1:8080/vueHelloWorld
+     *
+     * @return String
      */
     @GetMapping("/vueHelloWorld")
     public String vueHelloWorld() {
@@ -25,12 +26,24 @@ public class VueHelloWorldController {
     }
 
     /**
-     * http://192.168.11.108:8080/layuiDemo
-     * @return
+     * http://127.0.0.1:8080/layuiDemo
+     *
+     * @return String
      */
     @GetMapping("/layuiDemo")
     public String layuiDemo() {
         log.info("layuiDemo");
         return "layuiDemo";
+    }
+
+    /**
+     * http://127.0.0.1:8080/paging
+     *
+     * @return String
+     */
+    @GetMapping("/paging")
+    public String paging() {
+        log.info("paging");
+        return "paging";
     }
 }

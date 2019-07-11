@@ -39,7 +39,7 @@ public class UserTestDataController {
         return new JsonResult(userTestDataPageInfo);
     }
 
-    @GetMapping("/v2")
+    @GetMapping("/v2/list")
     @PageHelp
     public JsonResult findAllUsersV2() {
         List<UserTestData> list = userTestDataService.findAllUsers();

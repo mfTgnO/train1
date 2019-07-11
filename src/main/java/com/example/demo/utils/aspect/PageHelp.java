@@ -40,8 +40,10 @@ public class PageHelp {
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         HttpServletRequest request = sra.getRequest();
-        String pageNo = request.getParameter("page_no");
-        String pageSize = request.getParameter("page_size");
+        /*String pageNo = request.getParameter("page_no");
+        String pageSize = request.getParameter("page_size");*/
+        String pageNo = request.getParameter("page");
+        String pageSize = request.getParameter("limit");
         if (StringUtils.isNotBlank(pageNo) && StringUtils.isNotBlank(pageSize)) {
             PageHelper.startPage(Integer.valueOf(pageNo), Integer.valueOf(pageSize));
         }
@@ -53,6 +55,7 @@ public class PageHelp {
         if (data instanceof com.github.pagehelper.Page) {
             long total = ((Page) data).getTotal();
             result.setTotal((int) (total));
+            result.setCount((int) total);
         }
         //考虑是在这里 赋值total 还是JsonResult在setData 的时候直接 instanceof 并赋值
     }
