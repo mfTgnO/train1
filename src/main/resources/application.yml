@@ -1,4 +1,6 @@
 spring:
   profiles:
     active:
-    - dev
+      '@profile.active@'
+  application:
+    name: demo

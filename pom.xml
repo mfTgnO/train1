@@ -172,6 +172,16 @@
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
             <version>4.3.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jquery</artifactId>
+                    <groupId>org.webjars</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>popper.js</artifactId>
+                    <groupId>org.webjars</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -200,6 +210,17 @@
             <version>3.1.1</version>
         </dependency>-->
         <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.1.2</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jsqlparser</artifactId>
+                    <groupId>com.github.jsqlparser</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.3</version>
@@ -209,10 +230,68 @@
                     <groupId>org.mybatis.spring.boot</groupId>
                 </exclusion>
             </exclusions>
+            <!--<exclusions>
+                <exclusion>
+                    <artifactId>mybatis-spring-boot-starter</artifactId>
+                    <groupId>org.mybatis.spring.boot</groupId>
+                </exclusion>
+            </exclusions>-->
         </dependency>
+        <!--        <dependency>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus</artifactId>
+                    <version>3.1.2</version>
+                    <exclusions>
+                        <exclusion>
+                            <artifactId>mybatis</artifactId>
+                            <groupId>org.mybatis</groupId>
+                        </exclusion>
+                        <exclusion>
+                            <artifactId>jsqlparser</artifactId>
+                            <groupId>com.github.jsqlparser</groupId>
+                        </exclusion>
+                        <exclusion>
+                            <artifactId>mybatis-spring</artifactId>
+                            <groupId>org.mybatis</groupId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>-->
     </dependencies>
 
     <build>
+        <!--<resources>
+            <resource>
+                &lt;!&ndash; 描述存放资源的目录，该路径相对POM路径 &ndash;&gt;
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>application*.yml</exclude>
+                </excludes>
+            </resource>
+
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.yml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.png</include>
+                    <include>**/*.jpg</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -226,4 +305,33 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>dev1</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profile.active>dev1</profile.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev2</id>
+            <properties>
+                <profile.active>dev2</profile.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profile.active>test</profile.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profile.active>prod</profile.active>
+            </properties>
+        </profile>
+    </profiles>
 </project>

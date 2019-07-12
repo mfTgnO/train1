@@ -1,0 +1,36 @@
+GET http://127.0.0.1:8080/api/rank?id=1
+
+###
+GET http://127.0.0.1:8080/api/rank/notEqual?id=1
+
+###
+GET http://127.0.0.1:8080/api/rank/list
+
+###
+POST http://127.0.0.1:8080/api/rank?name=ZhangSan&age=18&groupid=1001
+
+###
+DELETE http://127.0.0.1:8080/api/rank?id=1
+
+###
+DELETE http://127.0.0.1:8080/api/rank/name?name=ZhangSan
+
+###
+DELETE http://127.0.0.1:8080/api/rank/ageAndGroupId?age=25&groupId=4
+
+###
+DELETE http://127.0.0.1:8080/api/rank/ids?ids=3,6
+
+###
+GET http://127.0.0.1:8080/api/rank/ids?ids=3,6,7,8
+
+###
+GET http://127.0.0.1:8080/api/rank/age?age=23
+
+###
+GET http://127.0.0.1:8080/api/rank/count
+
+###
+GET http://127.0.0.1:8080/api/rank/countByAge?age=23
+
+###

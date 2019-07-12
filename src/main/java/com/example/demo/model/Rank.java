@@ -3,39 +3,31 @@ package com.example.demo.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * @package: com.example.demo.model
  * @author:
  * @email:
- * @createDate: 2019-06-13 13:46
+ * @createDate: 2019-07-12 15:56
  * @description:
  */
-@Data
-@AllArgsConstructor
+@TableName("t_rank")
+@Getter
+@Setter
 @NoArgsConstructor
-@TableName("t_user")
-public class UserTestData implements Serializable {
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)*/
+@ToString
+public class Rank implements Serializable {
     @Id
     @TableId(type = IdType.AUTO)
-    private Integer id;
-
-    private String userId;
-
+    private Integer pid;
     private String name;
-
-    private Integer provinceId;
-
-    private Integer cityId;
-
-    private LocalDateTime createTime;
+    private Integer age;
+    private Integer groupid;
 }

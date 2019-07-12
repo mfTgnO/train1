@@ -18,13 +18,20 @@ import java.util.Map;
 @Setter
 @Getter
 public class JsonResult<T> implements Serializable {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private T data;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer total;
+
     /**
      * 分页是数据合计
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer count;
+
     private String code;
+
     private String msg;
 
     @JsonInclude(JsonInclude.Include.NON_DEFAULT)

@@ -8,23 +8,16 @@ server:
 #    context-path: /
 
 spring:
-#  mvc:
-#    static-path-pattern: /static/**
+  #  mvc:
+  #    static-path-pattern: /static/**
   #  autoconfigure:
   #    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   thymeleaf:
     cache: false
   datasource:
-    #    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
-    #    url: jdbc:mysql://192.168.2.211:6603/bookinfo?serverTimezone=UTC
-    #    url: jdbc:mysql://192.168.1.211:6603/bookinfo?serverTimezone=UTC
-    url: jdbc:mysql://192.168.1.36:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://10.0.0.35:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: mypassword
-    #    url: jdbc:mysql://172.17.0.2:3306/bookinfo?serverTimezone=UTC
-    #    username: newuser2
-    #    password: fm9>mysql
-    #    password: fm9>MySQL
     hikari:
       maximum-pool-size: 10
       max-lifetime: 1770000
@@ -35,7 +28,7 @@ spring:
 
   #rabbit配置
   rabbitmq:
-    host: 192.168.1.36
+    host: 10.0.0.35
     port: 5672
     username: guest
     password: guest
@@ -67,7 +60,7 @@ spring:
   #    - kafka.tacocloud.com:9094
   redis:
     database: 0
-    host: 192.168.1.36
+    host: 10.0.0.35
     port: 6379
     password:
     jedis:
@@ -106,9 +99,10 @@ taco:
 mybatis:
   # 指定别名设置的包为所有entity
   type-aliases-package: com.example.demo.model
-  #  mapper-locations: classpath*:**/mapper/*.xml
-  mapper-locations: classpath*:mapper/*.xml
-  #  mapper-locations: classpath:com.example.demo.mapper/*.xml
+  #  mapper-locations: classpath*:mapper/*Mapper.xml
+  #  mapper-locations: classpath*:/mapper/*Mapper.xml
+  mapper-locations:
+    - com.example.demo.mapper.*
   configuration:
     # 驼峰命名规范
     map-underscore-to-camel-case: true

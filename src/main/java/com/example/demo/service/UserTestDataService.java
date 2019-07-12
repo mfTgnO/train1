@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface UserTestDataService {
     List<UserTestData> findAllUsers();
+
+    UserTestData selectById(Integer id);
 }
