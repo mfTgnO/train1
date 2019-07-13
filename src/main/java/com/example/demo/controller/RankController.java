@@ -178,4 +178,13 @@ public class RankController {
         jsonResult.setCount(count);
         return jsonResult;
     }
+
+    @GetMapping("/selectByIdCustomer")
+    public JsonResult selectByIdCustomer(@RequestParam(value = "id") Integer id) {
+        Rank rank = rankService.selectByIdCustomer(id);
+        if (rank == null) {
+            return new JsonResult.Builder().build(JsonResult.Code.FAIL);
+        }
+        return new JsonResult(rank);
+    }
 }

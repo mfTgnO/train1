@@ -1,12 +1,13 @@
 package com.example.demo.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.mapper.UserTestDataMapper;
 import com.example.demo.mapper.UserTestDataV1Mapper;
 import com.example.demo.model.UserTestData;
 import com.example.demo.service.UserTestDataService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,15 +18,11 @@ import java.util.List;
  * @description:
  */
 @Service
-public class UserTestDataServiceImpl implements UserTestDataService {
+public class UserTestDataServiceImpl extends ServiceImpl<UserTestDataMapper, UserTestData> implements UserTestDataService {
+    @Resource
     private UserTestDataMapper userTestDataMapper;
+    @Resource
     private UserTestDataV1Mapper userTestDataV1Mapper;
-
-    @Autowired
-    public UserTestDataServiceImpl(UserTestDataMapper userTestDataMapper, UserTestDataV1Mapper userTestDataV1Mapper) {
-        this.userTestDataMapper = userTestDataMapper;
-        this.userTestDataV1Mapper = userTestDataV1Mapper;
-    }
 
     @Override
     public List<UserTestData> findAllUsers() {

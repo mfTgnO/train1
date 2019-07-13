@@ -99,15 +99,12 @@ taco:
 mybatis:
   # 指定别名设置的包为所有entity
   type-aliases-package: com.example.demo.model
-  #  mapper-locations: classpath*:mapper/*Mapper.xml
-  #  mapper-locations: classpath*:/mapper/*Mapper.xml
-  mapper-locations:
-    - com.example.demo.mapper.*
+  mapper-locations: classpath:/mapper/*Mapper.xml
   configuration:
     # 驼峰命名规范
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-#    log-prefix: mybatis-log-prefix
+    log-prefix: mybatis-log-prefix
 management:
   endpoints:
     web:

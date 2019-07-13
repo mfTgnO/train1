@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -24,12 +25,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/userTest")
 public class UserTestDataController {
+    @Resource
     private UserTestDataService userTestDataService;
 
-    @Autowired
-    public UserTestDataController(UserTestDataService userTestDataService) {
-        this.userTestDataService = userTestDataService;
-    }
 
     @GetMapping
     @PageHelp
@@ -45,6 +43,15 @@ public class UserTestDataController {
     public JsonResult findAllUsersV2() {
         List<UserTestData> list = userTestDataService.findAllUsers();
         return new JsonResult(list);
+    }
+
+    @GetMapping("/v3/list")
+    @PageHelp
+    public JsonResult findAllUsersV3() {
+        List<UserTestData> list1 = userTestDataService.list();
+
+//        List<UserTestData> list = userTestDataService.findAllUsers();
+        return new JsonResult(list1);
     }
 
     @GetMapping("/{id}")

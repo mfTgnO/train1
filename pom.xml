@@ -213,23 +213,23 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.1.2</version>
-            <exclusions>
+            <!--<exclusions>
                 <exclusion>
                     <artifactId>jsqlparser</artifactId>
                     <groupId>com.github.jsqlparser</groupId>
                 </exclusion>
-            </exclusions>
+            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.3</version>
-            <exclusions>
+            <!--<exclusions>
                 <exclusion>
                     <artifactId>mybatis-spring-boot-starter</artifactId>
                     <groupId>org.mybatis.spring.boot</groupId>
                 </exclusion>
-            </exclusions>
+            </exclusions>-->
             <!--<exclusions>
                 <exclusion>
                     <artifactId>mybatis-spring-boot-starter</artifactId>

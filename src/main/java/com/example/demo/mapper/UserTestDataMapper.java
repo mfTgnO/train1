@@ -13,7 +13,6 @@ import java.util.List;
  * @createDate: 2019-06-13 13:53
  * @description:
  */
-@Repository
 public interface UserTestDataMapper extends BaseMapper<UserTestData> {
     List<UserTestData> findAllUsersV1();
 

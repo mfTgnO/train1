@@ -34,3 +34,6 @@ GET http://127.0.0.1:8080/api/rank/count
 GET http://127.0.0.1:8080/api/rank/countByAge?age=23
 
 ###
+GET http://127.0.0.1:8080/api/rank/selectByIdCustomer?id=7
+
+###

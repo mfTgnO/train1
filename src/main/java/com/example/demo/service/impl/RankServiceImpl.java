@@ -19,4 +19,10 @@ import javax.annotation.Resource;
 public class RankServiceImpl extends ServiceImpl<RankMapper, Rank> implements RankService {
     @Resource
     private RankMapper rankMapper;
+
+    @Override
+    public Rank selectByIdCustomer(Integer id) {
+        Rank rank = rankMapper.selectByIdCustomer(id);
+        return rank;
+    }
 }

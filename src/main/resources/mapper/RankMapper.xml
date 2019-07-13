@@ -7,4 +7,7 @@
         <result column="age" property="age" jdbcType="INTEGER"/>
         <result column="groupid" property="groupid" jdbcType="INTEGER"/>
     </resultMap>
+    <select id="selectByIdCustomer" resultType="com.example.demo.model.Rank">
+        select * from t_rank where pid = #{id}
+    </select>
 </mapper>
