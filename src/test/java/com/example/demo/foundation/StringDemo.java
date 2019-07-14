@@ -91,4 +91,19 @@ public class StringDemo {
         String str = "Store_rating_standards";
         System.out.println(str.toUpperCase());
     }
+
+    /**
+     *
+     */
+    @Test
+    public void test7() {
+//        String values[] = {"hello", "world"};
+        String values[] = {"hello"};
+
+        String valueStr = "";
+        for (int i = 0; i < values.length; i++) {
+            valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
+        }
+        System.out.println(valueStr);
+    }
 }
