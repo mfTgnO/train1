@@ -4,8 +4,6 @@ server:
   tomcat:
     max-threads: 20
     max-connections: 10000
-#  servlet:
-#    context-path: /
 
 spring:
   #  mvc:
@@ -15,7 +13,7 @@ spring:
   thymeleaf:
     cache: false
   datasource:
-    url: jdbc:mysql://192.168.1.36:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://192.168.1.39:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: mypassword
     hikari:
@@ -28,7 +26,7 @@ spring:
 
   #rabbit配置
   rabbitmq:
-    host: 192.168.1.36
+    host: 192.168.1.39
     port: 5672
     username: guest
     password: guest
@@ -60,7 +58,7 @@ spring:
   #    - kafka.tacocloud.com:9094
   redis:
     database: 0
-    host: 192.168.1.36
+    host: 192.168.1.39
     port: 6379
     password:
     jedis:
@@ -71,6 +69,9 @@ spring:
     timeout: 5000
   application:
     name: learning-springboot
+  data:
+    solr:
+      host: http://192.168.1.39:8983/solr
 #  jpa:
 #    show-sql: true
 #    hibernate:
@@ -81,7 +82,11 @@ logging:
   #  path: E:logspath\logs\
   file: demo.log
   level:
-    root: info
+    #    root: info
+    com.example.demo.mapper: debug
+    org:
+      mybatis: debug
+  config: classpath:logback-spring.xml
 #  path: logspath/logs
 #    org:
 #      springframework:

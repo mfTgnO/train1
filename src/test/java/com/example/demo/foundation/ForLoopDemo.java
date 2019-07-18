@@ -21,4 +21,27 @@ public class ForLoopDemo {
             System.out.println(i);
         }
     }
+
+    @Test
+    public void test2() {
+        int i = 0;
+        for (; ; ) {
+            if (i == 5) {
+                continue;
+            }
+            i++;
+            System.out.println(i);
+        }
+    }
+
+    @Test
+    public void test3() {
+        for (int i = 0; i < 10; i++) {
+            if (i == 5) {
+                System.out.println(i + " continue");
+                continue;
+            }
+            System.out.println(i);
+        }
+    }
 }

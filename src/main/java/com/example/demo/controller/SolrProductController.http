@@ -1,0 +1,9 @@
+POST http://127.0.0.1:8080/solr/product/save
+
+###
+GET http://127.0.0.1:8080/solr/product/findAll
+
+###
+GET http://127.0.0.1:8080/solr/product/findById
+
+###

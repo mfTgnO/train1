@@ -1,6 +1,7 @@
 package com.example.demo.foundation;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.codec.digest.Md5Crypt;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -105,5 +106,15 @@ public class StringDemo {
             valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
         }
         System.out.println(valueStr);
+    }
+
+    /**
+     * Md5Crypt
+     */
+    @Test
+    public void test8() {
+        String str = "hello";
+        String md5Crypt = Md5Crypt.md5Crypt(str.getBytes());
+        System.out.println(md5Crypt);
     }
 }
