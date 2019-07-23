@@ -72,7 +72,10 @@ spring:
   data:
     solr:
       host: http://192.168.1.39:8983/solr
-#  jpa:
+  jpa:
+    open-in-view: false
+  devtools:
+    add-properties: false
 #    show-sql: true
 #    hibernate:
 #      ddl-auto: validate
@@ -86,6 +89,7 @@ logging:
     com.example.demo.mapper: debug
     org:
       mybatis: debug
+    web: debug
   config: classpath:logback-spring.xml
 #  path: logspath/logs
 #    org:

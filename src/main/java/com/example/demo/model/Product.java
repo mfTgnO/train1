@@ -16,13 +16,21 @@ import java.io.Serializable;
  * @description:
  */
 @Data
-@AllArgsConstructor
-@SolrDocument(collection = "product")
+//@AllArgsConstructor
+@SolrDocument(collection = "gettingstarted")
 public class Product implements Serializable {
     @Id
     @Indexed(name = "id", type = "string")
     private String id;
 
     @Indexed(name = "name", type = "string")
-    private String name;
+      private String name;
+
+    public Product() {
+    }
+
+    public Product(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

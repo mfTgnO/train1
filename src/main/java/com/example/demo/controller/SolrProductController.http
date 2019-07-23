@@ -4,6 +4,21 @@ POST http://127.0.0.1:8080/solr/product/save
 GET http://127.0.0.1:8080/solr/product/findAll
 
 ###
-GET http://127.0.0.1:8080/solr/product/findById
+GET http://127.0.0.1:8080/solr/product/findById?id=2
+
+###
+GET http://127.0.0.1:8080/solr/product/count
+
+###
+DELETE http://127.0.0.1:8080/solr/product/deleteById?id=2
+
+###
+DELETE http://127.0.0.1:8080/solr/product/deleteByEntity?id=3
+
+###
+DELETE http://127.0.0.1:8080/solr/product/deleteAll
+
+###
+DELETE http://127.0.0.1:8080/solr/product/existsById?id=114
 
 ###
