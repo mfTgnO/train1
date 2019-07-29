@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @package: com.example.demo.foundation
@@ -165,5 +166,34 @@ public class StringDemo {
             chars[end] = temp;
         }
         System.out.println(new String(chars));
+    }
+
+    /**
+     * 生成随机验证码
+     *
+     * @param strLength 验证码长度
+     * @return String 验证码
+     */
+    public static String genRamNumber(int strLength) {
+        int maxNum = 10;
+        int i;
+        int count = 0;
+        char[] str = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        StringBuilder code = new StringBuilder();
+        Random r = new Random();
+        while (count < strLength) {
+            i = Math.abs(r.nextInt(maxNum));
+            if (i >= 0 && i < str.length) {
+                code.append(str[i]);
+                count++;
+            }
+        }
+        return code.toString();
+    }
+
+    @Test
+    public void verificationCode() {
+        System.out.println(genRamNumber(4));
+        System.out.println(genRamNumber(6));
     }
 }
