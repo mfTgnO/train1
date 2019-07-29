@@ -15,6 +15,9 @@ import java.util.List;
  * @description:
  */
 public class StringDemo {
+    /**
+     * String类型比较
+     */
     @Test
     public void test1() {
         String str0 = "hello";
@@ -85,7 +88,7 @@ public class StringDemo {
     }
 
     /**
-     * 转换为大写
+     * String转换为大写
      */
     @Test
     public void test6() {
@@ -116,5 +119,51 @@ public class StringDemo {
         String str = "hello";
         String md5Crypt = Md5Crypt.md5Crypt(str.getBytes());
         System.out.println(md5Crypt);
+    }
+
+    /**
+     * 转换为字符数组打印
+     */
+    @Test
+    public void test11() {
+        String str = "Store_rating_standards";
+        char[] chars = str.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            System.out.println(chars[i]);
+        }
+    }
+
+    /**
+     * 转换为小写
+     */
+    @Test
+    public void test12() {
+        String str = "Store_rating_standards";
+        System.out.println(str.toLowerCase());
+    }
+
+    /**
+     * 截取首字母、截取除了首字母以外的字符串
+     */
+    @Test
+    public void test13() {
+        String str = "Store_rating_standards";
+        System.out.println(str.substring(0, 1));
+        System.out.println(str.substring(1));
+    }
+
+    /**
+     * 字符串反转
+     */
+    @Test
+    public void test14() {
+        String str = "Store_rating_standards";
+        char[] chars = str.toCharArray();
+        for (int start = 0, end = chars.length - 1; start < end; start++, end--) {
+            char temp = chars[start];
+            chars[start] = chars[end];
+            chars[end] = temp;
+        }
+        System.out.println(new String(chars));
     }
 }
