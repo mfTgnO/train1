@@ -196,4 +196,15 @@ public class StringDemo {
         System.out.println(genRamNumber(4));
         System.out.println(genRamNumber(6));
     }
+
+    /**
+     * 计算MD5摘要并将值作为32个字符的十六进制字符串返回。
+     */
+    @Test
+    public void test() {
+        String text = "/v1/adorder/userOrderList?1190Wenle-Key-hehe";
+        String sign = DigestUtils.md5Hex(text);
+        System.out.println(sign);
+        System.out.println(sign.equals("1cf5426fe1050bd6504c24c8b187762c"));
+    }
 }

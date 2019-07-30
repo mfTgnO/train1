@@ -84,4 +84,16 @@ public class DateDemo {
         long endTime = c.getTime().getTime();
         return new TimePair(startTime, endTime);
     }
+
+    @Test
+    public void test4() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        long dateTime = calendar.getTimeInMillis();
+        System.out.println(dateTime);
+    }
 }

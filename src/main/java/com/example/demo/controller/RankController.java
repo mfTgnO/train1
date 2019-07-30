@@ -55,7 +55,6 @@ public class RankController {
     @GetMapping("/list")
     public JsonResult list() {
         List<Rank> list = rankService.list(null);
-        System.out.println(list);
         return new JsonResult(list);
     }
 
