@@ -12,6 +12,12 @@
     <logger name="org.springframework.data.solr.repository" additivity="false" level="debug">
         <appender-ref ref="STDOUT" />
     </logger>
+    <logger name="com.example.demo.mapper" additivity="false" level="debug">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.mybatis" additivity="false" level="debug">
+        <appender-ref ref="STDOUT" />
+    </logger>
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

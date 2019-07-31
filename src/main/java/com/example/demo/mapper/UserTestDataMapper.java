@@ -14,7 +14,5 @@ import java.util.List;
  * @description:
  */
 public interface UserTestDataMapper extends BaseMapper<UserTestData> {
-    List<UserTestData> findAllUsersV1();
-
-    List<UserTestData> findAllUsersV2();
+    List<UserTestData> findAllUser();
 }

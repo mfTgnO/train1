@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @createDate: 2019-06-28 10:00
  * @description:
  */
-@Service
+@Component
 public class OrderMessageSender {
     private final RabbitTemplate rabbitTemplate;
     private final ObjectMapper objectMapper;
@@ -31,7 +32,11 @@ public class OrderMessageSender {
         this.objectMapper = objectMapper;
     }
 
-    public void snedOrder(OrderMQ orderMQ) {
+    /**
+     *
+     * @param orderMQ 消息
+     */
+    public void sendOrder(OrderMQ orderMQ) {
         this.rabbitTemplate.convertAndSend(exchange, routingKey, orderMQ);
         /*
         try {

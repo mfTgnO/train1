@@ -8,6 +8,7 @@ import com.example.demo.utils.annotation.PageHelp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 
@@ -32,7 +33,7 @@ public class MessageController {
 
     /**
      * @param orderMQ
-     * @return
+     * @return JsonResult
      */
     @PostMapping("/sendMsg")
     public JsonResult handleMessage(@ModelAttribute OrderMQ orderMQ) {
@@ -43,17 +44,22 @@ public class MessageController {
         return new JsonResult.Builder().build(JsonResult.Code.FAIL);
     }
 
+    /**
+     * 发送消息
+     * @return JsonResult
+     */
     @PostMapping("/sendMsgV2")
     public JsonResult handleMessageV2() {
-        Random random = new Random();
-        int times = 1 << 10;
+        Random random = new Random(1000);
+        // 发送消息条数
+        int times = 1 << 1;
         for (int i = 0; i < times; i++) {
             OrderMQ orderMQ = new OrderMQ();
-//            orderMQ.setProductId(String.valueOf(i));
-//            orderMQ.setOrderNumber(String.valueOf(i));
-//            orderMQ.setAmount(random.nextInt(100));
+            orderMQ.setProductId((long) i);
+            orderMQ.setOrderNumber(random.nextLong());
+            orderMQ.setAmount(new BigDecimal(random.nextLong()));
 
-            orderMessageSender.snedOrder(orderMQ);
+            orderMessageSender.sendOrder(orderMQ);
         }
         return new JsonResult();
     }

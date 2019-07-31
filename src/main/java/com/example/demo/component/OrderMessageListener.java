@@ -1,4 +1,4 @@
-package com.example.demo.service.impl;
+package com.example.demo.component;
 
 import com.example.demo.model.OrderMQ;
 import lombok.extern.slf4j.Slf4j;

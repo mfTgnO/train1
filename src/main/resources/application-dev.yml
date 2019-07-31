@@ -4,8 +4,6 @@ server:
   tomcat:
     max-threads: 20
     max-connections: 10000
-#  servlet:
-#    context-path: /
 
 spring:
   #  mvc:
@@ -15,7 +13,7 @@ spring:
   thymeleaf:
     cache: false
   datasource:
-    url: jdbc:mysql://10.0.0.35:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://192.168.1.45:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: mypassword
     hikari:
@@ -28,7 +26,7 @@ spring:
 
   #rabbit配置
   rabbitmq:
-    host: 10.0.0.35
+    host: 192.168.1.45
     port: 5672
     username: guest
     password: guest
@@ -60,7 +58,7 @@ spring:
   #    - kafka.tacocloud.com:9094
   redis:
     database: 0
-    host: 10.0.0.35
+    host: 192.168.1.45
     port: 6379
     password:
     jedis:
@@ -71,7 +69,17 @@ spring:
     timeout: 5000
   application:
     name: learning-springboot
-#  jpa:
+  data:
+    solr:
+      host: http://192.168.1.45:8983/solr
+  jpa:
+    open-in-view: false
+  devtools:
+    add-properties: false
+#  security:
+#    user:
+#      name: guest
+#      password: guest123
 #    show-sql: true
 #    hibernate:
 #      ddl-auto: validate
@@ -79,9 +87,8 @@ spring:
 #        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
 logging:
   #  path: E:logspath\logs\
-  file: demo.log
-  level:
-    root: info
+  #  file: demo.log
+  config: classpath:logback-spring.xml
 #  path: logspath/logs
 #    org:
 #      springframework:
@@ -101,10 +108,9 @@ mybatis:
   type-aliases-package: com.example.demo.model
   mapper-locations: classpath:/mapper/*Mapper.xml
   configuration:
-    # 驼峰命名规范
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    log-prefix: mybatis-log-prefix
+
 management:
   endpoints:
     web:

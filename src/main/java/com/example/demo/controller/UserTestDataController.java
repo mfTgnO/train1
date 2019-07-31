@@ -28,32 +28,32 @@ public class UserTestDataController {
     @Resource
     private UserTestDataService userTestDataService;
 
-
+    /**
+     * 分页查询user
+     * @return JsonResult
+     */
     @GetMapping
     @PageHelp
     public JsonResult findAllUsers() {
-        PageHelper.startPage(2, 10);
         List<UserTestData> allUsers = userTestDataService.findAllUsers();
-        PageInfo<UserTestData> userTestDataPageInfo = new PageInfo<>(allUsers);
-        return new JsonResult(userTestDataPageInfo);
+        return new JsonResult(allUsers);
     }
 
-    @GetMapping("/v2/list")
-    @PageHelp
-    public JsonResult findAllUsersV2() {
-        List<UserTestData> list = userTestDataService.findAllUsers();
-        return new JsonResult(list);
-    }
-
-    @GetMapping("/v3/list")
+    /**
+     * 分页查询user
+     * @return JsonResult
+     */
+    @GetMapping("/list")
     @PageHelp
     public JsonResult findAllUsersV3() {
         List<UserTestData> list1 = userTestDataService.list();
-
-//        List<UserTestData> list = userTestDataService.findAllUsers();
         return new JsonResult(list1);
     }
 
+    /**
+     * 分局id查询user
+     * @return JsonResult
+     */
     @GetMapping("/{id}")
     public JsonResult selectById(@PathVariable("id") Integer id) {
         UserTestData userTestData = userTestDataService.selectById(id);

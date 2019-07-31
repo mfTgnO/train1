@@ -9,29 +9,10 @@
         <result column="c_city_id" property="cityId" javaType="java.lang.Integer"/>
         <result column="create_time" property="createTime" javaType="java.time.LocalDateTime"/>
     </resultMap>
-    <!--<select id="selectAll" resultType="org.yyama.model.Fruit">
-        SELECT name FROM fruits
-    </select>-->
-
-    <select id="findAllUsersV1" resultMap="BaseResultMap">
-        select *
-        from t_user LIMIT 0,100
+    <select id="findAllUser" resultMap="BaseResultMap">
+        SELECT
+            *
+        FROM
+            t_user
     </select>
-
-    <select id="findAllUsersV2" resultMap="BaseResultMap">
-        select *
-        from t_user
-    </select>
-
-    <!--<select id="findUserById" resultMap="UserResultMap">
-        select id, name, email
-        from users
-        where id = #{id}
-    </select>
-
-    <insert id="insertUser" parameterType="com.example.demo.modelUser" useGeneratedKeys="true" keyProperty="id">
-        insert into users (name,email) values (#{name},#{email})
-    </insert>-->
-
-
 </mapper>
