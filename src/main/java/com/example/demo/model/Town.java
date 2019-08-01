@@ -10,19 +10,17 @@ import org.springframework.data.annotation.Id;
  * @package: com.example.demo.model
  * @author:
  * @email:
- * @createDate: 2019-07-30 16:13
- * @description: 区、县
+ * @createDate: 2019-08-01 15:05
+ * @description: 街道、镇
  */
-@TableName("t_country")
+@TableName("t_town")
 @Data
-public class Country {
+public class Town {
     @Id
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    private String name;
+    private String townId;
 
     private String countryId;
-
-    private String cityId;
 }

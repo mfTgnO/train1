@@ -19,9 +19,21 @@ public class UUIDDemo {
         System.out.println(uuid);
     }
 
+    /**
+     * (a-z, A-Z, 0-9)
+     */
     @Test
     public void test2() {
         String alphanumeric = RandomStringUtils.randomAlphanumeric(18);
+        System.out.println(alphanumeric);
+    }
+
+    /**
+     * (0-9)
+     */
+    @Test
+    public void test3() {
+        String alphanumeric = RandomStringUtils.randomNumeric(18);
         System.out.println(alphanumeric);
     }
 }

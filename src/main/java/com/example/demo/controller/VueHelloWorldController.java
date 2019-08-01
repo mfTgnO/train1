@@ -46,4 +46,15 @@ public class VueHelloWorldController {
         log.info("paging");
         return "paging";
     }
+
+    /**
+     * http://127.0.0.1:8180/forms
+     *
+     * @return String
+     */
+    @GetMapping("/forms")
+    public String forms() {
+        log.info("forms");
+        return "forms";
+    }
 }
