@@ -1,17 +1,19 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Customer;
 import com.example.demo.dao.CustomerRepository;
+import com.example.demo.model.Customer;
+import com.example.demo.utils.JsonResult;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @author mango
+ */
 @RestController
 @RequestMapping("/redis")
 public class RedisController {
@@ -23,62 +25,93 @@ public class RedisController {
         this.customerRepository = customerRepository;
     }
 
+    /**
+     * 保存到redis中
+     *
+     * @return JsonResult
+     */
     @GetMapping("/save")
-    public String save() {
-        // save a single Customer
+    public JsonResult save() {
         customerRepository.save(new Customer(1L, "Jack", "Smith"));
         customerRepository.save(new Customer(2L, "Adam", "Johnson"));
         customerRepository.save(new Customer(3L, "Kim", "Smith"));
         customerRepository.save(new Customer(4L, "David", "Williams"));
         customerRepository.save(new Customer(5L, "Peter", "Davis"));
 
-        return "Done";
+        return new JsonResult();
     }
 
+    /**
+     * 查询redis中的所有Customer
+     *
+     * @return JsonResult
+     */
     @GetMapping("/findAll")
-    public String findAll() {
-        StringBuilder result = new StringBuilder();
+    public JsonResult findAll() {
         Map<Long, Customer> customers = customerRepository.findAll();
 
-        for (Customer customer : customers.values()) {
-            result.append(customer.toString()).append("<br>");
-        }
-
-        return result.toString();
+        return new JsonResult(customers);
     }
 
-    @GetMapping("/find")
-    public String find(@RequestParam("id") Long id) {
-        return customerRepository.find(id).toString();
-    }
-
-    @GetMapping("/uppercase")
-    public String postCustomer(@RequestParam("id") Long id) {
+    /**
+     * 根据id查询Customer
+     *
+     * @return JsonResult
+     */
+    @GetMapping("/findById")
+    public JsonResult<Customer> findById(@RequestParam("id") Long id) {
         Customer customer = customerRepository.find(id);
-//        customer.setFirstName(customer.getFirstName().toUpperCase());
-//        customer.setLastName(customer.getLastName().toUpperCase());
+        return new JsonResult<>(customer);
+    }
+
+    /**
+     * 更新Customer
+     *
+     * @return JsonResult
+     */
+    @PutMapping("/update")
+    public JsonResult postCustomer(@RequestParam("id") Long id,
+                                   @RequestParam(value = "firstName") String firstName,
+                                   @RequestParam(value = "lastName") String lastName) {
+        Customer customer = customerRepository.find(id);
+        if (StringUtils.isNotEmpty(firstName)) {
+            customer.setFirstName(firstName);
+        }
+        if (StringUtils.isNotEmpty(lastName)) {
+            customer.setLastName(lastName);
+        }
         customerRepository.update(customer);
 
-        return "Done";
+        return new JsonResult();
     }
 
-    @GetMapping("/delete")
-    public String deleteById(@RequestParam("id") Long id) {
+    /**
+     * 删除Customer
+     *
+     * @return JsonResult
+     */
+    @DeleteMapping("/delete")
+    public JsonResult deleteById(@RequestParam("id") Long id) {
         customerRepository.delete(id);
 
-        return "Done";
+        return new JsonResult();
     }
 
+    /**
+     * @return JsonResult
+     */
     @GetMapping("/valueOperationsAdd")
-    public String valueOperationsAdd(@RequestParam("key") String key, @RequestParam("value") String value) {
+    public JsonResult valueOperationsAdd(@RequestParam("key") String key,
+                                         @RequestParam("value") String value) {
         customerRepository.valueOperationsAdd(key, value);
-        return "Done";
+        return new JsonResult();
     }
 
     @GetMapping("/valueOperationsAddExpireTime")
-    public String valueOperationsAddExpireTime(@RequestParam("key") String key, @RequestParam("value") String value) {
+    public JsonResult valueOperationsAddExpireTime(@RequestParam("key") String key,
+                                                   @RequestParam("value") String value) {
         customerRepository.valueOperationsAddExpireTime(key, value);
-        return "Done";
+        return new JsonResult();
     }
 
     @GetMapping("/valueOperationsGet")

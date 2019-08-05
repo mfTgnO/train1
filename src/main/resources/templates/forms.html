@@ -9,6 +9,8 @@
 </head>
 <body>
 <form class="layui-form" action="">
+    <div class="layui-form-item" style="width:100%;margin-bottom:0px;">
+    </div>
     <!--<div class="layui-form-item">
         <label class="layui-form-label">输入框</label>
         <div class="layui-input-block">
@@ -37,11 +39,20 @@
             </select>
         </div>
     </div>-->
-    <div class="layui-form-item">
-        <label class="layui-form-label">选择省</label>
-        <div class="layui-input-block">
-            <select name="city" id="province" lay-verify="required">
-            </select>
+    <div class="layui-form-item" style="width:100%;margin-bottom:0px;">
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择省</label>
+            <div class="layui-input-block" style="width: 220px">
+                <select name="province" id="province" lay-verify="required" lay-filter="province" lay-search>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择市</label>
+            <div class="layui-input-block" style="width: 220px">
+                <select name="city" id="city" lay-verify="required">
+                </select>
+            </div>
         </div>
     </div>
     <!--<div class="layui-form-item">
@@ -95,6 +106,32 @@
                     var rows = data.data;
                     $.each(rows, function (index, item) {
                         $("#province").append(new Option(item.name, item.id));
+                    });
+                    layui.form.render("select");
+                },
+                error: function () {
+                    alert("查询失败！")
+                }
+            })
+            ;
+        })
+
+
+        form.on('select(province)', function(data) {
+            var areaId = data;
+            alert(areaId);
+        });
+
+
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "/api/city/listAll",
+                datatype: "json",
+                success: function (data) {
+                    var rows = data.data;
+                    $.each(rows, function (index, item) {
+                        $("#city").append(new Option(item.name, item.id));
                     });
                     layui.form.render("select");
                 },

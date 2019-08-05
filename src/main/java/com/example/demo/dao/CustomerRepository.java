@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @author mango
+ */
 public interface CustomerRepository {
     void save(Customer customer);
 

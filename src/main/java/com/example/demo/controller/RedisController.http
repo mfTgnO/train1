@@ -17,6 +17,18 @@ GET http://127.0.0.1:8080/redis/findAll
 
 ###
 
+GET http://127.0.0.1:8080/redis/findById?id=3
+
+###
+
+PUT http://127.0.0.1:8080/redis/update?id=3&firstName=&lastName=
+
+###
+
+DELETE http://127.0.0.1:8080/redis/delete?id=3
+
+###
+
 GET http://127.0.0.1:8080/redis/valueOperationsAdd?key=shcool:1&value=Digest Authentication
 
 ###

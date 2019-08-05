@@ -1,6 +1,7 @@
 package com.example.demo.foundation;
 
 import com.example.demo.collections.domain.TimePair;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 
@@ -14,6 +15,7 @@ import java.util.Date;
  * @createDate: 2019-07-10 10:43
  * @description:
  */
+@Slf4j
 public class DateDemo {
     @Test
     public void test1() {
@@ -40,7 +42,7 @@ public class DateDemo {
         long currentTimeMillis = System.currentTimeMillis();
         System.out.println(currentTimeMillis);
 
-        currentTimeMillis = 1553658737149L;
+        currentTimeMillis = 1547462350425L;
         // 将毫秒时间转换为：Thu Jul 11 15:35:11 GMT+08:00 2019
         Date date = new Date(currentTimeMillis);
         System.out.println(date);
@@ -95,5 +97,11 @@ public class DateDemo {
         calendar.set(Calendar.SECOND, 0);
         long dateTime = calendar.getTimeInMillis();
         System.out.println(dateTime);
+    }
+
+    @Test
+    public void test5() {
+        log.info("接口签名校验【成功】  需要签名的数据:{},APP端传递的签名：{}", 123, "hello world");
+        log.error("接口签名校验【失败】  需要签名的数据:{},APP端传递的签名：{}", 123, "hello world");
     }
 }

@@ -31,6 +31,13 @@ public class CityController {
     @GetMapping("/list")
     @PageHelp
     public JsonResult listCity() {
+        List<City> list = cityService.list(null);
+        return new JsonResult(list);
+    }
+
+    @GetMapping("/listAll")
+    @PageHelp
+    public JsonResult listAllCity() {
         List<City> list = cityService.list();
         return new JsonResult(list);
     }
