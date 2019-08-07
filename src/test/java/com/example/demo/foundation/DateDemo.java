@@ -96,6 +96,7 @@ public class DateDemo {
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         long dateTime = calendar.getTimeInMillis();
+        System.out.println(new Date(dateTime));
         System.out.println(dateTime);
     }
 
@@ -103,5 +104,11 @@ public class DateDemo {
     public void test5() {
         log.info("接口签名校验【成功】  需要签名的数据:{},APP端传递的签名：{}", 123, "hello world");
         log.error("接口签名校验【失败】  需要签名的数据:{},APP端传递的签名：{}", 123, "hello world");
+    }
+
+    @Test
+    public void test6() {
+        Class<? extends DateDemo> aClass = getClass();
+        System.out.println(aClass);
     }
 }

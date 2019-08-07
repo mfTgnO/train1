@@ -6,6 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.*;
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 @ComponentScan("com.example.demo.config")
@@ -59,10 +61,12 @@ public class RedisConfig {
      * @param factory
      */
     private void initDomainRedisTemplate(RedisTemplate<String, Object> redisTemplate, RedisConnectionFactory factory) {
-        /*redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
+
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashValueSerializer(new JdkSerializationRedisSerializer());
-        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());*/
+
         redisTemplate.setConnectionFactory(factory);
     }
 
@@ -119,5 +123,38 @@ public class RedisConfig {
     @Bean
     public ZSetOperations<String, Object> zSetOperations(RedisTemplate<String, Object> redisTemplate) {
         return redisTemplate.opsForZSet();
+    }
+
+    public enum redisKeyPrefix {
+        /**
+         * 省份
+         */
+        PROVINCE("province:"),
+        /**
+         * 城市
+         */
+        CITY("city:"),
+        /**
+         * 区、县
+         */
+        COUNTRY("country:"),
+        /**
+         * 镇、街道
+         */
+        TOWN("town:"),
+        /**
+         * 用户（测试数据）
+         */
+        USER("user:");
+
+        private String prefix;
+
+        redisKeyPrefix(String prefix) {
+            this.prefix = prefix;
+        }
+
+        public String getPrefix() {
+            return prefix;
+        }
     }
 }

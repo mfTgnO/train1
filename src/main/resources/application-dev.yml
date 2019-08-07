@@ -13,11 +13,11 @@ spring:
   thymeleaf:
     cache: false
   datasource:
-    url: jdbc:mysql://192.168.2.225:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://192.168.1.45:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: mypassword
     hikari:
-      maximum-pool-size: 10
+      maximum-pool-size: 50
       max-lifetime: 1770000
     initialization-mode: embedded
     tomcat:
@@ -26,7 +26,7 @@ spring:
 
   #rabbit配置
   rabbitmq:
-    host: 192.168.2.225
+    host: 192.168.1.45
     port: 5672
     username: guest
     password: guest
@@ -58,7 +58,7 @@ spring:
   #    - kafka.tacocloud.com:9094
   redis:
     database: 0
-    host: 192.168.2.225
+    host: 192.168.1.45
     port: 6379
     password:
     jedis:
@@ -71,7 +71,7 @@ spring:
     name: learning-springboot
   data:
     solr:
-      host: http://192.168.2.225:8983/solr
+      host: http://192.168.1.45:8983/solr
   jpa:
     open-in-view: false
   devtools:

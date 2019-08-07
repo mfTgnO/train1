@@ -48,7 +48,7 @@ public class VueHelloWorldController {
     }
 
     /**
-     * http://127.0.0.1:8180/forms
+     * http://127.0.0.1:8080/forms
      *
      * @return String
      */
@@ -56,5 +56,16 @@ public class VueHelloWorldController {
     public String forms() {
         log.info("forms");
         return "forms";
+    }
+
+    /**
+     * http://127.0.0.1:8080/looping
+     *
+     * @return String
+     */
+    @GetMapping("/looping")
+    public String looping() {
+        log.info("looping");
+        return "looping";
     }
 }

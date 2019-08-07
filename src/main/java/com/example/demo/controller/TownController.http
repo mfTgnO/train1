@@ -1,9 +1,12 @@
-GET http://127.0.0.1:8180/api/town/list?page=1&limit=10
+GET http://127.0.0.1:8080/api/town/list?page=1&limit=10
 
 ###
-GET http://127.0.0.1:8180/api/town/listAll
+GET http://127.0.0.1:8080/api/town/listAll
 
 ###
-GET http://127.0.0.1:8180/api/town?id=10
+GET http://127.0.0.1:8080/api/town?id=10
+
+###
+GET http://127.0.0.1:8080/api/town/storeRedis
 
 ###

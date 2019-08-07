@@ -1,17 +1,26 @@
 package com.example.demo.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.model.Town;
 import com.example.demo.service.TownService;
 import com.example.demo.utils.JsonResult;
 import com.example.demo.utils.annotation.PageHelp;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
+
+import static com.example.demo.config.RedisConfig.redisKeyPrefix.TOWN;
 
 /**
  * @package: com.example.demo.controller
@@ -24,10 +33,18 @@ import java.util.List;
 @RequestMapping("/api/town")
 public class TownController {
     private TownService townService;
+    private RedisTemplate<String, String> redisTemplate;
+    private ValueOperations<String, String> valueOperations;
 
     @Autowired
-    public TownController(TownService townService) {
+    public TownController(TownService townService, RedisTemplate<String, String> redisTemplate) {
         this.townService = townService;
+        this.redisTemplate = redisTemplate;
+    }
+
+    @PostConstruct
+    protected void init() {
+        this.valueOperations = redisTemplate.opsForValue();
     }
 
     @GetMapping
@@ -50,5 +67,27 @@ public class TownController {
     public JsonResult listAllTown() {
         List<Town> list = townService.list();
         return new JsonResult(list);
+    }
+
+    /**
+     * 把所有数据存入Redis
+     *
+     * @return JsonResult
+     * @throws JsonProcessingException
+     */
+    @GetMapping("/storeRedis")
+    public JsonResult pageProvince() throws JsonProcessingException {
+        int count = townService.count();
+        int allPage = count / 10 + 1;
+
+        for (int current = 0; current < allPage; ) {
+            current++;
+            IPage<Town> page = townService.page(new Page<>(current, 10));
+            List<Town> records = page.getRecords();
+            for (Town town : records) {
+                valueOperations.set(TOWN.getPrefix() + town.getId(), new ObjectMapper().writeValueAsString(town));
+            }
+        }
+        return new JsonResult();
     }
 }

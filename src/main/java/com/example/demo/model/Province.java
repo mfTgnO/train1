@@ -3,8 +3,10 @@ package com.example.demo.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.*;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
+
+import java.io.Serializable;
 
 /**
  * @package: com.example.demo.model
@@ -15,7 +17,7 @@ import org.springframework.data.annotation.Id;
  */
 @TableName("t_province")
 @Data
-public class Province {
+public class Province implements Serializable {
     @Id
     @TableId(type = IdType.AUTO)
     private Integer id;

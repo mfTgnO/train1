@@ -1,9 +1,15 @@
-GET http://127.0.0.1:8180/api/province/list?page=1&limit=10
+GET http://127.0.0.1:8080/api/province/list?page=1&limit=10
 
 ###
-GET http://127.0.0.1:8180/api/province/listAll
+GET http://127.0.0.1:8080/api/province/listAll
 
 ###
-GET http://127.0.0.1:8180/api/province?id=10
+GET http://127.0.0.1:8080/api/province?id=15
+
+###
+GET http://127.0.0.1:8080/api/province/count
+
+###
+GET http://127.0.0.1:8080/api/province/storeRedis
 
 ###

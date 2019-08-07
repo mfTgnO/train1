@@ -15,4 +15,10 @@ public class IntegerDemo {
         int times = 1 << 12;
         System.out.println(times);
     }
+
+    @Test
+    public void test2() {
+        int result = 15 / 10 + 1;
+        System.out.println(result);
+    }
 }
