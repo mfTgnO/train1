@@ -60,15 +60,12 @@ spring:
     database: 0
     host: 192.168.1.45
     port: 6379
-    password:
     jedis:
       pool:
         max-active: 20
         max-idle: 8
         min-idle: 0
     timeout: 5000
-  application:
-    name: learning-springboot
   data:
     solr:
       host: http://192.168.1.45:8983/solr

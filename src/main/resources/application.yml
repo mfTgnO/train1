@@ -1,6 +1,6 @@
-spring:
-  profiles:
-    active:
-      '@profile.active@'
-  application:
-    name: demo
+#spring:
+#  profiles:
+#    active:
+#      '@profile.active@'
+#  application:
+#    name: demo

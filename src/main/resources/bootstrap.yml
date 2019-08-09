@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: trainone
+  profiles:
+    active:
+      test
+  cloud:
+    config:
+      uri: http://localhost:8888
