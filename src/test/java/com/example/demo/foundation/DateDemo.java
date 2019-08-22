@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -108,7 +110,11 @@ public class DateDemo {
 
     @Test
     public void test6() {
-        Class<? extends DateDemo> aClass = getClass();
-        System.out.println(aClass);
+//        Class<? extends DateDemo> aClass = getClass();
+//        System.out.println(aClass);
+        ZoneId zoneId = ZoneId.systemDefault();
+        System.out.println(zoneId);
+        System.out.println(LocalDateTime.now(zoneId));
+        System.out.println(LocalDateTime.now(ZoneId.of("+08:00")));
     }
 }

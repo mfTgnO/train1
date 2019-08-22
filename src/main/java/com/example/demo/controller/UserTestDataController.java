@@ -10,8 +10,7 @@ import com.example.demo.utils.annotation.PageHelp;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.core.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +35,10 @@ import static com.example.demo.config.RedisConfig.redisKeyPrefix.USER;
 public class UserTestDataController {
     private RedisTemplate<String, String> redisTemplate;
     private ValueOperations<String, String> valueOperations;
+    private SetOperations<String, String> setOperations;
+    private ListOperations<String, String> listOperations;
+    private HashOperations<String, Object, Object> hashOperations;
+    private ZSetOperations<String, String> zSetOperations;
 
     @Autowired
     public UserTestDataController(RedisTemplate<String, String> redisTemplate) {
@@ -45,6 +48,10 @@ public class UserTestDataController {
     @PostConstruct
     protected void init() {
         this.valueOperations = redisTemplate.opsForValue();
+        this.setOperations = redisTemplate.opsForSet();
+        this.listOperations = redisTemplate.opsForList();
+        this.hashOperations = redisTemplate.opsForHash();
+        this.zSetOperations = redisTemplate.opsForZSet();
     }
 
     @Resource

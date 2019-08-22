@@ -1,6 +1,7 @@
 #spring:
 #  profiles:
 #    active:
-#      '@profile.active@'
+#      dev
+##      '@profile.active@'
 #  application:
 #    name: demo

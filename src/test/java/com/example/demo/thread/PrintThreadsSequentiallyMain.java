@@ -40,6 +40,9 @@ public class PrintThreadsSequentiallyMain {
         });
     }
 
+    /**
+     * 虚拟机可用的最大处理器数量;从不小于一个
+     */
     @Test
     public void test2() {
         int availableProcessors = Runtime.getRuntime().availableProcessors();

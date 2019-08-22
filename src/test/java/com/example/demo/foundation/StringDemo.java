@@ -3,6 +3,7 @@ package com.example.demo.foundation;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.codec.digest.Md5Crypt;
 import org.junit.Test;
+import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -206,5 +207,35 @@ public class StringDemo {
         String sign = DigestUtils.md5Hex(text);
         System.out.println(sign);
         System.out.println(sign.equals("1cf5426fe1050bd6504c24c8b187762c"));
+    }
+
+    @Test
+    public void stringJoin() {
+        String str = "[{\"id\":148,\"name\":\"黑色\",\"styleType\":\"4\",\"createTime\":\"2019-08-13 08:40:44\",\"updateTime\":\"2019-08-13 08:40:44\",\"place\":1,\"deleted\":0},{\"id\":149,\"name\":\"彩色\",\"styleType\":\"4\",\"createTime\":\"2019-08-13 08:40:44\",\"updateTime\":\"2019-08-13 08:40:44\",\"place\":2,\"deleted\":0}]";
+        String join = String.join(",", str);
+        String valueOf = String.valueOf(str);
+        System.out.println(join);
+        System.out.println(valueOf);
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void test15() {
+        List<String> list = Arrays.asList("a", "b", "c", "d");
+        System.out.println(list);
+
+        String s = StringUtils.collectionToCommaDelimitedString(list);
+        System.out.println(s);
+    }
+
+    /**
+     * 获取class名称
+     */
+    @Test
+    public void test16() {
+        String simpleName = this.getClass().getSimpleName();
+        System.out.println(simpleName);
     }
 }
