@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Calendar;
@@ -116,5 +117,43 @@ public class DateDemo {
         System.out.println(zoneId);
         System.out.println(LocalDateTime.now(zoneId));
         System.out.println(LocalDateTime.now(ZoneId.of("+08:00")));
+    }
+
+    /**
+     * Date to LocalDateTime
+     */
+    @Test
+    public void dateToLocalDateTime() {
+        Date todayDate = new Date();
+        System.out.println(todayDate);
+
+        LocalDateTime localDateTime = Instant.ofEpochMilli(todayDate.getTime())
+                .atZone(ZoneId.systemDefault())
+                .toLocalDateTime();
+        System.out.println(localDateTime);
+    }
+
+    /**
+     * LocalDateTime to Date
+     */
+    @Test
+    public void localDateTimeToDate() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println(localDateTime);
+
+        Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+        System.out.println(date);
+    }
+
+    /**
+     * DateUtils test
+     */
+    @Test
+    public void dateUtilsTest() {
+        Date date = com.example.demo.utils.DateUtils.asDate(LocalDateTime.now());
+        System.out.println(date);
+
+        LocalDateTime today = com.example.demo.utils.DateUtils.asLocalDateTime(new Date());
+        System.out.println(today);
     }
 }
