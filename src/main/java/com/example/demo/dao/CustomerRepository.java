@@ -15,7 +15,7 @@ public interface CustomerRepository {
 
     Customer find(Long id);
 
-    Map<Long, Customer> findAll();
+    Map<Object, Object> findAll();
 
     void update(Customer customer);
 
@@ -23,7 +23,7 @@ public interface CustomerRepository {
 
     void valueOperationsAdd(String key, String value);
 
-    void valueOperationsAddExpireTime(String key, Object value);
+    void valueOperationsAddExpireTime(String key, String value);
 
     Object valueOperationsGet(String key);
 
@@ -31,15 +31,15 @@ public interface CustomerRepository {
 
     Long listOperationsRightPush(String key);
 
-    List<Object> listOperationsRange(String key);
+    List<String> listOperationsRange(String key);
 
     Long listOperationsSize(String key);
 
     Object listOperationsLeftPop(String key);
 
-    Long setOperationsAdd(String key, Object value);
+    Long setOperationsAdd(String key, String value);
 
-    Set<Object> setOperationsMembers(String key);
+    Set<String> setOperationsMembers(String key);
 
     Long setOperationsSize(String key);
 }

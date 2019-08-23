@@ -21,7 +21,8 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.List;
 
-import static com.example.demo.config.RedisConfig.redisKeyPrefix.PROVINCE;
+import static com.example.demo.config.RedisKeyPrefix.PROVINCE;
+
 
 /**
  * @package: com.example.demo.controller

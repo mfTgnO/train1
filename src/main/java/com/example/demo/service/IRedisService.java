@@ -1,19 +1,28 @@
 package com.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public abstract class IRedisService<T> {
+    protected RedisTemplate<String, String> redisTemplate;
+
+    private StringRedisTemplate stringRedisTemplate;
+
+    public IRedisService() {
+    }
+
     @Autowired
-    protected RedisTemplate<String, Object> redisTemplate;
-    @Resource
-    protected HashOperations<String, String, T> hashOperations;
+    public IRedisService(StringRedisTemplate stringRedisTemplate) {
+        this.stringRedisTemplate = stringRedisTemplate;
+    }
+
+    @Autowired
+
 
     /**
      * 存入redis中的key
@@ -30,7 +39,7 @@ public abstract class IRedisService<T> {
      * @param expire 过期时间(单位:秒),传入 -1 时表示不设置过期时间
      */
     public void put(String key, T doamin, long expire) {
-        hashOperations.put(getRedisKey(), key, doamin);
+        stringRedisTemplate.opsForHash().put(getRedisKey(), key, doamin);
         if (expire != -1) {
             redisTemplate.expire(getRedisKey(), expire, TimeUnit.SECONDS);
         }
@@ -42,7 +51,7 @@ public abstract class IRedisService<T> {
      * @param key 传入key的名称
      */
     public void remove(String key) {
-        hashOperations.delete(getRedisKey(), key);
+        stringRedisTemplate.opsForHash().delete(getRedisKey(), key);
     }
 
     /**
@@ -52,7 +61,7 @@ public abstract class IRedisService<T> {
      * @return
      */
     public T get(String key) {
-        return hashOperations.get(getRedisKey(), key);
+        return (T) stringRedisTemplate.opsForHash().get(getRedisKey(), key);
     }
 
     /**
@@ -61,7 +70,7 @@ public abstract class IRedisService<T> {
      * @return
      */
     public List<T> getAll() {
-        return hashOperations.values(getRedisKey());
+        return (List<T>) stringRedisTemplate.opsForHash().values(getRedisKey());
     }
 
     /**
@@ -69,8 +78,8 @@ public abstract class IRedisService<T> {
      *
      * @return
      */
-    public Set<String> getKeys() {
-        return hashOperations.keys(getRedisKey());
+    public Set<Object> getKeys() {
+        return stringRedisTemplate.opsForHash().keys(getRedisKey());
     }
 
     /**
@@ -80,7 +89,7 @@ public abstract class IRedisService<T> {
      * @return
      */
     public boolean isKeyExists(String key) {
-        return hashOperations.hasKey(getRedisKey(), key);
+        return stringRedisTemplate.opsForHash().hasKey(getRedisKey(), key);
     }
 
     /**
@@ -89,14 +98,14 @@ public abstract class IRedisService<T> {
      * @return
      */
     public long count() {
-        return hashOperations.size(getRedisKey());
+        return stringRedisTemplate.opsForHash().size(getRedisKey());
     }
 
     /**
      * 清空redis
      */
     public void empty() {
-        Set<String> set = hashOperations.keys(getRedisKey());
-        set.stream().forEach(key -> hashOperations.delete(getRedisKey(), key));
+        Set<Object> set = stringRedisTemplate.opsForHash().keys(getRedisKey());
+        set.stream().forEach(key -> stringRedisTemplate.opsForHash().delete(getRedisKey(), key));
     }
 }

@@ -19,34 +19,40 @@ import java.util.concurrent.TimeUnit;
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
     private static final String KEY = "Customer";
-    private RedisTemplate<String, Object> redisTemplate;
-    private HashOperations<String, Long, Customer> hashOperations;
-    private ValueOperations<String, Object> valueOperations;
-    private ListOperations<String, Object> listOperations;
-    private SetOperations<String, Object> setOperations;
-    private ZSetOperations<String, Object> zSetOperations;
-
+    private StringRedisTemplate stringRedisTemplate;
+//    private RedisTemplate<String, String> redisTemplate;
+    private HashOperations<String, String, Customer> hashOperations;
+    private ValueOperations<String, String> valueOperations;
+    private ListOperations<String, String> listOperations;
+    private SetOperations<String, String> setOperations;
+    private ZSetOperations<String, String> zSetOperations;
 
     @Autowired
-    public CustomerRepositoryImpl(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
+    public CustomerRepositoryImpl(StringRedisTemplate stringRedisTemplate) {
+        this.stringRedisTemplate = stringRedisTemplate;
     }
 
-    @PostConstruct
+
+    /*@Autowired
+    public CustomerRepositoryImpl(RedisTemplate<String, String> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }*/
+
+/*    @PostConstruct
     private void init() {
         this.hashOperations = redisTemplate.opsForHash();
         this.valueOperations = redisTemplate.opsForValue();
         this.listOperations = redisTemplate.opsForList();
         this.setOperations = redisTemplate.opsForSet();
         this.zSetOperations = redisTemplate.opsForZSet();
-    }
+    }*/
 
     /**
      * 添加、更新
      */
     @Override
     public void save(Customer customer) {
-        hashOperations.put(KEY, customer.getId(), customer);
+        stringRedisTemplate.opsForHash().put(KEY, customer.getId(), customer);
     }
 
     /**
@@ -57,7 +63,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Customer find(Long id) {
-        return hashOperations.get(KEY, id);
+        return (Customer) stringRedisTemplate.opsForHash().get(KEY, id);
     }
 
     /**
@@ -66,8 +72,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      * @return
      */
     @Override
-    public Map<Long, Customer> findAll() {
-        return hashOperations.entries(KEY);
+    public Map<Object, Object> findAll() {
+        return stringRedisTemplate.opsForHash().entries(KEY);
     }
 
     /**
@@ -77,7 +83,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public void update(Customer customer) {
-        hashOperations.put(KEY, customer.getId(), customer);
+        stringRedisTemplate.opsForHash().put(KEY, customer.getId(), customer);
     }
 
     /**
@@ -87,7 +93,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public void delete(Long id) {
-        hashOperations.delete(KEY, id);
+        stringRedisTemplate.opsForHash().delete(KEY, id);
     }
 
     /**
@@ -98,7 +104,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public void valueOperationsAdd(String key, String value) {
-        valueOperations.set(key, value);
+        stringRedisTemplate.opsForValue().set(key, value);
     }
 
     /**
@@ -108,8 +114,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      * @param value
      */
     @Override
-    public void valueOperationsAddExpireTime(String key, Object value) {
-        valueOperations.set(key, value, 10, TimeUnit.SECONDS);
+    public void valueOperationsAddExpireTime(String key, String value) {
+        stringRedisTemplate.opsForValue().set(key, value, 10, TimeUnit.SECONDS);
     }
 
     /**
@@ -119,8 +125,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      * @return
      */
     @Override
-    public Object valueOperationsGet(String key) {
-        return valueOperations.get(key);
+    public String valueOperationsGet(String key) {
+        return stringRedisTemplate.opsForValue().get(key);
     }
 
     /**
@@ -131,7 +137,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Long valueOperationsIncrement(String key) {
-        return valueOperations.increment(key);
+        return stringRedisTemplate.opsForValue().increment(key);
     }
 
     /**
@@ -142,7 +148,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Long listOperationsRightPush(String key) {
-        return listOperations.rightPush(key, UUID.randomUUID());
+        return stringRedisTemplate.opsForList().rightPush(key, String.valueOf(UUID.randomUUID()));
     }
 
     /**
@@ -152,8 +158,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      * @return
      */
     @Override
-    public List<Object> listOperationsRange(String key) {
-        return listOperations.range(key, 0, -1);
+    public List<String> listOperationsRange(String key) {
+        return stringRedisTemplate.opsForList().range(key, 0, -1);
     }
 
     /**
@@ -164,7 +170,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Long listOperationsSize(String key) {
-        return listOperations.size(key);
+        return stringRedisTemplate.opsForList().size(key);
+
     }
 
     /**
@@ -174,8 +181,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      * @return
      */
     @Override
-    public Object listOperationsLeftPop(String key) {
-        return listOperations.leftPop(key);
+    public String listOperationsLeftPop(String key) {
+        return stringRedisTemplate.opsForList().leftPop(key);
     }
 
     /**
@@ -186,8 +193,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      * @return
      */
     @Override
-    public Long setOperationsAdd(String key, Object value) {
-        return setOperations.add(key, value);
+    public Long setOperationsAdd(String key, String value) {
+        return stringRedisTemplate.opsForSet().add(key, value);
     }
 
     /**
@@ -197,8 +204,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      * @return
      */
     @Override
-    public Set<Object> setOperationsMembers(String key) {
-        return setOperations.members(key);
+    public Set<String> setOperationsMembers(String key) {
+        return stringRedisTemplate.opsForSet().members(key);
     }
 
     /**
@@ -209,6 +216,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Long setOperationsSize(String key) {
-        return setOperations.size(key);
+        return stringRedisTemplate.opsForSet().size(key);
     }
 }

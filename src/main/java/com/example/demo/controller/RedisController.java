@@ -48,7 +48,7 @@ public class RedisController {
      */
     @GetMapping("/findAll")
     public JsonResult findAll() {
-        Map<Long, Customer> customers = customerRepository.findAll();
+        Map<Object, Object> customers = customerRepository.findAll();
 
         return new JsonResult(customers);
     }
@@ -130,7 +130,7 @@ public class RedisController {
     }
 
     @GetMapping("/listOperationsRange")
-    public List<Object> listOperationsRange(@RequestParam("key") String key) {
+    public List<String> listOperationsRange(@RequestParam("key") String key) {
         return customerRepository.listOperationsRange(key);
     }
 
@@ -145,12 +145,12 @@ public class RedisController {
     }
 
     @GetMapping("/setOperationsAdd")
-    public Long setOperationsAdd(@RequestParam("key") String key, @RequestParam("value") Object value) {
+    public Long setOperationsAdd(@RequestParam("key") String key, @RequestParam("value") String value) {
         return customerRepository.setOperationsAdd(key, value);
     }
 
     @GetMapping("/setOperationsMembers")
-    public Set<Object> setOperationsMembers(@RequestParam("key") String key) {
+    public Set<String> setOperationsMembers(@RequestParam("key") String key) {
         return customerRepository.setOperationsMembers(key);
     }
 

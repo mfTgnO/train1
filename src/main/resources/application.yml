@@ -1,7 +1,4 @@
-#spring:
-#  profiles:
-#    active:
-#      dev
-##      '@profile.active@'
-#  application:
-#    name: demo
+spring:
+  profiles:
+    active:
+      cluster

@@ -53,4 +53,11 @@ public class ListDemo {
         arrayList.addAll(list);
         System.out.println(arrayList);
     }
+
+    @Test
+    public void test24() {
+        String str = "1,2,3";
+        List<String> strings = Arrays.asList(str);
+        System.out.println(strings);
+    }
 }

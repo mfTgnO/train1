@@ -143,6 +143,7 @@ public class DateDemo {
 
         Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
         System.out.println(date);
+
     }
 
     /**

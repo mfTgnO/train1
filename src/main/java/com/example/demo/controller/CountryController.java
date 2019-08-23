@@ -20,7 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
-import static com.example.demo.config.RedisConfig.redisKeyPrefix.COUNTRY;
+import static com.example.demo.config.RedisKeyPrefix.COUNTRY;
+
 
 /**
  * @package: com.example.demo.controller

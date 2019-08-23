@@ -1,0 +1,136 @@
+#分号后面需要添加一个空格
+server:
+  port: 8080
+#  tomcat:
+#    max-threads: 20
+#    max-connections: 10000
+
+spring:
+  #  mvc:
+  #    static-path-pattern: /static/**
+  #  autoconfigure:
+  #    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+#  thymeleaf:
+#    cache: false
+  datasource:
+    url: jdbc:mysql://192.168.2.225:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: mypassword
+    hikari:
+      maximum-pool-size: 50
+      max-lifetime: 1770000
+    initialization-mode: embedded
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+
+  #rabbit配置
+  rabbitmq:
+    host: 192.168.2.225
+    port: 5672
+    username: guest
+    password: guest
+    requested-heartbeat: 10
+    #    virtual-host:
+    #    schema:
+    #    data:
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    #  artemis:
+    #    host: artemis.tacocloud.com
+    #    port: 61617
+    #    user: tacoweb
+    #    password: l3tm31n
+    #  jms:
+    #    template:
+    #      default-destination: tacocloud.order.queue
+    publisher-confirms: true
+    publisher-returns: true
+  #    template:
+  #      exchange: tacocloud.orders
+  #      routing-key: kitchens.central
+  #      receive-timeout: 30000
+  #  kafka:
+  #    template:
+  #      default-topic: tacocloud.orders.topic
+  #    bootstrap-servers:
+  #    - kafka.tacocloud.com:9092
+  #    - kafka.tacocloud.com:9093
+  #    - kafka.tacocloud.com:9094
+  redis:
+    jedis:
+      pool:
+        max-active: 20
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1
+    timeout: 5000
+    cluster:
+      nodes:
+        - 192.168.2.225:7000
+        - 192.168.2.225:7001
+        - 192.168.2.225:7002
+        - 192.168.2.225:7003
+        - 192.168.2.225:7004
+        - 192.168.2.225:7005
+      max-redirects: 6
+  data:
+    solr:
+      host: http://192.168.2.225:8983/solr
+#  jpa:
+#    open-in-view: false
+#  devtools:
+#    add-properties: false
+#  security:
+#    user:
+#      name: guest
+#      password: guest123
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: validate
+#      naming:
+#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+logging:
+  #  path: E:logspath\logs\
+  #  file: demo.log
+  config: classpath:logback-spring.xml
+#  path: logspath/logs
+#    org:
+#      springframework:
+#        security: DEBUG
+
+#greeting:
+#  welcome: ${spring.application.name}
+greeting:
+  welcome: You are using ${spring.application.name}
+
+taco:
+  orders:
+    pageSize: 10
+
+mybatis:
+  # 指定别名设置的包为所有entity
+  type-aliases-package: com.example.demo.model
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 配置分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+# rabbitmq消息队列
+jsa:
+  rabbitmq:
+    queue: javainuse.queue
+    exchange: javainuse.exchange
+    routingkey: javainuse.routingkey

@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.RedisModel;
-import com.example.demo.service.impl.RedisServiceImpl;
+import com.example.demo.service.IRedisService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,10 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class RedisControllerTest {
-    private final RedisServiceImpl service;
+    private final IRedisService redisService;
 
-    public RedisControllerTest(RedisServiceImpl service) {
-        this.service = service;
+    @Autowired
+    public RedisControllerTest(IRedisService redisService) {
+        this.redisService = redisService;
     }
 
     @RequestMapping("/add")
@@ -24,21 +26,21 @@ public class RedisControllerTest {
         m.setTel("1111");
         m.setAddress("深圳1");
         m.setRedisKey("zhangsanKey01");
-        service.put(m.getRedisKey(), m, -1);
+        redisService.put(m.getRedisKey(), m, -1);
 
         RedisModel m2 = new RedisModel();
         m2.setName("张三2");
         m2.setTel("2222");
         m2.setAddress("深圳2");
         m2.setRedisKey("zhangsanKey02");
-        service.put(m2.getRedisKey(), m2, -1);
+        redisService.put(m2.getRedisKey(), m2, -1);
 
         RedisModel m3 = new RedisModel();
         m3.setName("张三3");
         m3.setTel("2222");
         m3.setAddress("深圳2");
         m3.setRedisKey("zhangsanKey03");
-        service.put(m3.getRedisKey(), m3, -1);
+        redisService.put(m3.getRedisKey(), m3, -1);
 
         System.out.println("add success end...");
     }

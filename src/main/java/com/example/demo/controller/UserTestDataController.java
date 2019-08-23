@@ -21,7 +21,8 @@ import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.List;
 
-import static com.example.demo.config.RedisConfig.redisKeyPrefix.USER;
+import static com.example.demo.config.RedisKeyPrefix.USER;
+
 
 /**
  * @package: com.example.demo.controller
