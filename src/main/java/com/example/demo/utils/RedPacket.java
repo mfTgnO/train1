@@ -1,6 +1,9 @@
 package com.example.demo.utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class RedPacket {
     // 线段切割法代码实现：(jkd1.8)
@@ -8,13 +11,13 @@ public class RedPacket {
         List<Integer> redPackets = new ArrayList<>();
         //承装切割点
         Set<Integer> cutPoints = new TreeSet<>((front, back) -> front - back);
-        Random createAmount = new Random();
+        RandomUtil createAmount = new RandomUtil();
         //切割n-1次，且保证每次割点不相同
-        while (cutPoints.size() != totalPeopleCount - 1) {
+        /*while (cutPoints.size() != totalPeopleCount - 1) {
             //这样操作的目的是random是左闭右开,有可能取到0，所以随机范围[1,剩余金额
             int currentCutPoint = createAmount.nextInt(totalAmount) + 1;
             cutPoints.add(currentCutPoint);
-        }
+        }*/
         int preCutPoint = 0;
         //按照切割点来算金额
         for (int currentCutPoint : cutPoints) {

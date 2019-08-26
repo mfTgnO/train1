@@ -26,4 +26,16 @@ public class DateUtils {
     public static LocalDateTime asLocalDateTime(Date date) {
         return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
+
+    /**
+     * 将milliseconds转换为LocalDateTime
+     *
+     * @param milliseconds 时间戳毫秒值
+     * @return LocalDateTime
+     */
+    public static LocalDateTime convertMillisecondsToLocalDateTime(long milliseconds) {
+        return Instant.ofEpochMilli(milliseconds)
+                .atZone(ZoneId.systemDefault())
+                .toLocalDateTime();
+    }
 }
