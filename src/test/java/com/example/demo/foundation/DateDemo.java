@@ -147,14 +147,14 @@ public class DateDemo {
     }
 
     /**
-     * DateUtils test
+     * Date test
      */
     @Test
     public void dateUtilsTest() {
-        Date date = com.example.demo.utils.DateUtils.asDate(LocalDateTime.now());
+        Date date = com.example.demo.utils.Date.asDate(LocalDateTime.now());
         System.out.println(date);
 
-        LocalDateTime today = com.example.demo.utils.DateUtils.asLocalDateTime(new Date());
+        LocalDateTime today = com.example.demo.utils.Date.asLocalDateTime(new Date());
         System.out.println(today);
     }
 }

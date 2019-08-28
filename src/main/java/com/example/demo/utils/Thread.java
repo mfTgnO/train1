@@ -2,7 +2,6 @@ package com.example.demo.utils;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @package: com.example.demo.utils
@@ -11,9 +10,9 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @createDate: 2019-06-01 16:45
  * @description:
  */
-public class ThreadUtil {
+public class Thread {
     public static final Executor EXECUTOR2 = Executors.newFixedThreadPool(100, r -> {
-        Thread t = new Thread(r);
+        java.lang.Thread t = new java.lang.Thread(r);
         t.setDaemon(true);
         return t;
     });

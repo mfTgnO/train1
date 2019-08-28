@@ -4,26 +4,25 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Date;
 
 /**
  * @createDate: 2019-08-22 10:11
  * @description: Utility class with simple method class to convert between Date and LocalDateTime variants.
  */
-public class DateUtils {
-    public static Date asDate(LocalDate localDate) {
-        return Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+public class Date {
+    public static java.util.Date asDate(LocalDate localDate) {
+        return java.util.Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
     }
 
-    public static Date asDate(LocalDateTime localDateTime) {
-        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+    public static java.util.Date asDate(LocalDateTime localDateTime) {
+        return java.util.Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
     }
 
-    public static LocalDate asLocalDate(Date date) {
+    public static LocalDate asLocalDate(java.util.Date date) {
         return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
-    public static LocalDateTime asLocalDateTime(Date date) {
+    public static LocalDateTime asLocalDateTime(java.util.Date date) {
         return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 

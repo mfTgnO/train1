@@ -11,7 +11,7 @@ public class RedPacket {
         List<Integer> redPackets = new ArrayList<>();
         //承装切割点
         Set<Integer> cutPoints = new TreeSet<>((front, back) -> front - back);
-        RandomUtil createAmount = new RandomUtil();
+        Random createAmount = new Random();
         //切割n-1次，且保证每次割点不相同
         /*while (cutPoints.size() != totalPeopleCount - 1) {
             //这样操作的目的是random是左闭右开,有可能取到0，所以随机范围[1,剩余金额

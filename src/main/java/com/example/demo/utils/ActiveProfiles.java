@@ -7,11 +7,11 @@ import org.springframework.core.env.Environment;
  * @createDate: 2019-08-26 16:40
  * @description:
  */
-public class ActiveProfilesUtil {
+public class ActiveProfiles {
     private Environment environment;
 
     @Autowired
-    public ActiveProfilesUtil(Environment environment) {
+    public ActiveProfiles(Environment environment) {
         this.environment = environment;
     }
 
