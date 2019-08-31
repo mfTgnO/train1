@@ -15,7 +15,7 @@ public class Random {
 
     private static void sleep() {
         try {
-            Thread.sleep(11000);
+            java.lang.Thread.sleep(11000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

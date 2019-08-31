@@ -1,19 +1,9 @@
-#分号后面需要添加一个空格
 server:
   port: 8080
-#  tomcat:
-#    max-threads: 20
-#    max-connections: 10000
 
 spring:
-  #  mvc:
-  #    static-path-pattern: /static/**
-  #  autoconfigure:
-  #    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-#  thymeleaf:
-#    cache: false
   datasource:
-    url: jdbc:mysql://192.168.2.225:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://192.168.1.45:6603/bookinfo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: mypassword
     hikari:
@@ -23,59 +13,29 @@ spring:
     tomcat:
       test-while-idle: true
       validation-query: SELECT 1
-
-  #rabbit配置
   rabbitmq:
-    host: 192.168.2.225
+    host: 192.168.1.45
     port: 5672
     username: guest
     password: guest
     requested-heartbeat: 10
-    #    virtual-host:
-    #    schema:
-    #    data:
-    #    driver-class-name: com.mysql.cj.jdbc.Driver
-    #  artemis:
-    #    host: artemis.tacocloud.com
-    #    port: 61617
-    #    user: tacoweb
-    #    password: l3tm31n
-    #  jms:
-    #    template:
-    #      default-destination: tacocloud.order.queue
     publisher-confirms: true
     publisher-returns: true
-  #    template:
-  #      exchange: tacocloud.orders
-  #      routing-key: kitchens.central
-  #      receive-timeout: 30000
-  #  kafka:
-  #    template:
-  #      default-topic: tacocloud.orders.topic
-  #    bootstrap-servers:
-  #    - kafka.tacocloud.com:9092
-  #    - kafka.tacocloud.com:9093
-  #    - kafka.tacocloud.com:9094
   redis:
+    cluster:
+      nodes: 192.168.1.45:7000,192.168.1.45:7001,192.168.1.45:7002,192.168.1.45:7003,192.168.1.45:7004,192.168.1.45:7005
+      max-redirects: 3
     jedis:
       pool:
         max-active: 20
-        max-idle: 8
+        max-idle: 100
         min-idle: 0
-        max-wait: -1
-    timeout: 5000
-    cluster:
-      nodes:
-        - 192.168.2.225:7000
-        - 192.168.2.225:7001
-        - 192.168.2.225:7002
-        - 192.168.2.225:7003
-        - 192.168.2.225:7004
-        - 192.168.2.225:7005
-      max-redirects: 6
+        max-wait: 1000ms
+    timeout: 3000ms
+
   data:
     solr:
-      host: http://192.168.2.225:8983/solr
+      host: http://192.168.1.45:8983/solr
 #  jpa:
 #    open-in-view: false
 #  devtools:
@@ -130,7 +90,7 @@ pagehelper:
 
 # rabbitmq消息队列
 jsa:
-  rabbitmq:
+rabbitmq:
     queue: javainuse.queue
     exchange: javainuse.exchange
     routingkey: javainuse.routingkey

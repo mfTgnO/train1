@@ -32,7 +32,9 @@ public class MessageController {
     }
 
     /**
-     * @param orderMQ
+     * 向数据库添加一条消息记录
+     *
+     * @param orderMQ entity
      * @return JsonResult
      */
     @PostMapping("/sendMsg")
@@ -46,6 +48,7 @@ public class MessageController {
 
     /**
      * 发送消息
+     *
      * @return JsonResult
      */
     @PostMapping("/sendMsgV2")
@@ -54,12 +57,12 @@ public class MessageController {
         // 发送消息条数
         int times = 1 << 1;
         for (int i = 0; i < times; i++) {
-            OrderMQ orderMQ = new OrderMQ();
-            orderMQ.setProductId((long) i);
-            orderMQ.setOrderNumber(random.nextLong());
-            orderMQ.setAmount(new BigDecimal(random.nextLong()));
+            OrderMQ ordermq = new OrderMQ();
+            ordermq.setProductId((long) i);
+            ordermq.setOrderNumber(random.nextLong());
+            ordermq.setAmount(new BigDecimal(random.nextLong()));
 
-            orderMessageSender.sendOrder(orderMQ);
+            orderMessageSender.sendOrder(ordermq);
         }
         return new JsonResult();
     }

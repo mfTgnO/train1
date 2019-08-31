@@ -18,7 +18,7 @@ import java.util.Map;
 @Setter
 @Getter
 public class JsonResult<T> implements Serializable {
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+//    @JsonInclude(JsonInclude.Include.NON_NULL)
     private T data;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)

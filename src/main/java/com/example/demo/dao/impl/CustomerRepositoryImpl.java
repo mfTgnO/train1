@@ -3,10 +3,9 @@ package com.example.demo.dao.impl;
 import com.example.demo.dao.CustomerRepository;
 import com.example.demo.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.*;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,40 +18,21 @@ import java.util.concurrent.TimeUnit;
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
     private static final String KEY = "Customer";
-    private StringRedisTemplate stringRedisTemplate;
-//    private RedisTemplate<String, String> redisTemplate;
-    private HashOperations<String, String, Customer> hashOperations;
-    private ValueOperations<String, String> valueOperations;
-    private ListOperations<String, String> listOperations;
-    private SetOperations<String, String> setOperations;
-    private ZSetOperations<String, String> zSetOperations;
+    private static final String REDIS_KEY_USER = "user:";
+    private RedisTemplate redisTemplate;
 
     @Autowired
-    public CustomerRepositoryImpl(StringRedisTemplate stringRedisTemplate) {
-        this.stringRedisTemplate = stringRedisTemplate;
+    public CustomerRepositoryImpl(RedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
     }
 
-
-    /*@Autowired
-    public CustomerRepositoryImpl(RedisTemplate<String, String> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }*/
-
-/*    @PostConstruct
-    private void init() {
-        this.hashOperations = redisTemplate.opsForHash();
-        this.valueOperations = redisTemplate.opsForValue();
-        this.listOperations = redisTemplate.opsForList();
-        this.setOperations = redisTemplate.opsForSet();
-        this.zSetOperations = redisTemplate.opsForZSet();
-    }*/
 
     /**
      * 添加、更新
      */
     @Override
     public void save(Customer customer) {
-        stringRedisTemplate.opsForHash().put(KEY, customer.getId(), customer);
+        redisTemplate.opsForHash().put(KEY, REDIS_KEY_USER + customer.getId(), customer);
     }
 
     /**
@@ -63,7 +43,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Customer find(Long id) {
-        return (Customer) stringRedisTemplate.opsForHash().get(KEY, id);
+        return (Customer) redisTemplate.opsForHash().get(KEY, REDIS_KEY_USER + id);
     }
 
     /**
@@ -73,7 +53,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Map<Object, Object> findAll() {
-        return stringRedisTemplate.opsForHash().entries(KEY);
+        return redisTemplate.opsForHash().entries(KEY);
     }
 
     /**
@@ -83,7 +63,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public void update(Customer customer) {
-        stringRedisTemplate.opsForHash().put(KEY, customer.getId(), customer);
+        redisTemplate.opsForHash().put(KEY, customer.getId(), customer);
     }
 
     /**
@@ -93,7 +73,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public void delete(Long id) {
-        stringRedisTemplate.opsForHash().delete(KEY, id);
+        redisTemplate.opsForHash().delete(KEY, id);
     }
 
     /**
@@ -104,7 +84,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public void valueOperationsAdd(String key, String value) {
-        stringRedisTemplate.opsForValue().set(key, value);
+        redisTemplate.opsForValue().set(key, value);
     }
 
     /**
@@ -115,7 +95,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public void valueOperationsAddExpireTime(String key, String value) {
-        stringRedisTemplate.opsForValue().set(key, value, 10, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set(key, value, 10, TimeUnit.SECONDS);
     }
 
     /**
@@ -125,8 +105,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      * @return
      */
     @Override
-    public String valueOperationsGet(String key) {
-        return stringRedisTemplate.opsForValue().get(key);
+    public Object valueOperationsGet(String key) {
+        return redisTemplate.opsForValue().get(key);
     }
 
     /**
@@ -137,7 +117,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Long valueOperationsIncrement(String key) {
-        return stringRedisTemplate.opsForValue().increment(key);
+        return redisTemplate.opsForValue().increment(key);
     }
 
     /**
@@ -148,7 +128,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Long listOperationsRightPush(String key) {
-        return stringRedisTemplate.opsForList().rightPush(key, String.valueOf(UUID.randomUUID()));
+        return redisTemplate.opsForList().rightPush(key, String.valueOf(UUID.randomUUID()));
     }
 
     /**
@@ -159,7 +139,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public List<String> listOperationsRange(String key) {
-        return stringRedisTemplate.opsForList().range(key, 0, -1);
+        return redisTemplate.opsForList().range(key, 0, -1);
     }
 
     /**
@@ -170,7 +150,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Long listOperationsSize(String key) {
-        return stringRedisTemplate.opsForList().size(key);
+        return redisTemplate.opsForList().size(key);
 
     }
 
@@ -181,8 +161,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      * @return
      */
     @Override
-    public String listOperationsLeftPop(String key) {
-        return stringRedisTemplate.opsForList().leftPop(key);
+    public Object listOperationsLeftPop(String key) {
+        return redisTemplate.opsForList().leftPop(key);
     }
 
     /**
@@ -194,7 +174,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Long setOperationsAdd(String key, String value) {
-        return stringRedisTemplate.opsForSet().add(key, value);
+        return redisTemplate.opsForSet().add(key, value);
     }
 
     /**
@@ -205,7 +185,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Set<String> setOperationsMembers(String key) {
-        return stringRedisTemplate.opsForSet().members(key);
+        return redisTemplate.opsForSet().members(key);
     }
 
     /**
@@ -216,6 +196,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
      */
     @Override
     public Long setOperationsSize(String key) {
-        return stringRedisTemplate.opsForSet().size(key);
+        return redisTemplate.opsForSet().size(key);
     }
 }

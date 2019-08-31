@@ -7,9 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-/**
- * @author Administrator
- */
 @SpringBootApplication
 @EnableAsync
 @MapperScan("com.example.demo.mapper")

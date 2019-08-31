@@ -6,7 +6,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @package: com.example.demo.rabbitmq
@@ -33,11 +32,12 @@ public class OrderMessageSender {
     }
 
     /**
+     * 发送消息
      *
-     * @param orderMQ 消息
+     * @param ordermq 消息
      */
-    public void sendOrder(OrderMQ orderMQ) {
-        this.rabbitTemplate.convertAndSend(exchange, routingKey, orderMQ);
+    public void sendOrder(OrderMQ ordermq) {
+        this.rabbitTemplate.convertAndSend(exchange, routingKey, ordermq);
         /*
         try {
             String orderJson = objectMapper.writeValueAsString(order);

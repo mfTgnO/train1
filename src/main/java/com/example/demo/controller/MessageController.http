@@ -1,6 +1,8 @@
+###发送消息
 POST http://127.0.0.1:8080/sendMsg?orderNumber=123&productId=456&amount789
 
 ###
 POST http://127.0.0.1:8080/sendMsgV2
 
 ###
+
