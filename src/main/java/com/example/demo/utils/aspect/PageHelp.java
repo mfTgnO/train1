@@ -49,7 +49,7 @@ public class PageHelp {
         }
     }
 
-    @AfterReturning(returning = "result", pointcut = "pointCut()")
+    /*@AfterReturning(returning = "result", pointcut = "pointCut()")
     public void doAfter(JsonResult result) {
         Object data = result.getData();
         if (data instanceof com.github.pagehelper.Page) {
@@ -58,5 +58,5 @@ public class PageHelp {
             result.setCount((int) total);
         }
         //考虑是在这里 赋值total 还是JsonResult在setData 的时候直接 instanceof 并赋值
-    }
+    }*/
 }
