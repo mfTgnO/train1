@@ -238,4 +238,18 @@ public class StringDemo {
         String simpleName = this.getClass().getSimpleName();
         System.out.println(simpleName);
     }
+
+    @Test
+    public void test17() {
+        // The below line will create two object one is in heap and another is in String constant pool.
+        String s1 = new String("abc");
+
+        // SCP object reference
+        String s2 = s1.intern();
+        // false
+        System.out.println(s1 == s2);
+        String s3 = "abc";
+        // true
+        System.out.println(s3 == s2);
+    }
 }

@@ -23,7 +23,7 @@ public class ListDemo {
         System.out.println(list);
         for (int i = 0; i < list.size(); i++) {
             Integer integer = list.get(i);
-            if (integer == 3 || integer == 5) {
+            if (integer == 3) {
                 list.remove(integer);
             }
         }
@@ -59,5 +59,20 @@ public class ListDemo {
         String str = "1,2,3";
         List<String> strings = Arrays.asList(str);
         System.out.println(strings);
+    }
+
+    @Test
+    public void test25() {
+        ArrayList<String> list = new ArrayList<>(3);
+        list.add("name");
+        list.add("age");
+        list.add("phone");
+        System.out.println(list);
+        for (String str : list) {
+            if ("phone".equals(str)) {
+                list.remove(str);
+            }
+        }
+        System.out.println(list);
     }
 }
