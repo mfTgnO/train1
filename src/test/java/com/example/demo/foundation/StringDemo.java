@@ -5,9 +5,8 @@ import org.apache.commons.codec.digest.Md5Crypt;
 import org.junit.Test;
 import org.springframework.util.StringUtils;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.net.*;
+import java.util.*;
 
 /**
  * @package: com.example.demo.foundation
@@ -251,5 +250,54 @@ public class StringDemo {
         String s3 = "abc";
         // true
         System.out.println(s3 == s2);
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void test18() throws UnknownHostException {
+        String hostName = InetAddress.getLocalHost().getHostName();
+        System.out.println(hostName);
+    }
+
+    @Test
+    public void test19() throws UnknownHostException {
+        String simpleName = this.getClass().getSimpleName();
+        System.out.println(simpleName);
+    }
+
+    @Test
+    public void test20() {
+        List<String> ips = new ArrayList<String>();
+        Enumeration<NetworkInterface> allNetInterfaces = null;
+        try {
+            allNetInterfaces = NetworkInterface.getNetworkInterfaces();
+        } catch (SocketException e) {
+            throw new RuntimeException(e.getMessage(), e);
+        }
+        while (allNetInterfaces.hasMoreElements()) {
+            NetworkInterface netInterface = allNetInterfaces.nextElement();
+            Enumeration<InetAddress> addresses = netInterface.getInetAddresses();
+            while (addresses.hasMoreElements()) {
+                InetAddress inetAddress = addresses.nextElement();
+                if (inetAddress != null && inetAddress instanceof Inet4Address) {
+                    String ip = inetAddress.getHostAddress();
+                    if (ip != null && !ip.equals("127.0.0.1")) {
+                        ips.add(ip);
+                    }
+                }
+            }
+        }
+        if (ips.isEmpty()) {
+            System.out.println("is empty");
+//            return null;
+        }
+        StringBuffer strBuffer = new StringBuffer();
+        for (String str : ips) {
+            strBuffer.append("," + str);
+        }
+        String ip = strBuffer.toString().substring(1);
+        System.out.println(ip);
     }
 }
