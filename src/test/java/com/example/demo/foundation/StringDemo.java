@@ -1,5 +1,6 @@
 package com.example.demo.foundation;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.codec.digest.Md5Crypt;
 import org.junit.Test;
@@ -15,6 +16,7 @@ import java.util.*;
  * @createDate: 2019-06-14 15:55
  * @description:
  */
+@Slf4j
 public class StringDemo {
     /**
      * String类型比较
@@ -299,5 +301,13 @@ public class StringDemo {
         }
         String ip = strBuffer.toString().substring(1);
         System.out.println(ip);
+    }
+
+    /**
+     * log
+     */
+    @Test
+    public void test21() {
+        log.error("id：{}，txid：{}", 1, 2);
     }
 }
