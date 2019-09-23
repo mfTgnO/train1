@@ -24,7 +24,7 @@ public class UUIDDemo {
      */
     @Test
     public void test2() {
-        String alphanumeric = RandomStringUtils.randomAlphanumeric(18);
+        String alphanumeric = RandomStringUtils.randomAlphanumeric(16);
         System.out.println(alphanumeric);
     }
 

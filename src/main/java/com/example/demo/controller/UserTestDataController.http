@@ -1,16 +1,16 @@
-GET http://127.0.0.1:8080/userTest?page=1&limit=10
+GET http://127.0.0.1:8085/userTest?page=1&limit=10
 
 ###
-GET http://127.0.0.1:8080/userTest/list?page=1&limit=10
+GET http://127.0.0.1:8085/userTest/list?page=1&limit=10
 
 ###
-GET http://127.0.0.1:8080/userTest/1
+GET http://127.0.0.1:8085/userTest/1
 
 ###
-GET http://127.0.0.1:8080/userTest/count
+GET http://127.0.0.1:8085/userTest/count
 
 ###
 
-GET http://127.0.0.1:8080/userTest/storeRedis
+GET http://127.0.0.1:8085/userTest/storeRedis
 
 ###

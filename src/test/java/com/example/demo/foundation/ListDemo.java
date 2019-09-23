@@ -75,4 +75,15 @@ public class ListDemo {
         }
         System.out.println(list);
     }
+
+    @Test
+    public void test26() {
+        ArrayList<String> list = new ArrayList<>(3);
+        list.add("name");
+        list.add("age");
+        list.add("phone");
+
+
+        list.forEach(System.out::println);
+    }
 }

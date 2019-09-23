@@ -8,10 +8,26 @@ import org.junit.Test;
  * @description:
  */
 public class md5 {
+    private static final String str = "hello";
+
+    /**
+     * md5Hex
+     */
     @Test
-    public void test() {
-        String str = "/v1/works/detail?nullWenle-Key-hehe";
+    public void test1() {
         String md5Hex = DigestUtils.md5Hex(str);
+        System.out.println(md5Hex);
+    }
+
+    @Test
+    public void test2() {
+        String md5Hex = DigestUtils.sha1Hex(str);
+        System.out.println(md5Hex);
+    }
+
+    @Test
+    public void test3() {
+        String md5Hex = DigestUtils.sha256Hex(str);
         System.out.println(md5Hex);
     }
 }
