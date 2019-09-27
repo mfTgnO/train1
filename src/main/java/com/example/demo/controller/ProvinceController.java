@@ -10,6 +10,7 @@ import com.example.demo.utils.annotation.PageHelp;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,14 +33,14 @@ import static com.example.demo.config.RedisKeyPrefix.PROVINCE;
  * @description:
  */
 @RestController
-@RequestMapping(("/api/province"))
+@RequestMapping("/api/province")
 public class ProvinceController {
     private ProvinceService provinceService;
     private RedisTemplate<String, String> redisTemplate;
     private ValueOperations<String, String> valueOperations;
 
     @Autowired
-    public ProvinceController(RedisTemplate<String, String> redisTemplate, ProvinceService provinceService) {
+    public ProvinceController(@Qualifier("cacheRedisTemplate") RedisTemplate<String, String> redisTemplate, ProvinceService provinceService) {
         this.redisTemplate = redisTemplate;
         this.provinceService = provinceService;
     }

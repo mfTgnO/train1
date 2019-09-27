@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled;
  */
 @Configuration
 @EnableScheduling
-public class scheduledDemo {
+public class ScheduledDemo {
     @Scheduled(fixedDelay = 1000)
     public void scheduleFixedDealyTask() {
         System.out.println("Fixed delay task - " + System.currentTimeMillis() / 1000);

@@ -10,6 +10,7 @@ import com.example.demo.utils.annotation.PageHelp;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +39,7 @@ public class TownController {
     private ValueOperations<String, String> valueOperations;
 
     @Autowired
-    public TownController(TownService townService, RedisTemplate<String, String> redisTemplate) {
+    public TownController(TownService townService, @Qualifier("cacheRedisTemplate") RedisTemplate<String, String> redisTemplate) {
         this.townService = townService;
         this.redisTemplate = redisTemplate;
     }

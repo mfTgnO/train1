@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.springframework.util.StringUtils;
 
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /**
@@ -309,5 +310,13 @@ public class StringDemo {
     @Test
     public void test21() {
         log.error("id：{}，txid：{}", 1, 2);
+    }
+
+    @Test
+    public void test22(){
+        String str = "hello";
+
+        String s = new String(str.getBytes(), StandardCharsets.UTF_8);
+        System.out.println(s);
     }
 }

@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 8123
 
 spring:
   datasource:
@@ -36,8 +36,8 @@ spring:
   data:
     solr:
       host: http://192.168.0.108:8983/solr
-#  jpa:
-#    open-in-view: false
+  jpa:
+    open-in-view: false
 #  devtools:
 #    add-properties: false
 #  security:
