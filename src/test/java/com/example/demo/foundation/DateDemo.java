@@ -1,6 +1,7 @@
 package com.example.demo.foundation;
 
 import com.example.demo.collections.domain.TimePair;
+import com.example.demo.utils.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
@@ -156,5 +157,13 @@ public class DateDemo {
 
         LocalDateTime today = com.example.demo.utils.Date.asLocalDateTime(new Date());
         System.out.println(today);
+    }
+
+    @Test
+    public void test7() {
+        String startTime = DateUtil.rollDayFormat(DateUtil.convertToGMT(), -6, "yyyy-MM-dd");
+        String endTime = DateUtil.dateStr(DateUtil.convertToGMT(), "yyyy-MM-dd");
+        System.out.println(startTime);
+        System.out.println(endTime);
     }
 }
