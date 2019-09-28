@@ -14,13 +14,13 @@ public class BCryptDemo {
     @Test
     public void test1() {
         String gensalt = BCrypt.gensalt();
-        System.out.println(gensalt);
+        System.out.println("gensalt: " + gensalt);
 
         String password = "mypassword";
         String hashpw = BCrypt.hashpw(password, gensalt);
-        System.out.println(hashpw);
+        System.out.println("hashpw: " + hashpw);
 
         boolean checkpw = BCrypt.checkpw(password, hashpw);
-        System.out.println(checkpw);
+        System.out.println("checkpw: " + checkpw);
     }
 }

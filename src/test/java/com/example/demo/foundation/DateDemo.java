@@ -166,4 +166,10 @@ public class DateDemo {
         System.out.println(startTime);
         System.out.println(endTime);
     }
+
+    @Test
+    public void test8() {
+        Date date = DateUtil.convertToGMT();
+        System.out.println(date);
+    }
 }
