@@ -7,9 +7,9 @@
             <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n</pattern>
         </encoder>
     </appender>
-<!--    <logger name="root" level="INFO"/>-->
+    <logger name="root" level="INFO"/>
 
-    <logger name="org.springframework.data.solr.repository" additivity="false" level="debug">
+    <!--<logger name="org.springframework.data.solr.repository" additivity="false" level="debug">
         <appender-ref ref="STDOUT" />
     </logger>
     <logger name="com.example.demo.mapper" additivity="false" level="debug">
@@ -17,9 +17,9 @@
     </logger>
     <logger name="org.mybatis" additivity="false" level="debug">
         <appender-ref ref="STDOUT" />
-    </logger>
+    </logger>-->
 
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
 </configuration>
