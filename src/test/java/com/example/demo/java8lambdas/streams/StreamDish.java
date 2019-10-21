@@ -28,7 +28,9 @@ public class StreamDish {
             new Dish("prawns", false, 300, Dish.Type.FISH),
             new Dish("salmon", false, 450, Dish.Type.FISH));
 
-    // groupingBy
+    /**
+     * 分组
+     */
     @Test
     public void test1() {
         Map<Dish.Type, List<Dish>> dishByType = menu.stream()
@@ -36,7 +38,9 @@ public class StreamDish {
         System.out.println(dishByType);
     }
 
-    // Low Caloric Dishes Name
+    /**
+     * calories低于400的name，排序
+     */
     @Test
     public void test2() {
         List<String> lowCaloricDishesName = menu.stream()
@@ -102,7 +106,10 @@ public class StreamDish {
         System.out.println(names);
     }
 
-    // 4.4.1. Intermediate operations
+    /**
+     * 4.4.1. Intermediate operations
+     * 内部执行流程
+     */
     @Test
     public void test8() {
         List<String> collect = menu.stream()
@@ -227,7 +234,10 @@ public class StreamDish {
         System.out.println(collect);
     }
 
-    // Using flatMap
+    /**
+     * 将每个生成的流扩展为单个流
+     * Using flatMap
+     */
     @Test
     public void test20() {
         List<String> words = Arrays.asList("Hello", "World");
@@ -239,10 +249,12 @@ public class StreamDish {
         System.out.println(collect);
     }
 
-    /*
+    /**
      * Given a list of numbers, how would you return a list of the square of each number? For
      * example, given [1, 2, 3, 4, 5] you should return [1, 4, 9, 16, 25].
-     * */
+     *
+     * 求平方数
+     */
     @Test
     public void test21() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -252,11 +264,12 @@ public class StreamDish {
         System.out.println(collect);
     }
 
-    /*
+    /**
      * Given two lists of numbers, how would you return all pairs of numbers? For example, given a
      * list [1, 2, 3] and a list [3, 4] you should return [(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)]. For
      * simplicity, you can represent a pair as an array with two elements.
-     * */
+     *
+     */
     @Test
     public void test22() {
         List<Integer> numbers1 = Arrays.asList(1, 2, 3);

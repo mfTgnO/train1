@@ -85,6 +85,7 @@ public class StreamCollector {
                     .computeIfAbsent(currency, k -> new ArrayList<>());
             transactionsForCurrency.add(transaction);
         }
+        System.out.println(transactionByCurrencies);
     }
 
     /*
@@ -123,6 +124,8 @@ public class StreamCollector {
         if (mostCalorieDish.isPresent()) {
             Dish dish = mostCalorieDish.get();
             System.out.println(dish);
+        } else {
+            System.out.println("empty");
         }
     }
 
@@ -136,6 +139,8 @@ public class StreamCollector {
         if (lessCalorieDish.isPresent()) {
             Dish dish = lessCalorieDish.get();
             System.out.println(dish);
+        } else {
+            System.out.println("empty");
         }
     }
 
@@ -191,6 +196,11 @@ public class StreamCollector {
         IntSummaryStatistics menuStatistics = menu.stream()
                 .collect(Collectors.summarizingInt(Dish::getCalories));
         System.out.println(menuStatistics.toString());
+        System.out.println(menuStatistics.getMax());
+        System.out.println(menuStatistics.getCount());
+        System.out.println(menuStatistics.getAverage());
+        System.out.println(menuStatistics.getMin());
+        System.out.println(menuStatistics.getSum());
     }
 
     /*
@@ -200,7 +210,8 @@ public class StreamCollector {
     public void test9() {
         String shortMenu = menu.stream()
                 .map(Dish::getName)
-                .collect(Collectors.joining());
+//                .collect(Collectors.joining());
+                .collect(Collectors.joining("***"));
         System.out.println(shortMenu);
     }
 
@@ -224,7 +235,8 @@ public class StreamCollector {
     public void test11() {
         /*Integer totalCalories = menu.stream()
                 .collect(Collectors.reducing(0, Dish::getCalories, (i, j) -> i + j));*/
-        Integer totalCalories = menu.stream().map(Dish::getCalories).reduce(0, (i, j) -> i + j);
+//        Integer totalCalories = menu.stream().map(Dish::getCalories).reduce(0, (i, j) -> i + j);
+        Integer totalCalories = menu.stream().map(Dish::getCalories).reduce(0, Integer::sum);
         System.out.println(totalCalories);
     }
 
@@ -442,6 +454,9 @@ public class StreamCollector {
         System.out.println(vegetarianDishes);
     }
 
+    /**
+     * 数组求和
+     */
     @Test
     public void test27() {
         int[] nums = new int[]{123456789, 23456789, 3456789, 456789, 56789, 6789, 789, 89, 9};
@@ -449,9 +464,10 @@ public class StreamCollector {
         System.out.println(sum.getAsInt());
     }
 
-    /*
+    /**
+     * 先分割，再分组
      * 6.4.1. Advantages of partitioning
-     * */
+     */
     @Test
     public void test28() {
         Map<Boolean, Map<Dish.Type, List<Dish>>> vegetarianDishesByType = menu.stream()
@@ -474,6 +490,9 @@ public class StreamCollector {
         System.out.println(mostCaloricPartitionedByVegetarian);
     }
 
+    /**
+     * 二次分割
+     */
     @Test
     public void test30() {
         Map<Boolean, Map<Boolean, List<Dish>>> collect = menu.stream()
@@ -481,6 +500,9 @@ public class StreamCollector {
         System.out.println(collect);
     }
 
+    /**
+     * 分割求和
+     */
     @Test
     public void test31() {
         Map<Boolean, Long> collect = menu.stream()
@@ -488,9 +510,10 @@ public class StreamCollector {
         System.out.println(collect);
     }
 
-    /*
+    /**
+     * 将数字划分为素数和非素数
      * 6.4.2. Partitioning numbers into prime and nonprime
-     * */
+     */
     @Test
     public void test32() {
         int candidate = 5;
@@ -514,7 +537,7 @@ public class StreamCollector {
 
 
     /**
-     * 平均计算时集合为空
+     * 计算平均数时，集合为空
      */
     @Test
     public void test34() {
