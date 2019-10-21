@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toMap;
 
 /**
  * @Package: com.example.demo.java8lambdas.streams
@@ -182,7 +183,10 @@ public class StreamDish {
         System.out.println(collect);
     }
 
-    // Applying a function to each element of a stream
+    /**
+     * Applying a function to each element of a stream
+     * 获取name
+     */
     @Test
     public void test15() {
         List<String> collect = menu.stream()
@@ -191,6 +195,9 @@ public class StreamDish {
         System.out.println(collect);
     }
 
+    /**
+     * 获取字符串长度
+     */
     @Test
     public void test16() {
         List<String> words = Arrays.asList("Java8", "Lambdas", "In", "Action");
@@ -200,6 +207,9 @@ public class StreamDish {
         System.out.println(collect);
     }
 
+    /**
+     * 获取字符串长度
+     */
     @Test
     public void test17() {
         List<Integer> collect = menu.stream()
@@ -252,7 +262,7 @@ public class StreamDish {
     /**
      * Given a list of numbers, how would you return a list of the square of each number? For
      * example, given [1, 2, 3, 4, 5] you should return [1, 4, 9, 16, 25].
-     *
+     * <p>
      * 求平方数
      */
     @Test
@@ -268,7 +278,7 @@ public class StreamDish {
      * Given two lists of numbers, how would you return all pairs of numbers? For example, given a
      * list [1, 2, 3] and a list [3, 4] you should return [(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)]. For
      * simplicity, you can represent a pair as an array with two elements.
-     *
+     * 组合
      */
     @Test
     public void test22() {
@@ -302,8 +312,10 @@ public class StreamDish {
         }
     }
 
-    // Finding and matching
-    // Checking to see if a predicate matches at least one element
+    /**
+     * Finding and matching
+     * Checking to see if a predicate matches at least one element
+     */
     @Test
     public void test24() {
         if (menu.stream().anyMatch(Dish::isVegetarian)) {
@@ -311,7 +323,9 @@ public class StreamDish {
         }
     }
 
-    //  Checking to see if a predicate matches all elements
+    /**
+     * Checking to see if a predicate matches all elements
+     */
     @Test
     public void test25() {
         boolean allMatch = menu.stream()
@@ -319,11 +333,11 @@ public class StreamDish {
         System.out.println("allMatch:" + allMatch);
     }
 
-    /*
+    /**
      * The opposite of allMatch is noneMatch. It ensures that no elements in the stream match the
      * given predicate. For example, you could rewrite the previous example as follows using
      * noneMatch:
-     * */
+     */
     @Test
     public void test26() {
         boolean noneMatch = menu.stream()
@@ -379,10 +393,10 @@ public class StreamDish {
         }
     }
 
-    /*
+    /**
      * 5.4. Reducing
      * 5.4.1. Summing the elements
-     * */
+     */
     @Test
     public void test30() {
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -393,6 +407,9 @@ public class StreamDish {
         System.out.println(sum);
     }
 
+    /**
+     * 求和
+     */
     @Test
     public void test31() {
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -401,6 +418,9 @@ public class StreamDish {
         System.out.println(sum);
     }
 
+    /**
+     * 求乘积
+     */
     @Test
     public void test32() {
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -409,11 +429,13 @@ public class StreamDish {
         System.out.println(product);
     }
 
-    /*
+    /**
+     * method reference
+     * <p>
      * You can make this code more concise by using a method reference. In Java 8 the Integer class
      * now comes with a static sum method to add two numbers, which is just what you want instead
      * of repeatedly writing out the same code as lambda:
-     * */
+     */
     @Test
     public void test33() {
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -443,9 +465,10 @@ public class StreamDish {
         }
     }
 
-    /*
+    /**
+     * 最大值
      * 5.4.2. Maximum and minimum
-     * */
+     */
     @Test
     public void test35() {
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -457,6 +480,9 @@ public class StreamDish {
         }
     }
 
+    /**
+     * 最小值
+     */
     @Test
     public void test36() {
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -468,6 +494,9 @@ public class StreamDish {
         }
     }
 
+    /**
+     * 最小值
+     */
     @Test
     public void test37() {
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -479,6 +508,9 @@ public class StreamDish {
         }
     }
 
+    /**
+     * 最大值
+     */
     @Test
     public void test38() {
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -490,9 +522,10 @@ public class StreamDish {
         }
     }
 
-    /*
+    /**
+     * 计算元素个数
      * How would you count the number of dishes in a stream using the map and reduce methods?
-     * */
+     */
     @Test
     public void test39() {
         Integer reduce = menu.stream()
@@ -501,12 +534,18 @@ public class StreamDish {
         System.out.println(reduce);
     }
 
+    /**
+     * 计算元素个数
+     */
     @Test
     public void test40() {
         long count = menu.stream().count();
         System.out.println(count);
     }
 
+    /**
+     * 元素求和
+     */
     @Test
     public void test41() {
         List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -515,13 +554,13 @@ public class StreamDish {
         System.out.println(sum);
     }
 
-    /*
+    /**
      * How to Convert List to Map in Java
-     * */
+     */
     @Test
     public void test42() {
         Map<String, Dish> collect = menu.stream()
-                .collect(Collectors.toMap(Dish::getName, dish -> dish));
+                .collect(toMap(Dish::getName, dish -> dish));
         Iterator<String> iterator = collect.keySet().iterator();
         while (iterator.hasNext()) {
             String next = iterator.next();

@@ -24,10 +24,11 @@ import static com.example.demo.java8lambdas.streams.StreamDish.menu;
  * @Description:
  */
 public class StreamNumeric {
-    /*
+    /**
+     * calories求和
      * You saw earlier that you could use the reduce method to calculate the sum of the elements of a
      * stream. For example, you can calculate the number of calories in the menu as follows:
-     * */
+     */
     @Test
     public void test1() {
         Integer sum = menu.stream()
@@ -36,9 +37,9 @@ public class StreamNumeric {
         System.out.println(sum);
     }
 
-    /*
+    /**
      * Mapping to a numeric stream
-     * */
+     */
     @Test
     public void test2() {
         int sum = menu.stream()// return a Stream<Dish>
