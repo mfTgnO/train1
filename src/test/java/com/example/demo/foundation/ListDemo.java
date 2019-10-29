@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @package: com.example.demo.foundation
@@ -85,5 +86,30 @@ public class ListDemo {
 
 
         list.forEach(System.out::println);
+    }
+
+    /**
+     * 随机获取list中的元素，要求不重复
+     */
+    @Test
+    public void test27() {
+        ArrayList<String> list = new ArrayList<>(3);
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        ArrayList<Integer> num = new ArrayList<>();
+        num.add(0);
+        num.add(1);
+        num.add(2);
+
+        Random random = new Random();
+        for (int i = 0; i < 3; i++) {
+            System.out.println("try: "+i);
+            int nextInt = random.nextInt(list.size());
+            System.out.println("nextInt: "+nextInt);
+            System.out.println("list : "+list.get(nextInt));
+            list.remove(nextInt);
+            System.out.println("========================");
+        }
     }
 }
