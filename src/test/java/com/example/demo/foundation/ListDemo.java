@@ -2,10 +2,7 @@ package com.example.demo.foundation;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @package: com.example.demo.foundation
@@ -104,12 +101,36 @@ public class ListDemo {
 
         Random random = new Random();
         for (int i = 0; i < 3; i++) {
-            System.out.println("try: "+i);
+            System.out.println("try: " + i);
             int nextInt = random.nextInt(list.size());
-            System.out.println("nextInt: "+nextInt);
-            System.out.println("list : "+list.get(nextInt));
+            System.out.println("nextInt: " + nextInt);
+            System.out.println("list : " + list.get(nextInt));
             list.remove(nextInt);
             System.out.println("========================");
         }
+    }
+
+    /**
+     * 从大小为n的list中，随机获取m个不重复的元素
+     */
+    @Test
+    public void test28() {
+        ArrayList<String> list = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e"));
+        ArrayList<String> selected = new ArrayList<>();
+        HashSet<String> hashSet = new HashSet<>();
+
+        for (int i = 0; i < 4; i++) {
+            String name = list.get(new Random().nextInt(list.size()));
+            while (selected.contains(name)) {
+                name = list.get(new Random().nextInt(list.size()));
+            }
+            selected.add(name);
+        }
+
+        while (hashSet.size() < 4) {
+            hashSet.add(list.get(new Random().nextInt(list.size())));
+        }
+        System.out.println(selected);
+        System.out.println(hashSet);
     }
 }
