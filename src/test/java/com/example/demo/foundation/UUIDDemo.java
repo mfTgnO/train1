@@ -3,6 +3,7 @@ package com.example.demo.foundation;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -35,5 +36,13 @@ public class UUIDDemo {
     public void test3() {
         String alphanumeric = RandomStringUtils.randomNumeric(18);
         System.out.println(alphanumeric);
+    }
+
+    @Test
+    public void test4() {
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            System.out.println(random.nextInt(2));
+        }
     }
 }

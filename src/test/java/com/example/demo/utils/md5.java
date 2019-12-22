@@ -8,8 +8,7 @@ import org.junit.Test;
  * @description:
  */
 public class md5 {
-//    private static final String str = "hello";
-    private static final String str = "qebsjkls";
+    private static final String str = "hello";
 
     /**
      * md5Hex
