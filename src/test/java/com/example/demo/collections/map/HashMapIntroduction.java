@@ -1,4 +1,4 @@
-package com.example.demo.collections.hashmap;
+package com.example.demo.collections.map;
 
 import org.junit.Before;
 import org.junit.Test;
