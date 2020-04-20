@@ -332,4 +332,13 @@ public class ArrayDemo {
         }
         return whitelist;
     }
+
+    @Test
+    public void test17() {
+        String[] arr = "案例的风沙空间".split("");
+        for (String s : arr) {
+            System.out.println(s);
+        }
+        System.out.println(arr);
+    }
 }

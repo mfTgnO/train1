@@ -319,4 +319,11 @@ public class StringDemo {
         String s = new String(str.getBytes(), StandardCharsets.UTF_8);
         System.out.println(s);
     }
+
+    @Test
+    public void test23(){
+        String str = "hello";
+
+        System.out.println(str.contains("he"));
+    }
 }
