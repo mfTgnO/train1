@@ -313,7 +313,7 @@ public class StringDemo {
     }
 
     @Test
-    public void test22(){
+    public void test22() {
         String str = "hello";
 
         String s = new String(str.getBytes(), StandardCharsets.UTF_8);
@@ -321,9 +321,20 @@ public class StringDemo {
     }
 
     @Test
-    public void test23(){
+    public void test23() {
         String str = "hello";
 
         System.out.println(str.contains("he"));
+    }
+
+    /**
+     * string split
+     */
+    @Test
+    public void test24() {
+        String str = "E.1231";
+        String[] split = str.split("、");
+        System.out.println(Arrays.toString(split));
+        System.out.println(split.length);
     }
 }
