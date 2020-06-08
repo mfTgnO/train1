@@ -2,10 +2,12 @@ package com.example.demo.collections;
 
 import com.example.demo.collections.domain.Department;
 import com.example.demo.collections.domain.Employee;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.SerializationUtils;
 import org.junit.Test;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashSet;
@@ -162,8 +164,40 @@ public class ArrayDemo {
     // 1) Arrays.deepToString()
     @Test
     public void test7() {
-        int[][] cordinates = {{1, 2}, {2, 4}, {3, 6, 9}};
-        System.out.println(Arrays.deepToString(cordinates));
+        /*int[][] cordinates = {{1, 2}, {2, 4}, {3, 6, 9}};
+
+        int length = cordinates.length;
+        System.out.println("length:" + length);
+//        cordinates.
+
+        int[][] ints = {};
+        for (int i = 0; i < cordinates.length; i++) {
+//            int
+        }
+        cordinates[3] = new int[]{1, 2};
+        System.out.println(Arrays.deepToString(cordinates));*/
+
+        int[] intArr = {1,2,3};
+        /*int[] add = ArrayUtils.add(intArr, 4);
+        System.out.println(Arrays.toString(add));*/
+
+
+        Object[][] o = new Object[][]{
+                {"专业", "专业", 0, null},
+                {"学员", "学员", 0, null},
+                {"年级", "年级", 0, null},
+        };
+
+        Object[][] objects = new Object[10][];
+
+        for (int i = 0; i < o.length; i++) {
+            objects[i] = o[i];
+        }
+        System.out.println(Arrays.deepToString(objects));
+
+        objects[3] = new Object[]{"年级", "年级", 0, null};
+        System.out.println(Arrays.deepToString(objects));
+
     }
 
     @Test

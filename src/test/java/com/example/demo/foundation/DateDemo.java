@@ -6,11 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @package: com.example.demo.foundation
@@ -171,5 +174,39 @@ public class DateDemo {
     public void test8() {
         Date date = DateUtil.convertToGMT();
         System.out.println(date);
+    }
+
+    /**
+     * days
+     *
+     * @throws ParseException
+     */
+    @Test
+    public void test9() throws ParseException {
+//        Date sDate1 = new Date("2020-06-08");
+//        String sDate1="31/12/1998";
+//        Date date = new Date(sDate1);
+//        System.out.println(date);
+
+//        System.out.println(new Date());
+
+//        String sDate1="31/12/1998";
+//        String sDate1 = "08/06/2020";
+        String sDate1 = "2020-06-08";
+        Date date1 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
+        System.out.println(sDate1 + "\t" + date1);
+
+        int day = date1.getDay();
+        System.out.println(day);
+
+        long time = date1.getTime();
+        System.out.println(time);
+
+        long l = TimeUnit.SECONDS.toDays(time / 1000);
+        System.out.println(l);
+
+        Date date2 = new SimpleDateFormat("dd/MM/yyyy").parse("06/06/2020");
+        long currentDay = TimeUnit.SECONDS.toDays(date2.getTime() / 1000);
+        System.out.println(currentDay);
     }
 }

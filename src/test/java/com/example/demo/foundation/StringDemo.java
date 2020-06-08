@@ -6,9 +6,17 @@ import org.apache.commons.codec.digest.Md5Crypt;
 import org.junit.Test;
 import org.springframework.util.StringUtils;
 
-import java.net.*;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Random;
 
 /**
  * @package: com.example.demo.foundation
@@ -336,5 +344,62 @@ public class StringDemo {
         String[] split = str.split("、");
         System.out.println(Arrays.toString(split));
         System.out.println(split.length);
+    }
+
+    /**
+     * replace underline
+     */
+    @Test
+    public void test25() {
+//        String str = "5、补全以下诗句：____________，疑是地上霜。____________，低头思故乡。";
+        String str = "4、《史记》的作者123是？__________，_________";
+
+        StringBuffer sb = new StringBuffer();
+        char[] chars = str.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            char letter = chars[i];
+            if (letter == '_') {
+                int j = i + 1;
+                for (; j < chars.length; j++) {
+                    char letterJ = chars[j];
+                    if (letterJ != '_') {
+                        i = j - 1;
+                        break;
+                    }
+
+                    if (j == chars.length - 1) {
+                        i = chars.length - 1;
+                        break;
+                    }
+                }
+                sb.append("________");
+            } else {
+                sb.append(letter);
+            }
+        }
+        System.out.println(sb.toString());
+    }
+
+    @Test
+    public void test26() {
+        String str = "abc";
+        char data[] = {'a', 'b', 'c'};
+        String newstr = new String(data);
+        System.out.println(str);
+        System.out.println(newstr);
+        System.out.println(str.equals(newstr));
+    }
+
+    @Test
+    public void test27() {
+        char data[] = {'a', 'b', 'c', 'd'};
+        String str = new String(data, 1, 2);
+        System.out.println(str);
+    }
+
+    @Test
+    public void test28() {
+        String str = "abcdefg";
+//        str.
     }
 }
