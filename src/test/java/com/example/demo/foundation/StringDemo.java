@@ -399,7 +399,23 @@ public class StringDemo {
 
     @Test
     public void test28() {
-        String str = "abcdefg";
-//        str.
+        String fileName = "http://39.104.19.41:8080//resources/picture/be96283c-c6fb-4662-9644-16c8a450afcb.jpg";
+        String bucketName = "jhhn-test-files";
+        String endpoint = "http://oss-cn-hangzhou.aliyuncs.com";
+
+        int index = endpoint.indexOf("//");
+        String first = endpoint.substring(0, index + 2);
+        String second = endpoint.substring(index + 2);
+        System.out.println(first + bucketName + "." + second);
+    }
+
+    @Test
+    public void test29() {
+        String fileName = "http://jhhn-test-files.oss-cn-hangzhou.aliyuncs.com/20200612/1591945245404662.jpg";
+        int index = fileName.lastIndexOf("/");
+        String substring = fileName.substring(index + 1);
+        System.out.println(substring);
+
+        System.out.println(fileName.substring(fileName.lastIndexOf("/") + 1));
     }
 }
