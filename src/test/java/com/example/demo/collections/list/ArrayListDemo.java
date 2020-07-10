@@ -4,7 +4,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ArrayListDemo {
     /**
@@ -175,5 +177,32 @@ public class ArrayListDemo {
             }
         }
         System.out.println(arrayList);
+    }
+
+    /**
+     * list addAll
+     */
+    @Test
+    public void test10() {
+        List<Map<String, Object>> list1 = new ArrayList<>();
+        HashMap<String, Object> map1 = new HashMap<>();
+        map1.put("A1", "A1");
+        map1.put("A2", "A2");
+        map1.put("A3", "A3");
+        list1.add(map1);
+
+        List<Map<String, Object>> list2 = new ArrayList<>();
+        HashMap<String, Object> map2 = new HashMap<>();
+        map2.put("B1", "B1");
+        map2.put("B2", "B2");
+        map2.put("B3", "B3");
+        list2.add(map2);
+
+        List<Map<String, Object>> list3 = new ArrayList<>();
+
+        list3.addAll(list2);
+        System.out.println(list3);
+        list3.addAll(0, list1);
+        System.out.println(list3);
     }
 }
