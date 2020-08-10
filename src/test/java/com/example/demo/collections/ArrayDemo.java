@@ -2,7 +2,6 @@ package com.example.demo.collections;
 
 import com.example.demo.collections.domain.Department;
 import com.example.demo.collections.domain.Employee;
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.SerializationUtils;
 import org.junit.Test;
 
@@ -11,9 +10,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 /**
@@ -177,7 +180,7 @@ public class ArrayDemo {
         cordinates[3] = new int[]{1, 2};
         System.out.println(Arrays.deepToString(cordinates));*/
 
-        int[] intArr = {1,2,3};
+        int[] intArr = {1, 2, 3};
         /*int[] add = ArrayUtils.add(intArr, 4);
         System.out.println(Arrays.toString(add));*/
 
@@ -374,5 +377,266 @@ public class ArrayDemo {
             System.out.println(s);
         }
         System.out.println(arr);
+    }
+
+    /**
+     * Alternative Sorting
+     * https://www.geeksforgeeks.org/alternative-sorting/
+     * <p>
+     * Given an array of integers, print the array in such a way that the first element is first
+     * maximum and second element is first minimum and so on.
+     * <p>
+     * Time Complexity: O(n Log n)
+     * Auxiliary Space : O(1)
+     */
+    @Test
+    public void test18() {
+        int arr[] = {7, 1, 2, 3, 4, 5, 6};
+        int n = arr.length;
+
+        Arrays.sort(arr);
+        int i = 0, j = n - 1;
+        while (i < j) {
+            System.out.print(arr[j--] + " ");
+            System.out.print(arr[i++] + " ");
+        }
+        if (n % 2 != 0) {
+            System.out.print(arr[i++] + " ");
+        }
+    }
+
+    /**
+     * Sort a nearly sorted (or K sorted) array
+     * https://www.geeksforgeeks.org/nearly-sorted-algorithm/
+     * <p>
+     * Given an array of n elements, where each element is at most k away from its target position,
+     * devise an algorithm that sorts in O(n log k) time. For example, let us consider k is 2,
+     * an element at index 7 in the sorted array, can be at indexes 5, 6, 7, 8, 9 in the given array.
+     */
+    @Test
+    public void test19() {
+        int arr[] = {6, 5, 3, 2, 8, 10, 9};
+//        insertionSort(arr, arr.length);
+        int k = 3;
+        KSort(arr, arr.length, k);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * We can use Insertion Sort to sort the elements efficiently. Following is the C code for standard Insertion Sort.
+     * <p>
+     * The inner loop will run at most k times. To move every element to its correct place, at most k elements need to be moved. So overall complexity will be O(nk)
+     * We can sort such arrays more efficiently with the help of Heap data structure. Following is the detailed process that uses Heap.
+     * 1) Create a Min Heap of size k+1 with first k+1 elements. This will take O(k) time (See this GFact)
+     * 2) One by one remove min element from heap, put it in result array, and add a new element to heap from remaining elements.
+     */
+    static void insertionSort(int A[], int size) {
+        int i, key, j;
+        for (i = 0; i < size; i++) {
+            key = A[i];
+            j = i - 1;
+             /* Move elements of A[0..i-1], that are greater than key, to one
+                position ahead of their current position.
+                This loop will run at most k times */
+            while (j >= 0 && A[j] > key) {
+                A[j + 1] = A[j];
+                j = j - 1;
+            }
+            A[j + 1] = key;
+        }
+    }
+
+    static void KSort(int[] arr, int n, int k) {
+        // min heap
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        // add first k + 1 items to the min heap
+        for (int i = 0; i < k + 1; i++) {
+            priorityQueue.add(arr[i]);
+        }
+
+        int index = 0;
+        for (int i = k + 1; i < n; i++) {
+            arr[index++] = priorityQueue.peek();
+            priorityQueue.poll();
+            priorityQueue.add(arr[i]);
+        }
+
+        Iterator<Integer> itr = priorityQueue.iterator();
+        while (itr.hasNext()) {
+            arr[index++] = priorityQueue.peek();
+            priorityQueue.poll();
+        }
+    }
+
+    /**
+     * Sort an array according to absolute difference with given value
+     * https://www.geeksforgeeks.org/sort-an-array-according-to-absolute-difference-with-given-value/
+     * <p>
+     * Given an array of n distinct elements and a number x, arrange array elements according to the absolute difference with x, i. e.,
+     * element having minimum difference comes first and so on.
+     * Note : If two or more elements are at equal distance arrange them in same sequence as in the given array.
+     * <p>
+     * The idea is to use a self balancing binary search tree. We traverse input array and for every element,
+     * we find its difference with x and store the difference as key and element as value in self balancing binary search tree.
+     * Finally we traverse the tree and print its inorder traversal which is required output.
+     * <p>
+     * C++ Implementation :
+     * In C++, self-balancing-binary-search-tree is implemented by set, map and multimap. We can’t use set here as we have key value pairs (not only keys).
+     * We also can’t directly use map also as a single key can belong to multiple values and map allows a single value for a key.
+     * So we use multimap which stores key value pairs and can have multiple values for a key.
+     * <p>
+     * Store the values in the multimap with the difference with X as key.
+     * In multimap, the values will be already in sorted order according to key i.e. difference with X because it implements self-balancing-binary-search-tree internally.
+     * Update all the values of array with the values of map so that array has the required output.
+     * filter_none
+     */
+    @Test
+    public void test20() {
+        int arr[] = {10, 5, 3, 9, 2};
+        int n = arr.length;
+        int x = 7;
+        rearrange(arr, n, x);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * Function to sort an array according absolute difference with x.
+     */
+    static void rearrange(int[] arr, int n, int x) {
+        TreeMap<Integer, ArrayList<Integer>> treeMap = new TreeMap<>();
+
+        // Store values in a map with the difference with X as key
+        for (int i = 0; i < n; i++) {
+            int diff = Math.abs(x - arr[i]);
+            if (treeMap.containsKey(diff)) {
+                ArrayList<Integer> al = treeMap.get(diff);
+                al.add(arr[i]);
+                treeMap.put(diff, al);
+            } else {
+                ArrayList<Integer> al = new ArrayList<>();
+                al.add(arr[i]);
+                treeMap.put(diff, al);
+            }
+        }
+
+        // Update the values of array
+        int index = 0;
+        for (Map.Entry<Integer, ArrayList<Integer>> entry : treeMap.entrySet()) {
+            List<Integer> al = treeMap.get(entry.getKey());
+            for (int i = 0; i < al.size(); i++) {
+                arr[index++] = al.get(i);
+            }
+        }
+    }
+
+    /**
+     * Sort an array in wave form
+     * https://www.geeksforgeeks.org/sort-array-wave-form-2/
+     * <p>
+     * Given an unsorted array of integers, sort the array into a wave like array.
+     * An array ‘arr[0..n-1]’ is sorted in wave form if arr[0] >= arr[1] <= arr[2] >= arr[3] <= arr[4] >= …..
+     */
+    @Test
+    public void test21() {
+        int arr[] = {10, 90, 49, 2, 1, 5, 23};
+        int n = arr.length;
+        sortInWave(arr, n);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    static void sortInWave(int arr[], int n) {
+        // Sort the input array
+        Arrays.sort(arr);
+
+        // Swap adjacent elements
+        for (int i = 0; i < n - 1; i += 2) {
+            swap(arr, i, i + 1);
+        }
+    }
+
+    /**
+     * A utility method to swap two numbers.
+     */
+    static void swap(int arr[], int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
+    /**
+     * Merge an array of size n into another array of size m+n
+     * https://www.geeksforgeeks.org/merge-one-array-of-size-n-into-another-one-of-size-mn/
+     * <p>
+     * Time Complexity: O(m+n)
+     */
+    @Test
+    public void test22() {
+        MergeArrays mergeArrays = new MergeArrays();
+        /* Initialize arrays */
+        int mPlusN[] = {2, 8, -1, -1, -1, 13, -1, 15, 20};
+        int N[] = {5, 7, 9, 25};
+        int n = N.length;
+        int m = mPlusN.length - n;
+
+        // Move the m elements at the end of mPlusN
+        mergeArrays.moveToEnd(mPlusN, m + n);
+
+        // Merge N[] into mPlusN[]
+        mergeArrays.merge(mPlusN, N, m, n);
+
+        // Print the resultant mPlusN
+        mergeArrays.printArray(mPlusN, m + n);
+    }
+
+    class MergeArrays {
+        void moveToEnd(int mPlusN[], int size) {
+            int i, j = size - 1;
+            for (i = size - 1; i >= 0; i--) {
+                if (mPlusN[i] != -1) {
+                    mPlusN[j] = mPlusN[i];
+                    j--;
+                }
+            }
+        }
+
+        /**
+         * Merges array N[] of size n into array mPlusN[] of size m+n
+         */
+        void merge(int mPlusN[], int N[], int m, int n) {
+            int i = n;
+            /* Current index of i/p part of mPlusN[]*/
+            int j = 0;
+
+            /* Current index of N[]*/
+            int k = 0;
+
+            /* Current index of output mPlusN[]*/
+            while (k < (m + n)) {
+                /* Take an element from mPlusN[] if
+                    a) value of the picked element is smaller and we have not reached end of it
+                     b) We have reached end of N[] */
+                if ((i < (m + n) && mPlusN[i] <= N[j]) || (j == n)) {
+                    mPlusN[k] = mPlusN[i];
+                    k++;
+                    i++;
+                } else {
+                    // Otherwise take element from N[]
+                    mPlusN[k] = N[j];
+                    k++;
+                    j++;
+                }
+            }
+        }
+
+        /**
+         * Utility that prints out an array on a line
+         */
+        void printArray(int arr[], int size) {
+            int i;
+            for (i = 0; i < size; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println("");
+        }
     }
 }

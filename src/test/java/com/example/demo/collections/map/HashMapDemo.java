@@ -1,6 +1,7 @@
 package com.example.demo.collections.map;
 
 import org.junit.Test;
+import sun.plugin.com.AmbientProperty;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,5 +18,14 @@ public class HashMapDemo {
 
         System.out.println(map.containsKey("hello"));
         System.out.println(map.containsKey("world"));
+    }
+
+    @Test
+    public void test2() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("1", "1");
+        System.out.println(map);
+        map.remove("0");
+        System.out.println(map);
     }
 }

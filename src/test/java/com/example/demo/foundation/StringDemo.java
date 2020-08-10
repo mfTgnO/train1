@@ -418,4 +418,19 @@ public class StringDemo {
 
         System.out.println(fileName.substring(fileName.lastIndexOf("/") + 1));
     }
+
+    @Test
+    public void test30() {
+        String str = "1/29/129/132/";
+        String[] split = str.split("/");
+        for (int i = 0; i < split.length; i++) {
+            String element = "";
+            int j = i;
+            while (j >= 0) {
+                element = split[j] + "/" + element;
+                j--;
+            }
+            System.out.println(element);
+        }
+    }
 }
