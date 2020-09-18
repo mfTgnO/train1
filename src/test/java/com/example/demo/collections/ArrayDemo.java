@@ -21,10 +21,7 @@ import java.util.regex.Pattern;
 
 /**
  * @Package: com.example.demo.collections
- * @Author:
- * @Email:
  * @CreateDate: 2019-04-27 10:47
- * @Description:
  */
 public class ArrayDemo {
 
@@ -638,5 +635,267 @@ public class ArrayDemo {
             }
             System.out.println("");
         }
+    }
+
+    /**
+     * Sort an array which contain 1 to n values
+     * https://www.geeksforgeeks.org/sort-array-contain-1-n-values/
+     * <p>
+     * You have given an array which contain 1 to n element, your task is to sort this array in an efficient way and without replace with 1 to n numbers.
+     * <p>
+     * Native approach :
+     * Sort this array with the use of any type of sorting method. it takes O(nlogn) minimum time.
+     * <p>
+     * Efficient approach :
+     * Replace every element with it’s position. it takes O(n) efficient time and give you the sorted array. Let’s understand this approach with the code below.
+     */
+    @Test
+    public void test23() {
+        int arr[] = {10, 7, 9, 2, 8, 3, 5, 4, 6, 1};
+        int n = arr.length;
+
+        sortit(arr, n);
+
+        System.out.println(Arrays.toString(arr));
+    }
+
+    void sortit(int arr[], int n) {
+        for (int i = 0; i < n; i++) {
+            arr[i] = i + 1;
+        }
+    }
+
+    /**
+     * Sort 1 to N by swapping adjacent elements
+     * https://www.geeksforgeeks.org/sort-1-n-swapping-adjacent-elements/
+     * <p>
+     * Given an array, A of size N consisting of elements 1 to N. A boolean array B consisting of N-1 elements indicates that if B[i] is 1,
+     * then A[i] can be swapped with A[i+1].
+     * Find out if A can be sorted by swapping elements.
+     * <p>
+     * Here we can swap only A[i] with A[i+1]. So to find whether array can be sorted or not.
+     * Using boolean array B we can sort array for a continuous sequence of 1 for B. At last, we can check, if A is sorted or not.
+     */
+    @Test
+    public void test24() {
+        int A[] = {1, 2, 5, 3, 4, 6};
+//        boolean B[] = {false, true, true, true, false};
+        int B[] = {0, 1, 1, 1, 0};
+        int n = A.length;
+//        if (sortedAfterSwapV1(A, B, n)) {
+        if (sortedAfterSwapV2(A, B, n)) {
+            System.out.println("A can be sorted");
+        } else {
+            System.out.println("A can not be sorted");
+        }
+    }
+
+    /**
+     * Return true if array can be sorted otherwise false
+     */
+    boolean sortedAfterSwapV1(int A[], int B[], int n) {
+        int i, j;
+        // Check bool array B and sorts elements for continuous sequence of 1
+        for (i = 0; i < n - 1; i++) {
+            if (B[i] == 1) {
+                j = i;
+                while (B[j] == 1) {
+                    j++;
+                }
+                // Sort array A from i to j
+                Arrays.sort(A, i, 1 + j);
+                i = j;
+            }
+        }
+
+        // Sort array A from i to j
+        for (i = 0; i < n; i++) {
+            if (A[i] != i + 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Return true if array can be sorted otherwise false
+     * <p>
+     * Alternative Approach
+     * Here we discuss a very intuitive approach which too gives the answer in O(n) time for all cases. The idea here is that whenever the binary array has 1, we check if that index in array A has i+1 or not. If it does not contain i+1, we simply swap a[i] with a[i+1].
+     * The reason for this is that the array should have i+1 stored at index i. And if at all the array is sortable,
+     * then the only operation allowed is swapping. Hence, if the required condition is not satisfied, we simply swap.
+     * If the array is sortable, swapping will take us one step closer to the correct answer. And as expected, if the array is not sortable,
+     * then swapping would lead to just another unsorted version of the same array.
+     */
+    boolean sortedAfterSwapV2(int A[], int B[], int n) {
+        int t = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (B[i] != 0) {
+                if (A[i] != i + 1) {
+                    t = A[i];
+                    A[i] = A[i + 1];
+                    A[i + 1] = t;
+                }
+            }
+        }
+
+        // Check if array is sorted or not
+        for (int i = 0; i < n; i++) {
+            if (A[i] != i + 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Sort an array containing two types of elements
+     * https://www.geeksforgeeks.org/sort-array-containing-two-types-elements/
+     * <p>
+     * We are given an array of 0s and 1s in random order. Segregate 0s on left side and 1s on right side of the array. Traverse array only once.
+     */
+    @Test
+    public void test25() {
+        int arr[] = {1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1};
+        segregate0and1(arr, arr.length);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * Method for segregation 0 and 1 given input array
+     */
+    void segregate0and1(int arr[], int n) {
+        int type0 = 0;
+        int type1 = n - 1;
+
+        while (type0 < type1) {
+            if (arr[type0] == 1) {
+                // swap type0 and type1
+                arr[type0] = arr[type0] + arr[type1];
+                arr[type1] = arr[type0] - arr[type1];
+                arr[type0] = arr[type0] - arr[type1];
+                type1--;
+            } else {
+                type0++;
+            }
+        }
+    }
+
+    /**
+     * Sort elements by frequency | Set 1
+     * https://www.geeksforgeeks.org/sort-elements-by-frequency/
+     * <p>
+     * Print the elements of an array in the decreasing frequency if 2 numbers have same frequency then print the one which came first.
+     */
+    @Test
+    public void test26() {
+
+    }
+
+    /**
+     * Count Inversions in an array | Set 1 (Using Merge Sort)
+     * https://www.geeksforgeeks.org/counting-inversions/
+     * <p>
+     * Inversion Count for an array indicates – how far (or close) the array is from being sorted.
+     * If array is already sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
+     * Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j
+     */
+    @Test
+    public void test27() {
+//        int arr[] = new int[]{1, 20, 6, 4, 5};
+//        int arr[] = new int[]{8, 4, 2, 1};
+        int arr[] = new int[]{3, 1, 2};
+
+        // METHOD 1
+//        getInvCount(arr, arr.length);
+
+        // METHOD 2
+        System.out.println(mergeSortAndCount(arr, 0, arr.length - 1));
+    }
+
+    /**
+     * METHOD 1 (Simple)
+     * <p>
+     * Approach :Traverse through the array and for every index find the number of smaller elements on its right side of the array.
+     * This can be done using a nested loop. Sum up the counts for all index in the array and print the sum.
+     * <p>
+     * Algorithm :
+     * Traverse through the array from start to end
+     * For every element find the count of elements smaller than the current number upto that index using another loop.
+     * Sum up the count of inversion for every index.
+     * Print the count of inversions.
+     * <p>
+     * Complexity Analysis:
+     * Time Complexity: O(n^2), Two nested loops are needed to traverse the array from start to end so the Time complexity is O(n^2)
+     * Space Compelxity:O(1), No extra space is required.
+     */
+    void getInvCount(int[] arr, int n) {
+        int inv_count = 0;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] > arr[j]) {
+                    inv_count++;
+                }
+            }
+        }
+        System.out.println("inv_count: " + inv_count);
+    }
+
+    /**
+     * Function to count the number of inversions during the merge process
+     *
+     * @return
+     */
+    int mergeAndCount(int[] arr, int l, int m, int r) {
+        // Left subarray
+        int[] left = Arrays.copyOfRange(arr, l, m + 1);
+
+        // Right subarray
+        int[] right = Arrays.copyOfRange(arr, m + 1, r + 1);
+
+        int i = 0, j = 0, k = l, swaps = 0;
+
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                arr[k++] = left[i++];
+            } else {
+                arr[k++] = right[j++];
+                swaps += (m + 1) - (l + i);
+            }
+        }
+
+        // Fill from the rest of the left subarray
+        while (i < left.length) {
+            arr[k++] = left[i++];
+        }
+
+        // Fill from the rest of the right subarray
+        while (j < right.length) {
+            arr[k++] = right[j++];
+        }
+        return swaps;
+    }
+
+    /**
+     * Merge sort function
+     */
+    int mergeSortAndCount(int[] arr, int l, int r) {
+        // Keeps track of the inversion count at a particular node of the recursion tree
+        int count = 0;
+
+        if (l < r) {
+            int m = (l + r) / 2;
+            // Total inversion count = left subarray count + right subarray count + merge count
+
+            // Left subarray count
+            count += mergeSortAndCount(arr, l, m);
+
+            // Right subarray count
+            count += mergeSortAndCount(arr, m + 1, r);
+
+            // Merge count
+            count += mergeAndCount(arr, l, m, r);
+        }
+        return count;
     }
 }
