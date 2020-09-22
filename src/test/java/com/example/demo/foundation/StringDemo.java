@@ -27,6 +27,8 @@ import java.util.Random;
  */
 @Slf4j
 public class StringDemo {
+    public static String current_project = "test";
+
     /**
      * String类型比较
      */
@@ -432,5 +434,15 @@ public class StringDemo {
             }
             System.out.println(element);
         }
+    }
+
+    /**
+     * modify static variable
+     */
+    @Test
+    public void test31() {
+        System.out.println(current_project);
+        current_project  = "test 1";
+        System.out.println(current_project);
     }
 }
