@@ -445,4 +445,12 @@ public class StringDemo {
         current_project  = "test 1";
         System.out.println(current_project);
     }
+
+    @Test
+    public void test32() {
+        String str = "B、 不分科、大综合";
+        int index = str.indexOf("、");
+        String substring = str.substring(index + 1);
+        System.out.println(substring);
+    }
 }
