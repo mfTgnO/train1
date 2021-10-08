@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.ConsoleHandler;
 
 /**
  * @package: com.example.demo.foundation
@@ -452,5 +453,35 @@ public class StringDemo {
         int index = str.indexOf("、");
         String substring = str.substring(index + 1);
         System.out.println(substring);
+    }
+
+    @Test
+    public void test33() {
+        /*JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", "tom");
+        System.out.println(jsonObject.toJSONString());
+
+        List<HashMap<String, Object>> list = new ArrayList<>();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("createpersonid", "103011");
+        map.put("createpersonname", "dg225");
+
+        list.add(map);
+
+        JSONObject jo = new JSONObject();
+        jo.put("data", list);
+        System.out.println(jo.toJSONString());*/
+    }
+
+    @Test
+    public void test34() {
+        String str = "2,3,6";
+        String[] split = str.split(",");
+
+        List<String> list = Arrays.asList(split);
+        System.out.println(list);
+
+        boolean contains = list.contains("3");
+        System.out.println(contains);
     }
 }
